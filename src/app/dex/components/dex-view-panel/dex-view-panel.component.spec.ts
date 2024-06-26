@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SelectionListComponent } from './selection-list.component';
+import { DexViewPanelComponent } from './dex-view-panel.component';
 
-describe('SelectionListComponent', () => {
-  let component: SelectionListComponent;
-  let fixture: ComponentFixture<SelectionListComponent>;
+describe('DexViewPanelComponent', () => {
+  let component: DexViewPanelComponent;
+  let fixture: ComponentFixture<DexViewPanelComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SelectionListComponent]
+      imports: [DexViewPanelComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SelectionListComponent);
+    fixture = TestBed.createComponent(DexViewPanelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
