@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewPortComponent } from './view-port.component';
+import { ViewPanelComponent } from './view-panel.component';
 
-describe('ViewPortComponent', () => {
-  let component: ViewPortComponent;
-  let fixture: ComponentFixture<ViewPortComponent>;
+describe('ViewPanelComponent', () => {
+  let component: ViewPanelComponent;
+  let fixture: ComponentFixture<ViewPanelComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ViewPortComponent]
+      imports: [ViewPanelComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ViewPortComponent);
+    fixture = TestBed.createComponent(ViewPanelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
