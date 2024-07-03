@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './dex-selection-list.component.html',
-  styleUrl: './dex-selection-list.component.css'
+  styleUrl: './dex-selection-list.component.scss'
 })
 export class DexSelectionListComponent {
 

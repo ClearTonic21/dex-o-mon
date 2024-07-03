@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './dex-view-panel.component.html',
-  styleUrl: './dex-view-panel.component.css'
+  styleUrl: './dex-view-panel.component.scss'
 })
 export class DexViewPanelComponent {
 

@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './preview-dex-entry.component.html',
-  styleUrl: './preview-dex-entry.component.css'
+  styleUrl: './preview-dex-entry.component.scss'
 })
 export class PreviewDexEntryComponent {
 

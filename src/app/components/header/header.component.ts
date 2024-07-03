@@ -6,7 +6,7 @@ import { DexoNavbarComponent } from '../../lib/dexo-navbar/navbar.component';
     selector: 'app-header',
     imports: [DexoNavbarComponent],
     templateUrl: './header.component.html',
-    styleUrls: ['./header.component.css']
+    styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
 

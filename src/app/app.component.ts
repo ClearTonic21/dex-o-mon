@@ -11,7 +11,7 @@ import { DexoNavbarComponent } from "./lib/dexo-navbar/navbar.component";
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
-    styleUrl: './app.component.css',
+    styleUrl: './app.component.scss',
     imports: [RouterOutlet, HeaderComponent, FooterComponent, NgIf, DexoNavDrawerComponent, DexoNavbarComponent]
 })
 export class AppComponent {
