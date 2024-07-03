@@ -1,5 +1,5 @@
-export class Entry {
-    public id: number = -1;
-    public name: string = "";
-    public value: any;
+export interface Entry {
+  id: number;
+  name: string;
+  value: any;
   }
