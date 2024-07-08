@@ -1,5 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "schematics": {
+    "@schematics": "sass",
+    "@schematics/angular": "scss"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
