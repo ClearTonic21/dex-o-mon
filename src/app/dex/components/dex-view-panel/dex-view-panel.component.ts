@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-dex-view-panel',
+  selector: 'dex-view-panel',
   standalone: true,
   imports: [],
   templateUrl: './dex-view-panel.component.html',

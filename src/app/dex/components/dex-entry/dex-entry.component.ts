@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-dex-entry',
+  selector: 'dex-entry',
   standalone: true,
   imports: [],
   templateUrl: './dex-entry.component.html',
