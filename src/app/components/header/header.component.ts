@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
-import { DexoNavbarComponent } from '../../lib/dexo-navbar/navbar.component';
+import { Component, EventEmitter, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import { IgxButtonModule, IgxIconModule, IgxNavbarComponent, IgxNavbarModule } from 'igniteui-angular';
 
-@Component( {
-    standalone: true,
-    selector: 'app-header',
-    imports: [DexoNavbarComponent],
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.scss']
+@Component({
+  encapsulation: ViewEncapsulation.None,
+  selector: 'dexo-header',
+  standalone: true,
+  imports: [ IgxIconModule, IgxNavbarModule, IgxButtonModule ],
+  styleUrls: ['./header.component.scss'],
+  templateUrl: './header.component.html'
 })
-export class HeaderComponent {
-
+export class DexoHeaderComponent {
+    @ViewChild(IgxNavbarComponent) public navBar!: IgxNavbarComponent;
+    @Output( ) public menuClick: EventEmitter<void> = new EventEmitter<void>;
 }

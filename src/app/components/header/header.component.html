@@ -1,1 +1,13 @@
-<dexo-navbar></dexo-navbar>
+<div>
+    <igx-navbar title="Dex-o-Mon">
+        <igx-navbar-action>
+            <button igxIconButton="flat" (click)="menuClick.emit()">
+                <igx-icon class="std-icon">menu</igx-icon>
+            </button>
+        </igx-navbar-action>
+
+        <button igxIconButton="flat">
+            <igx-icon class="std-icon">account_circle</igx-icon>
+        </button>
+    </igx-navbar>
+</div>

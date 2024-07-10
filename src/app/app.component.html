@@ -1,11 +1,11 @@
-<div class="dexo-body">
-  <div class="header-content">
-    <app-header></app-header>
+<div class="dexo-container">
+  <div class="dexo-header-container">
+    <dexo-header (menuClick)="toggleNavDrawer()"></dexo-header>
   </div>
-  <div class="main-viewpanel">
-    <dexo-nav-drawer></dexo-nav-drawer>
+  <div class="dexo-body">
+    <dexo-nav-drawer #navDrawer></dexo-nav-drawer>
   </div>
-  <div class="footer-content">
-    <app-footer></app-footer>
+  <div class="dexo-footer-container">
+    <dexo-footer></dexo-footer>
   </div>
 </div>

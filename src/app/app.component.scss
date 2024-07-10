@@ -1,14 +1,22 @@
-.footer-content {
+.dexo-container {
+    border: 4px solid hotpink;
+    --igx-icon-size: 32px;
+}
+
+.dexo-header-container {
+    border: 2px solid blue;
+}
+
+.dexo-body {
+    height: 80vh;
+    background-color: rgb(95, 117, 117);
+    border: 2px solid orange;
+}
+
+.dexo-footer-container {
+    border: 2px solid black;
     color: yellow;
     background-color: rgb(68, 68, 68);
     padding: 0;
-    height: 6rem;
-}
-
-.std-icon {
-    --size: 40px;
-}
-
-.main-viewpanel {
-    background-color: rgb(95, 117, 117);
+    height: 12vh;
 }

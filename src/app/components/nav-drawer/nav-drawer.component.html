@@ -1,4 +1,4 @@
-<div class="content-wrap" igxLayout>
+<div class="nav-drawer-content" igxLayout>
     <igx-nav-drawer id="navigation" [pin]="true" [pinThreshold]="0">
         <ng-template igxDrawer>
             @for (item of navItems; track item) {
@@ -7,6 +7,11 @@
                     <span>{{ item.text }}</span>
                 </span>
             }
+            <span igxDrawerItem (click)="drawer.toggle()">
+                <button igxIconButton="flat">
+                    <igx-icon class="std-icon custom-icon" family="material">chevron_left</igx-icon>
+                </button>
+            </span>
         </ng-template>
         <ng-template igxDrawerMini>
             @for (item of navItems; track item) {
@@ -14,16 +19,18 @@
                     <igx-icon class="std-icon" family="material">{{ item.name }}</igx-icon>
                 </span>
             }
+            <span igxDrawerItem (click)="drawer.toggle()">
+                <button igxIconButton="flat">
+                    <igx-icon class="std-icon custom-icon" family="material">chevron_right</igx-icon>
+                </button>
+            </span>
         </ng-template>
     </igx-nav-drawer>
 
     <div igxFlex>
-        <button igxIconButton="flat" igxToggleAction="navigation" (click)="drawer.toggle()">
-            <igx-icon class="std-icon" family="material">menu</igx-icon>
-        </button>
-        <h5>{{selected}}</h5>
+        <h5>{{ selected }}</h5>
         @if (selected === Page.Dex) {
             <dex-view-panel></dex-view-panel>
         }
     </div>
-  </div>
+</div>
