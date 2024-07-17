@@ -1,13 +1,42 @@
 <div>
-    <igx-navbar title="Dex-o-Mon">
+    <igx-navbar>
         <igx-navbar-action>
-            <button igxIconButton="flat" (click)="menuClick.emit()">
-                <igx-icon class="std-icon">menu</igx-icon>
-            </button>
+            <button
+                class="header-button"
+                igxButton="contained"
+                [igxToggleAction]="dropdown"
+                [igxDropDownItemNavigation]="dropdown"
+                [overlaySettings]="dropdownOverlaySettings"
+            >
+                <igx-icon family="material">{{ selectedIcon }}</igx-icon>{{ selected }}<igx-icon family="material">arrow_drop_down</igx-icon></button>
+                <igx-drop-down #dropdown>
+                    <div class="drop-down-virtual-wrapper">
+                        @for (item of navItems; track item) {
+                            <igx-drop-down-item>
+                                <span class="inner-drop-down-item">
+                                    <igx-icon class="std-icon" family="material">{{ item.icon }}</igx-icon>
+                                    <div>{{ item.text }}</div>
+                                </span>
+                            </igx-drop-down-item>
+                        }
+                    </div>
+                </igx-drop-down>
+            <div class="header-button">
+                <button igxIconButton="flat">
+                    <igx-icon>add_circle</igx-icon>
+                </button>
+                <button igxIconButton="flat">
+                    <igx-icon>upload</igx-icon>
+                </button>
+                <button igxIconButton="flat">
+                    <igx-icon>download</igx-icon>
+                </button>
+            </div>
         </igx-navbar-action>
-
-        <button igxIconButton="flat">
-            <igx-icon class="std-icon">account_circle</igx-icon>
-        </button>
+        <div class="header-button">
+            <button igxIconButton="flat">
+                <igx-icon class="std-icon">account_circle</igx-icon>
+            </button>
+        </div>
     </igx-navbar>
 </div>

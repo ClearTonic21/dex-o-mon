@@ -1,18 +1,52 @@
-.nav-drawer-content {
+.nav-drawer-container {
     display: flex;
     height: 100%;
+    padding: 8px 8px 0px;
 }
 
-div {
+.igx-nav-drawer__aside--mini {
+    width: max-content;
+}
+
+aside {
+    width: max-content;
+}
+.view-panel-container {
     height: 100%;
     overflow: auto;
-    padding: 8px 8px 0px;
+    padding: inherit;
     h5 {
-        padding: 8px 0;
+        padding-bottom: 8px;
     }
 }
 
 :host {
     display: block;
     height: calc(100% - 56px);
+}
+
+.header-item {
+    cursor: pointer;
+    padding: 8px 0px;
+    align-items: center;
+    justify-content: center;
+}
+
+.last-item {
+    padding: 8px 0px;
+    align-items: center;
+    justify-content: center;
+}
+
+.fixed {
+    position: fixed;
+    width: 100%;
+    transition: 0.2s linear;
+    top: 0px;
+}
+
+.notfixed {
+    position: static;
+    transition: 0.2s linear;
+    top: -50px;
 }

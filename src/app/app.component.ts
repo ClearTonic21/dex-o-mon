@@ -12,8 +12,7 @@ import { DexoHeaderComponent } from "./components/header/header.component";
     imports: [RouterOutlet, DexoFooterComponent, DexoNavDrawerComponent, DexoHeaderComponent]
 })
 export class AppComponent {
-  @ViewChild("navDrawer")
-  public navDrawer!: DexoNavDrawerComponent;
+  @ViewChild("navDrawer") public navDrawer!: DexoNavDrawerComponent;
 
   // And of course add the key line to our navigate function
   title = 'Dex-o-Mon';

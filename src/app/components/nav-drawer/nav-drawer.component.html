@@ -1,35 +1,61 @@
-<div class="nav-drawer-content" igxLayout>
-    <igx-nav-drawer id="navigation" [pin]="true" [pinThreshold]="0">
+<div class="nav-drawer-container" igxLayout>
+    <igx-nav-drawer id="navigation" [isOpen]="true" [pin]="true" [pinThreshold]="50">
         <ng-template igxDrawer>
-            @for (item of navItems; track item) {
-                <span igxDrawerItem [active]="item.text === selected" igxRipple (click)="navigate(item)">
-                    <igx-icon class="std-icon" family="material">{{ item.name }}</igx-icon>
-                    <span>{{ item.text }}</span>
-                </span>
+            <span
+                igxDrawerItem
+                class="header-item"
+                ngClass="navbarfixed?'fixed':'notfixed'"
+                [isHeader]="true"
+                (click)="drawer.toggle()"
+            >
+                <igx-icon class="std-icon custom-icon" family="material">list_alt</igx-icon>
+            </span>
+            @for (item of entryItems; track item) {
+            <span
+                igxDrawerItem
+                [active]="item.index === selected"
+                igxRipple
+                (click)="navigate(item)"
+            >
+                <igx-icon class="std-icon" family="material">{{ item.imgIconSrc }}</igx-icon>
+                <span>{{ item.name }}</span>
+            </span>
             }
-            <span igxDrawerItem (click)="drawer.toggle()">
+            <span igxDrawerItem class="last-item" (click)="drawer.toggle()">
                 <button igxIconButton="flat">
                     <igx-icon class="std-icon custom-icon" family="material">chevron_left</igx-icon>
                 </button>
             </span>
         </ng-template>
         <ng-template igxDrawerMini>
-            @for (item of navItems; track item) {
-                <span igxDrawerItem [active]="item.text === selected" igxRipple (click)="navigate(item)">
-                    <igx-icon class="std-icon" family="material">{{ item.name }}</igx-icon>
-                </span>
+            <span
+                igxDrawerItem
+                class="header-item"
+                ngClass="navbarfixed?'fixed':'notfixed'"
+                [isHeader]="true"
+                (click)="drawer.toggle()"
+            >
+                <igx-icon class="std-icon custom-icon" family="material">list_alt</igx-icon>
+            </span>
+            @for (item of entryItems; track item) {
+            <span
+                igxDrawerItem
+                [active]="item.index === selected"
+                igxRipple (click)="navigate(item)"
+            >
+                <igx-icon class="std-icon" family="material">{{ item.imgIconSrc }}</igx-icon>
+            </span>
             }
-            <span igxDrawerItem (click)="drawer.toggle()">
+            <span igxDrawerItem class="last-item" (click)="drawer.toggle()">
                 <button igxIconButton="flat">
-                    <igx-icon class="std-icon custom-icon" family="material">chevron_right</igx-icon>
+                    <igx-icon class="std-icon custom-icon last-item" family="material">chevron_right</igx-icon>
                 </button>
             </span>
         </ng-template>
     </igx-nav-drawer>
 
-    <div igxFlex>
-        <h5>{{ selected }}</h5>
-        @if (selected === Page.Dex) {
+    <div class="view-panel-container" igxFlex>
+        @if (selected >= 0) {
             <dex-view-panel></dex-view-panel>
         }
     </div>

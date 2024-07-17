@@ -17,3 +17,49 @@ $custom-navbar-theme: navbar-theme(
         @include navbar($custom-navbar-theme);
     }
 }
+
+.header-button {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    padding: 0px 6px 0px 16px;
+    margin: 0px 6px 0px 6px;
+    button {
+        padding: 0px 24px;
+        margin: 0px 0px 0px 8px;
+    }
+}
+
+:host {
+    display: flex;
+    flex-flow: row;
+    margin: 4px;
+}
+
+.button {
+    width: 240px;
+}
+
+.selection {
+    line-height: 4rem;
+    padding: 1px 8px;
+}
+
+
+.igx-drop-down__item {
+    padding: 4px 2rem;
+}
+
+.igx-drop-down__content{
+    align-self: start;
+}
+
+.inner-drop-down-item {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    gap: 1rem;
+    &.hover {
+        color: #ff0404;
+    }
+}
