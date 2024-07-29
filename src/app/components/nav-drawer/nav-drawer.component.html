@@ -13,7 +13,7 @@
                 @for (item of entryItems; track item) {
                 <span
                     igxDrawerItem
-                    [active]="item.index === selected"
+                    [active]="item.entryNumber.idNumber === selected"
                     igxRipple
                     (click)="navigate(item)"
                 >
@@ -41,7 +41,7 @@
                 @for (item of entryItems; track item) {
                 <span
                     igxDrawerItem
-                    [active]="item.index === selected"
+                    [active]="item.entryNumber.idNumber === selected"
                     igxRipple (click)="navigate(item)"
                 >
                     <igx-icon class="std-icon" family="material">{{ item.imgIconSrc }}</igx-icon>
