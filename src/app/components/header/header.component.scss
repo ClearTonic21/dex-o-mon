@@ -45,13 +45,9 @@ $custom-navbar-theme: navbar-theme(
     padding: 1px 8px;
 }
 
-
-.igx-drop-down__item {
-    padding: 4px 2rem;
-}
-
-.igx-drop-down__content{
-    align-self: start;
+.drop-down-virtual-wrapper {
+    height: fit-content;
+    padding: 4px;
 }
 
 .inner-drop-down-item {
@@ -59,7 +55,4 @@ $custom-navbar-theme: navbar-theme(
     flex-flow: row;
     align-items: center;
     gap: 1rem;
-    &.hover {
-        color: #ff0404;
-    }
 }

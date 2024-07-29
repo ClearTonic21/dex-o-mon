@@ -4,23 +4,24 @@
             <span
                 igxDrawerItem
                 class="header-item"
-                ngClass="navbarfixed?'fixed':'notfixed'"
                 [isHeader]="true"
                 (click)="drawer.toggle()"
             >
                 <igx-icon class="std-icon custom-icon" family="material">list_alt</igx-icon>
             </span>
-            @for (item of entryItems; track item) {
-            <span
-                igxDrawerItem
-                [active]="item.index === selected"
-                igxRipple
-                (click)="navigate(item)"
-            >
-                <igx-icon class="std-icon" family="material">{{ item.imgIconSrc }}</igx-icon>
-                <span>{{ item.name }}</span>
-            </span>
-            }
+            <div class="item-container">
+                @for (item of entryItems; track item) {
+                <span
+                    igxDrawerItem
+                    [active]="item.index === selected"
+                    igxRipple
+                    (click)="navigate(item)"
+                >
+                    <igx-icon class="std-icon" family="material">{{ item.imgIconSrc }}</igx-icon>
+                    <span>{{ item.name }}</span>
+                </span>
+                }
+            </div>
             <span igxDrawerItem class="last-item" (click)="drawer.toggle()">
                 <button igxIconButton="flat">
                     <igx-icon class="std-icon custom-icon" family="material">chevron_left</igx-icon>
@@ -31,21 +32,22 @@
             <span
                 igxDrawerItem
                 class="header-item"
-                ngClass="navbarfixed?'fixed':'notfixed'"
                 [isHeader]="true"
                 (click)="drawer.toggle()"
             >
                 <igx-icon class="std-icon custom-icon" family="material">list_alt</igx-icon>
             </span>
-            @for (item of entryItems; track item) {
-            <span
-                igxDrawerItem
-                [active]="item.index === selected"
-                igxRipple (click)="navigate(item)"
-            >
-                <igx-icon class="std-icon" family="material">{{ item.imgIconSrc }}</igx-icon>
-            </span>
-            }
+            <div class="item-container">
+                @for (item of entryItems; track item) {
+                <span
+                    igxDrawerItem
+                    [active]="item.index === selected"
+                    igxRipple (click)="navigate(item)"
+                >
+                    <igx-icon class="std-icon" family="material">{{ item.imgIconSrc }}</igx-icon>
+                </span>
+                }
+            </div>
             <span igxDrawerItem class="last-item" (click)="drawer.toggle()">
                 <button igxIconButton="flat">
                     <igx-icon class="std-icon custom-icon last-item" family="material">chevron_right</igx-icon>
