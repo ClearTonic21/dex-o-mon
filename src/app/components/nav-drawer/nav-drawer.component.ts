@@ -5,20 +5,7 @@ import { DexoIcon } from '../../enums/DexoIcon';
 import { DexViewPanelComponent } from "../../dex/components/dex-view-panel/dex-view-panel.component";
 import { DexoExpansionPanelComponent } from "../../lib/expansion-panel/expansion-panel.component";
 import { DexoHeaderComponent } from "../header/header.component";
-
-interface EntryItem {
-  entryNumber: EntryNumber;
-  imgIconSrc?: string;
-  name?: string;
-  header?: boolean;
-  disabled?: boolean;
-}
-
-interface EntryNumber {
-  idNumber: number;
-  seperator?:  string;
-  altNumber?: number;
-}
+import { DexEntry } from '../../dex/models/dex-entry';
 
 @Component({
     selector: 'dexo-nav-drawer',
@@ -33,34 +20,35 @@ export class DexoNavDrawerComponent  {
   public open: boolean = true;
   public selected: number = 0;
 
-  public entryItems: EntryItem[] = [
-    { entryNumber:  {idNumber: 0},    imgIconSrc: `${DexoIcon.Image}`,  name: 'dexEntry'  },
-    { entryNumber:  {idNumber: 1},    imgIconSrc:	`${DexoIcon.Image}`,	name:	'dexEntry'	},
-    { entryNumber:  {idNumber: 2},    imgIconSrc:	`${DexoIcon.Image}`,	name:	'dexEntry'	},
-    { entryNumber:	{idNumber: 3}, 	  imgIconSrc:	`${DexoIcon.Image}`,	name:	'dexEntry'	},
-    { entryNumber:	{idNumber: 4}, 	  imgIconSrc:	`${DexoIcon.Image}`,	name:	'dexEntry'	},
-    { entryNumber:	{idNumber: 5}, 	  imgIconSrc:	`${DexoIcon.Image}`,	name:	'dexEntry'	},
-    { entryNumber:	{idNumber: 6}, 	  imgIconSrc:	`${DexoIcon.Image}`,	name:	'dexEntry'	},
-    { entryNumber:	{idNumber: 7}, 	  imgIconSrc:	`${DexoIcon.Image}`,	name:	'dexEntry'	},
-    { entryNumber:	{idNumber: 8}, 	  imgIconSrc:	`${DexoIcon.Image}`,	name:	'dexEntry'	},
-    { entryNumber:	{idNumber: 9}, 	  imgIconSrc:	`${DexoIcon.Image}`,	name:	'dexEntry'	},
-    { entryNumber:	{idNumber: 11}, 	imgIconSrc:	`${DexoIcon.Image}`,	name:	'dexEntry'	},
-    { entryNumber:	{idNumber: 12}, 	imgIconSrc:	`${DexoIcon.Image}`,	name:	'dexEntry'	},
-    { entryNumber:	{idNumber: 13}, 	imgIconSrc:	`${DexoIcon.Image}`,	name:	'dexEntry'	},
-    { entryNumber:	{idNumber: 14}, 	imgIconSrc:	`${DexoIcon.Image}`,	name:	'dexEntry'	},
-    { entryNumber:	{idNumber: 15}, 	imgIconSrc:	`${DexoIcon.Image}`,	name:	'dexEntry'	},
-    { entryNumber:	{idNumber: 16}, 	imgIconSrc:	`${DexoIcon.Image}`,	name:	'dexEntry'	},
-    { entryNumber:	{idNumber: 17}, 	imgIconSrc:	`${DexoIcon.Image}`,	name:	'dexEntry'	},
-    { entryNumber:	{idNumber: 18}, 	imgIconSrc:	`${DexoIcon.Image}`,	name:	'dexEntry'	},
-    { entryNumber:	{idNumber: 19}, 	imgIconSrc:	`${DexoIcon.Image}`,	name:	'dexEntry'	},
-    { entryNumber:	{idNumber: 20}, 	imgIconSrc:	`${DexoIcon.Image}`,	name:	'dexEntry'	},
-    { entryNumber:	{idNumber: 20}, 	imgIconSrc:	`${DexoIcon.Image}`,	name:	'dexEntry'	},
-    { entryNumber:	{idNumber: 21}, 	imgIconSrc:	`${DexoIcon.Image}`,	name:	'dexEntry'	},
-    { entryNumber:	{idNumber: 22}, 	imgIconSrc:	`${DexoIcon.Image}`,	name:	'dexEntry'	},
-    { entryNumber:	{idNumber: 23}, 	imgIconSrc:	`${DexoIcon.Image}`,	name:	'dexEntry'	}
+  public entryItems: DexEntry[] = [
+    new DexEntry(0,   'Dex Entry'),
+    new DexEntry(1,   'Dex Entry'),
+    new DexEntry(2,   'Dex Entry'),
+    new DexEntry(3,   'Dex Entry'),
+    new DexEntry(4,   'Dex Entry'),
+    new DexEntry(5,   'Dex Entry'),
+    new DexEntry(6,   'Dex Entry'),
+    new DexEntry(7,   'Dex Entry'),
+    new DexEntry(8,   'Dex Entry'),
+    new DexEntry(9,   'Dex Entry'),
+    new DexEntry(10,  'Dex Entry'),
+    new DexEntry(11,  'Dex Entry'),
+    new DexEntry(12,  'Dex Entry'),
+    new DexEntry(13,  'Dex Entry'),
+    new DexEntry(14,  'Dex Entry'),
+    new DexEntry(15,  'Dex Entry'),
+    new DexEntry(16,  'Dex Entry'),
+    new DexEntry(17,  'Dex Entry'),
+    new DexEntry(18,  'Dex Entry'),
+    new DexEntry(19,  'Dex Entry'),
+    new DexEntry(20,  'Dex Entry'),
+    new DexEntry(21,  'Dex Entry'),
+    new DexEntry(22,  'Dex Entry'),
+    new DexEntry(23,  'Dex Entry'),
+    new DexEntry(24,  'Dex Entry'),
   ];
 
-  public navigate(item: { entryNumber: { idNumber: number}}) {
-    this.selected = item.entryNumber.idNumber;
+  public navigate(item: { entryNumber: number}) {
+    this.selected = item.entryNumber;
   }
 }
