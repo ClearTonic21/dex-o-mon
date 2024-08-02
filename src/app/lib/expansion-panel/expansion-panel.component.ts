@@ -6,7 +6,7 @@ import { IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansio
   standalone: true,
   imports: [IgxExpansionPanelComponent, IgxExpansionPanelBodyComponent, IgxExpansionPanelHeaderComponent, IgxExpansionPanelTitleDirective, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelModule],
   templateUrl: './expansion-panel.component.html',
-  styleUrl: './expansion-panel.component.css'
+  styleUrl: './expansion-panel.component.scss'
 })
 export class DexoExpansionPanelComponent {
   @ViewChild(IgxExpansionPanelComponent, { read: IgxExpansionPanelComponent, static: true }) public panel!: IgxExpansionPanelComponent;
