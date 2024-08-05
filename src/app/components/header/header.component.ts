@@ -1,5 +1,5 @@
-import { Component, EventEmitter, HostListener, Output, ViewEncapsulation } from '@angular/core';
-import { ConnectedPositioningStrategy, HorizontalAlignment, IgxButtonModule, IgxDropDownComponent, IgxDropDownItemComponent, IgxDropDownItemNavigationDirective, IgxIconModule, IgxNavbarComponent, IgxNavbarModule, IgxToggleActionDirective, VerticalAlignment } from 'igniteui-angular';
+import { Component, EventEmitter, HostListener, Output, viewChild, ViewEncapsulation } from '@angular/core';
+import { ConnectedPositioningStrategy, HorizontalAlignment, IgxButtonModule, IgxDropDownComponent, IgxDropDownItemComponent, IgxDropDownItemNavigationDirective, IgxIconModule, IgxNavbarComponent, IgxNavbarModule, IgxToggleActionDirective, ISelectionEventArgs, VerticalAlignment } from 'igniteui-angular';
 import { DexoIcon } from '../../enums/DexoIcon';
 import { Page } from '../../enums/Page';
 import { NgFor, NgClass } from '@angular/common';
@@ -35,7 +35,12 @@ export class DexoHeaderComponent {
 
   public selected = `${Page.Dex}`;
   public selectedIcon = `${DexoIcon.ListAlt}`;
-  public itemHeight = 48;
-  public itemsMaxHeight = 240;
-  public onHover: boolean = false;
+  public pageNavOpen: boolean = false;
+
+  public handleSelection(ev: ISelectionEventArgs): void {
+    const newselection = ev.newSelection.value;
+    this.selected = newselection.text;
+    this.selectedIcon = newselection.icon;
+    this.pageNavOpen = false;
+  }
 }

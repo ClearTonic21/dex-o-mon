@@ -11,20 +11,20 @@
             </span>
             <div class="item-container">
                 @for (item of entryItems; track item) {
-                <span
+                <div
                     igxDrawerItem
                     [active]="item.entryNumber === selected"
                     igxRipple
                     (click)="navigate(item)"
                 >
                     <igx-icon class="std-icon" family="material">{{ item.iconSrc }}</igx-icon>
-                    <span>{{ item.entryNumber}} {{ item.name }}</span>
-                </span>
+                    <span>{{ item.entryNumber }} {{ item.name }}</span>
+                </div>
                 }
             </div>
             <span igxDrawerItem class="last-item" (click)="drawer.toggle()">
                 <button igxIconButton="flat">
-                    <igx-icon class="std-icon custom-icon" family="material">chevron_left</igx-icon>
+                    <igx-icon class="std-icon custom-icon" family="material">keyboard_arrow_left</igx-icon>
                 </button>
             </span>
         </ng-template>
@@ -48,9 +48,14 @@
                 </span>
                 }
             </div>
-            <span igxDrawerItem class="last-item" (click)="drawer.toggle()">
+            <span
+                igxDrawerItem
+                [isHeader]="true"
+                class="last-item"
+                (click)="drawer.toggle()"
+            >
                 <button igxIconButton="flat">
-                    <igx-icon class="std-icon custom-icon last-item" family="material">chevron_right</igx-icon>
+                    <igx-icon class="std-icon custom-icon last-item" family="material">keyboard_arrow_right</igx-icon>
                 </button>
             </span>
         </ng-template>

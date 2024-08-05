@@ -1,7 +1,6 @@
 import { Component, HostListener, ViewChild } from '@angular/core';
 import { IgxButtonModule, IgxExpansionPanelModule, IgxFlexDirective, IgxIconModule, IgxNavDrawerItemDirective, IgxNavigationDrawerComponent, IgxNavigationDrawerModule } from 'igniteui-angular';
 import { DexoFooterComponent } from "../footer/footer.component";
-import { DexoIcon } from '../../enums/DexoIcon';
 import { DexViewPanelComponent } from "../../dex/components/dex-view-panel/dex-view-panel.component";
 import { DexoExpansionPanelComponent } from "../../lib/expansion-panel/expansion-panel.component";
 import { DexoHeaderComponent } from "../header/header.component";
