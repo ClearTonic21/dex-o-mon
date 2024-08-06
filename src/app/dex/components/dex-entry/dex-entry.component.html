@@ -1,1 +1,31 @@
-<p>dex-entry works!</p>
+<div class="dex-entry-container">
+    <div class="entry-image-container">
+        <igx-icon class="primary-image" family="material">image</igx-icon>
+        <igx-icon class="additional-image" family="material">image</igx-icon>
+    </div>
+    <div class="entry-sections-container">
+        <igx-list #sectionListContainer>
+            @for (employee of employees; track $index) {
+                <div class="section-container"
+                    igxDrop
+                >
+                    <igx-list-item
+                        #dragDirRef="drag"
+                        igxDrop
+                        [igxDrag]="{ id: employee.id, dragged: false }"
+                        (dragStart)="onDragStart($event, $index)"
+                        (dragMove)="onDragMove($event, $index)"
+                        (dragEnd)="onDragEnd($event, $index)"
+                        (transitioned)="onTransitioned($event, $index)"
+                        [ghost]="false"
+                        [class.dragged]="dragDirRef.data && dragDirRef.data.dragged"
+                    >
+                        <h6 igxListLineTitle>{{employee.name}}</h6>
+                        <div igxListLineSubTitle>{{employee.title}}</div>
+                        <igx-icon igxDragHandle igxListAction>drag_indicator</igx-icon>
+                    </igx-list-item>
+                </div>
+            }
+        </igx-list>
+    </div>
+</div>
