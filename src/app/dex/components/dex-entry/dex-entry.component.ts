@@ -9,7 +9,7 @@ import { IDragBaseEventArgs, IDragMoveEventArgs, IgxDragDirective, IgxDragDropMo
   styleUrl: './dex-entry.component.scss'
 })
 export class DexEntryComponent {
-  @ViewChild('listContainer', { read: ElementRef }) public listContainer!: ElementRef;
+  @ViewChild('sectionListContainer', { read: ElementRef }) public sectionListContainer!: ElementRef;
   @ViewChildren('dragDirRef', { read: IgxDragDirective }) public dragDirs!: QueryList<IgxDragDirective>;
 
   public employees = [
@@ -22,7 +22,8 @@ export class DexEntryComponent {
 
   public newIndex: any = null;
   public animationDuration = 0.3;
-  private listItemHeight = 55;
+  private listItemHeight = 72;
+  public editMode: boolean = false;
 
   public getDragDirectiveRef(id: number): any {
     return this.dragDirs.find((item) => item.data.id === id);
@@ -68,7 +69,7 @@ export class DexEntryComponent {
   }
 
   public onDragMove(event: IDragMoveEventArgs, itemIndex: number) {
-      const containerPosY = this.listContainer.nativeElement.getBoundingClientRect().top;
+      const containerPosY = this.sectionListContainer.nativeElement.getBoundingClientRect().top;
       // Relative position of the dragged element to the list container.
       const relativePosY = event.nextPageY - containerPosY;
 
