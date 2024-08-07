@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DexEntrySectionComponent } from './dex-entry-section.component';
+import { DexEntryCardComponent } from './dex-entry-card.component';
 
 describe('DexEntrySpecComponent', () => {
-  let component: DexEntrySectionComponent;
-  let fixture: ComponentFixture<DexEntrySectionComponent>;
+  let component: DexEntryCardComponent;
+  let fixture: ComponentFixture<DexEntryCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DexEntrySectionComponent]
+      imports: [DexEntryCardComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DexEntrySectionComponent);
+    fixture = TestBed.createComponent(DexEntryCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
