@@ -1,0 +1,67 @@
+// Experlogix Design Studio > Shared
+// --------------------------------------------------
+// Component: Navigation Component
+
+@mixin anchorItem() {
+    align-items: center;
+    align-self: stretch;
+    border-radius: 4px;
+    display: flex;
+    gap: 6px;
+    height: 10rem;
+    padding: 0;
+}
+
+    // -------------------------
+    // 🎓 Classes
+    // -------------------------
+
+.scrollbar-container {
+    background-color: black;
+    align-items: flex-start;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    .scrollbar-anchor-list {
+        align-items: flex-start;
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        .scrollbar-anchor-item {
+            @include anchorItem();
+            background: 0;
+
+            .scrollbar-active-bar {
+                visibility: hidden;
+            }
+
+            .scrollbar-anchor-item-text {
+                color: aquamarine;
+                cursor: pointer;
+            }
+
+            &.in-view {
+                // class is added via NavigationHighlightDirective
+                @include anchorItem();
+                    background-color: lightgray;
+
+                .scrollbar-active-bar {
+                    background: gray;
+                    border-radius: 4px;
+                    height: 16px;
+                    visibility: visible;
+                    width: 3px;
+                }
+
+                .scrollbar-anchor-item-text {
+                    color: gray;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

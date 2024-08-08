@@ -26,14 +26,26 @@
     align-items: center;
 }
 
-.entry-sections-container {
+.entry-cards-container {
     width: 100%;
-    align-items: center;
 }
 
-.section-container {
+.card-container {
+    display: flex;
+    justify-content: center;
     margin: 2px;
     background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%237fffd4' stroke-width='4' stroke-dasharray='6%2c 14' stroke-dashoffset='2' stroke-linecap='square'/%3e%3c/svg%3e");    z-index: 0;
+}
+
+.entry-scrollbar-container {
+    width: 10%;
+}
+
+dex-header {
+    igx-navbar {
+        padding: 0;
+        gap: 0;
+    }
 }
 
 :host {

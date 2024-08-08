@@ -3,10 +3,10 @@
         <igx-icon class="primary-image" family="material">image</igx-icon>
         <igx-icon class="additional-image" family="material">image</igx-icon>
     </div>
-    <div class="entry-sections-container">
-        <igx-list #sectionListContainer>
+    <div class="entry-cards-container">
+        <igx-list #cardListContainer>
             @for (employee of employees; track $index) {
-                <div class="section-container"
+                <div class="card-container"
                     igxDrop
                 >
                     <igx-list-item
@@ -27,5 +27,12 @@
                 </div>
             }
         </igx-list>
+    </div>
+    <div class="entry-scrollbar-container">
+        <dex-header></dex-header>
+        <dexo-scroll-bar
+            #scrollBar
+            [scrollbarList]="categoriesCards"
+        ></dexo-scroll-bar>
     </div>
 </div>

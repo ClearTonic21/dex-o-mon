@@ -1,15 +1,17 @@
 import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { IDragBaseEventArgs, IDragMoveEventArgs, IgxDragDirective, IgxDragDropModule, IgxDragLocation, IgxIconComponent, IgxListActionDirective, IgxListComponent, IgxListItemComponent } from 'igniteui-angular';
+import { DexoScrollBarComponent, INavigation } from "../../../lib/dexo-navigation-bar/dexo-scroll-bar.component";
+import { DexHeaderComponent } from "../dex-header/dex-header.component";
 
 @Component({
   selector: 'dex-entry',
   standalone: true,
-  imports: [IgxIconComponent, IgxListComponent, IgxListItemComponent, IgxDragDropModule],
+  imports: [IgxIconComponent, IgxListComponent, IgxListItemComponent, IgxDragDropModule, DexoScrollBarComponent, DexHeaderComponent],
   templateUrl: './dex-entry.component.html',
   styleUrl: './dex-entry.component.scss'
 })
 export class DexEntryComponent {
-  @ViewChild('sectionListContainer', { read: ElementRef }) public sectionListContainer!: ElementRef;
+  @ViewChild('cardListContainer', { read: ElementRef }) public cardListContainer!: ElementRef;
   @ViewChildren('dragDirRef', { read: IgxDragDirective }) public dragDirs!: QueryList<IgxDragDirective>;
 
   public employees = [
@@ -18,6 +20,13 @@ export class DexEntryComponent {
       { id: 2, name: 'Elsi Hansdottir', title: 'Financial Director' },
       { id: 3, name: 'Benito Noboa', title: 'Marketing Specialist' },
       { id: 4, name: 'Beth Murphy', title: 'Platform Lead for Web' }
+  ];
+
+  public categoriesCards: INavigation[] = [
+    { id: 'general-card', name: 'General', displayName: 'General' },
+    { id: 'display-card', name: 'Display', displayName:'Display' },
+    { id: 'behavior-card', name: 'Behavior', displayName: 'Behavior' },
+    { id: 'information-card', name: 'Information', displayName: 'Information'  }
   ];
 
   public newIndex: any = null;
@@ -69,7 +78,7 @@ export class DexEntryComponent {
   }
 
   public onDragMove(event: IDragMoveEventArgs, itemIndex: number) {
-      const containerPosY = this.sectionListContainer.nativeElement.getBoundingClientRect().top;
+      const containerPosY = this.cardListContainer.nativeElement.getBoundingClientRect().top;
       // Relative position of the dragged element to the list container.
       const relativePosY = event.nextPageY - containerPosY;
 
