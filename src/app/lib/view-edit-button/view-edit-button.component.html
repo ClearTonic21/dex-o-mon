@@ -1,19 +1,19 @@
-<div class="visible-hidden-container">
-    <div class="visible-hidden-control">
-        <igx-buttongroup class="visible-hidden-buttongroup">
+<div class="view-edit-container">
+    <div class="view-edit-control">
+        <igx-buttongroup class="view-edit-buttongroup">
             <div class="buttongroup-button-1" [ngClass]="getVisibleState()">
-                @if (visibleValue) {
+                @if (viewValue) {
                 <button
-                    id="visible-btn-buttongroup"
+                    id="view-btn-buttongroup"
                     igxIconButton="flat"
                     (buttonClick)="handleClick()"
                 >
                     <igx-icon family="material">{{ visibleLabel }}</igx-icon>
                 </button>
                 }
-                @if (!visibleValue) {
+                @if (!viewValue) {
                 <button
-                    id="visible-btn-buttongroup"
+                    id="view-btn-buttongroup"
                     igxIconButton="flat"
                     (buttonClick)="handleClick()"
                 >
@@ -22,7 +22,7 @@
                 }
             </div>
             <div class="buttongroup-button-2" [ngClass]="getHiddenState()">
-                @if (hiddenValue) {
+                @if (editValue) {
                 <button
                     id="hidden-btn-buttongroup"
                     igxIconButton="flat"
@@ -31,7 +31,7 @@
                     <igx-icon family="material">{{ hiddenLabel }}</igx-icon>
                 </button>
                 }
-                @if (!hiddenValue) {
+                @if (!editValue) {
                 <button
                     id="hidden-btn-buttongroup"
                     igxIconButton="flat"

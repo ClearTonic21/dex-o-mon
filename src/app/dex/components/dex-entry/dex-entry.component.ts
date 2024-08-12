@@ -1,12 +1,12 @@
 import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { IDragBaseEventArgs, IDragMoveEventArgs, IgxDragDirective, IgxDragDropModule, IgxDragLocation, IgxIconComponent, IgxListActionDirective, IgxListComponent, IgxListItemComponent } from 'igniteui-angular';
 import { DexoScrollBarComponent, INavigation } from "../../../lib/dexo-navigation-bar/dexo-scroll-bar.component";
-import { ToggleButtonComponent } from "../../../lib/toggle-button/toggle-button.component";
+import { ViewEditButtonComponent } from "../../../lib/view-edit-button/view-edit-button.component";
 
 @Component({
   selector: 'dex-entry',
   standalone: true,
-  imports: [IgxIconComponent, IgxListComponent, IgxListItemComponent, IgxDragDropModule, DexoScrollBarComponent, ToggleButtonComponent],
+  imports: [IgxIconComponent, IgxListComponent, IgxListItemComponent, IgxDragDropModule, DexoScrollBarComponent, ViewEditButtonComponent],
   templateUrl: './dex-entry.component.html',
   styleUrl: './dex-entry.component.scss'
 })
