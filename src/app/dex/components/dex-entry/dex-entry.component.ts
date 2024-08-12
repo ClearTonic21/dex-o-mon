@@ -1,12 +1,12 @@
 import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { IDragBaseEventArgs, IDragMoveEventArgs, IgxDragDirective, IgxDragDropModule, IgxDragLocation, IgxIconComponent, IgxListActionDirective, IgxListComponent, IgxListItemComponent } from 'igniteui-angular';
 import { DexoScrollBarComponent, INavigation } from "../../../lib/dexo-navigation-bar/dexo-scroll-bar.component";
-import { DexHeaderComponent } from "../dex-header/dex-header.component";
+import { ToggleButtonComponent } from "../../../lib/toggle-button/toggle-button.component";
 
 @Component({
   selector: 'dex-entry',
   standalone: true,
-  imports: [IgxIconComponent, IgxListComponent, IgxListItemComponent, IgxDragDropModule, DexoScrollBarComponent, DexHeaderComponent],
+  imports: [IgxIconComponent, IgxListComponent, IgxListItemComponent, IgxDragDropModule, DexoScrollBarComponent, ToggleButtonComponent],
   templateUrl: './dex-entry.component.html',
   styleUrl: './dex-entry.component.scss'
 })
@@ -15,18 +15,18 @@ export class DexEntryComponent {
   @ViewChildren('dragDirRef', { read: IgxDragDirective }) public dragDirs!: QueryList<IgxDragDirective>;
 
   public employees = [
-      { id: 0, name: 'Ivan Cornejo', title: 'Senior Product Owner' },
-      { id: 1, name: 'Amish Shiravadakar', title: 'Business Tools Director' },
-      { id: 2, name: 'Elsi Hansdottir', title: 'Financial Director' },
-      { id: 3, name: 'Benito Noboa', title: 'Marketing Specialist' },
-      { id: 4, name: 'Beth Murphy', title: 'Platform Lead for Web' }
+      { id: 0, name: 'Ivan', title: 'Senior Product Owner' },
+      { id: 1, name: 'Amish', title: 'Business Tools Director' },
+      { id: 2, name: 'Elsi', title: 'Financial Director' },
+      { id: 3, name: 'Benito', title: 'Marketing Specialist' },
+      { id: 4, name: 'Beth', title: 'Platform Lead for Web' }
   ];
 
   public categoriesCards: INavigation[] = [
-    { id: 'general-card', name: 'General', displayName: 'General' },
-    { id: 'display-card', name: 'Display', displayName:'Display' },
-    { id: 'behavior-card', name: 'Behavior', displayName: 'Behavior' },
-    { id: 'information-card', name: 'Information', displayName: 'Information'  }
+    { id: 'general-card', name: 'General', displayName: 'Senior Product Owner' },
+    { id: 'display-card', name: 'Display', displayName:'Business Tools Director' },
+    { id: 'behavior-card', name: 'Behavior', displayName: 'Marketing Specialist' },
+    { id: 'information-card', name: 'Information', displayName: 'Platform Lead for Web'  }
   ];
 
   public newIndex: any = null;

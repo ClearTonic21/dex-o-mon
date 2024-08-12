@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DexHeaderComponent } from './dex-header.component';
+import { ToggleButtonComponent } from './toggle-button.component';
 
-describe('DexHeaderComponent', () => {
-  let component: DexHeaderComponent;
-  let fixture: ComponentFixture<DexHeaderComponent>;
+describe('ToggleButtonComponent', () => {
+  let component: ToggleButtonComponent;
+  let fixture: ComponentFixture<ToggleButtonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DexHeaderComponent]
+      imports: [ToggleButtonComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DexHeaderComponent);
+    fixture = TestBed.createComponent(ToggleButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

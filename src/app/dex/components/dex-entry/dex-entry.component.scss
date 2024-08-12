@@ -37,15 +37,17 @@
     background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%237fffd4' stroke-width='4' stroke-dasharray='6%2c 14' stroke-dashoffset='2' stroke-linecap='square'/%3e%3c/svg%3e");    z-index: 0;
 }
 
-.entry-scrollbar-container {
-    width: 10%;
+.dex-entry-controls-container {
+    width: fit-content;
+    background-color: gray;
+    border: solid 1px rgb(70, 70, 70);
 }
 
-dex-header {
-    igx-navbar {
-        padding: 0;
-        gap: 0;
-    }
+.entry-controls-button {
+    background-color: rgb(126, 126, 126);;
+    border-radius: 3px;
+    gap: 4px;
+    height: fit-content;
 }
 
 :host {

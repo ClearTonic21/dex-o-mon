@@ -28,11 +28,15 @@
             }
         </igx-list>
     </div>
-    <div class="entry-scrollbar-container">
-        <dex-header></dex-header>
-        <dexo-scroll-bar
-            #scrollBar
-            [scrollbarList]="categoriesCards"
-        ></dexo-scroll-bar>
+    <div class="dex-entry-controls-container">
+        <div class="entry-controls-button">
+            <toggle-button
+                formControlName="isSearchable"
+                id="new-categories-search"
+                defaultValue="true"
+                visibleLabel="visibility"
+                hiddenLabel="edit"
+            ></toggle-button>
+        </div>
     </div>
 </div>
