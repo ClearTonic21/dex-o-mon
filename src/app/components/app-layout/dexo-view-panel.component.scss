@@ -16,7 +16,7 @@
 }
 
 .item-container {
-    height: 84%;
+    height: 75rem;
     overflow-y: scroll;
     overflow-x: hidden;
     -ms-overflow-style: none;  /* IE and Edge */
@@ -30,15 +30,10 @@
 .view-panel-container {
     height: 100%;
     overflow: auto;
-    padding: inherit;
-    h5 {
-        padding-bottom: 8px;
-    }
 }
 
 :host {
     display: block;
-    height: calc(100% - 56px);
 }
 
 .header-item {

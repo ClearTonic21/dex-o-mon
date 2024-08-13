@@ -1,11 +1,11 @@
 <div class="nav-drawer-container" igxLayout>
-    <igx-nav-drawer id="navigation" [isOpen]="true" [pin]="true" [pinThreshold]="50">
+    <igx-nav-drawer id="navigation" [isOpen]="true" [pin]="true" [pinThreshold]="20">
         <ng-template igxDrawer>
             <span
                 igxDrawerItem
                 class="header-item"
                 [isHeader]="true"
-                (click)="drawer.toggle()"
+                (click)="navDrawer.toggle()"
             >
                 <igx-icon class="std-icon custom-icon" family="material">list_alt</igx-icon>
             </span>
@@ -22,7 +22,7 @@
                 </div>
                 }
             </div>
-            <span igxDrawerItem class="last-item" (click)="drawer.toggle()">
+            <span igxDrawerItem class="last-item" (click)="navDrawer.toggle()">
                 <button igxIconButton="flat">
                     <igx-icon class="std-icon custom-icon" family="material">keyboard_arrow_left</igx-icon>
                 </button>
@@ -33,7 +33,7 @@
                 igxDrawerItem
                 class="header-item"
                 [isHeader]="true"
-                (click)="drawer.toggle()"
+                (click)="navDrawer.toggle()"
             >
                 <igx-icon class="std-icon custom-icon" family="material">list_alt</igx-icon>
             </span>
@@ -52,7 +52,7 @@
                 igxDrawerItem
                 [isHeader]="true"
                 class="last-item"
-                (click)="drawer.toggle()"
+                (click)="navDrawer.toggle()"
             >
                 <button igxIconButton="flat">
                     <igx-icon class="std-icon custom-icon last-item" family="material">keyboard_arrow_right</igx-icon>

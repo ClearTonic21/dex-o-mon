@@ -6,7 +6,7 @@
 .entry-image-container {
     display: flex;
     flex-flow: column;
-    margin: 0.5rem 1rem 0 0.5rem;
+    margin: 0rem 1rem 0 1rem;
     align-items: center;
 }
 
@@ -28,6 +28,8 @@
 
 .entry-cards-container {
     width: 100%;
+    padding: 0 4rem;
+    justify-content: center;
 }
 
 .card-container {
@@ -55,7 +57,6 @@
     margin: 16px;
 
     igx-list {
-        width: 90%;
         overflow: hidden;
         background: 0;
     }

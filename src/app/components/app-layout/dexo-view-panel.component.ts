@@ -1,19 +1,19 @@
-import { Component, HostListener, ViewChild } from '@angular/core';
-import { IgxButtonModule, IgxExpansionPanelModule, IgxFlexDirective, IgxIconModule, IgxNavDrawerItemDirective, IgxNavigationDrawerComponent, IgxNavigationDrawerModule } from 'igniteui-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IgxButtonModule, IgxFlexDirective, IgxIconModule, IgxNavDrawerItemDirective, IgxNavigationDrawerComponent, IgxNavigationDrawerModule } from 'igniteui-angular';
 import { DexoFooterComponent } from "../footer/footer.component";
 import { DexViewPanelComponent } from "../../dex/components/dex-view-panel/dex-view-panel.component";
 import { DexoHeaderComponent } from "../header/header.component";
 import { DexEntry } from '../../dex/models/dex-entry';
 
 @Component({
-    selector: 'dexo-nav-drawer',
+    selector: 'dexo-view-panel',
     standalone: true,
-    templateUrl: './nav-drawer.component.html',
-    styleUrl: './nav-drawer.component.scss',
+    templateUrl: './dexo-view-panel.component.html',
+    styleUrl: './dexo-view-panel.component.scss',
     imports: [IgxButtonModule, IgxIconModule, IgxNavigationDrawerModule, IgxNavDrawerItemDirective, IgxFlexDirective, DexoFooterComponent, DexViewPanelComponent, DexoHeaderComponent]
 })
-export class DexoNavDrawerComponent  {
-  @ViewChild(IgxNavigationDrawerComponent, { static: true }) public drawer!: IgxNavigationDrawerComponent;
+export class DexoViewPanelComponent  {
+  @ViewChild(IgxNavigationDrawerComponent, { static: true }) public navDrawer!: IgxNavigationDrawerComponent;
   public open: boolean = true;
   public selected: number = 0;
 

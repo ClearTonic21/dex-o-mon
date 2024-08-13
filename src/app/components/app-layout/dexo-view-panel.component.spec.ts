@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DexLayoutComponent } from './dex-layout.component';
+import { NavDrawerComponent } from './dexo-view-panel.component';
 
-describe('DexLayoutComponent', () => {
-  let component: DexLayoutComponent;
-  let fixture: ComponentFixture<DexLayoutComponent>;
+describe('NavDrawerComponent', () => {
+  let component: NavDrawerComponent;
+  let fixture: ComponentFixture<NavDrawerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DexLayoutComponent]
+      imports: [NavDrawerComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DexLayoutComponent);
+    fixture = TestBed.createComponent(NavDrawerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
