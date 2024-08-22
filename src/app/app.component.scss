@@ -1,17 +1,18 @@
 .dexo-container {
     border: 4px solid hotpink;
     --igx-icon-size: 32px;
+    --igx-icon-color: #212121;
 }
 
 .dexo-body {
-    background-color: rgb(95, 117, 117);
+    background-color: #5f7575;
     border: 6px solid limegreen;
 }
 
 .dexo-footer-container {
     border: 2px solid yellow;
     color: yellow;
-    background-color: rgb(68, 68, 68);
+    background-color: #444444;
     padding: 0 6px;
-    height: 12vh;
+    height: 10vh;
 }

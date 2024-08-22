@@ -1,7 +1,7 @@
 import { Component, ViewChild, viewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { DexoFooterComponent } from './components/footer/footer.component';
-import { DexoViewPanelComponent } from "./components/app-layout/dexo-view-panel.component";
+import { DexoContentContainerComponent } from "./components/content-container/content-container.component";
 import { DexoHeaderComponent } from "./components/header/header.component";
 
 @Component({
@@ -9,15 +9,15 @@ import { DexoHeaderComponent } from "./components/header/header.component";
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
-    imports: [RouterOutlet, DexoFooterComponent, DexoViewPanelComponent, DexoHeaderComponent]
+    imports: [RouterOutlet, DexoFooterComponent, DexoContentContainerComponent, DexoHeaderComponent]
 })
 export class AppComponent {
-  @ViewChild("viewPanel") public viewPanel!: DexoViewPanelComponent;
+  @ViewChild("contentContainer") public contentContainer!: DexoContentContainerComponent;
 
   // And of course add the key line to our navigate function
   title = 'Dex-o-Mon';
 
   public toggleNavDrawer(): void {
-    this.viewPanel.navDrawer.toggle();
+    this.contentContainer.navDrawer.toggle();
   }
 }

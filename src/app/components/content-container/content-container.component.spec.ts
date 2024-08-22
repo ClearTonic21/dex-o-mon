@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavDrawerComponent } from './dexo-view-panel.component';
+import { NavDrawerComponent } from './content-container.component';
 
 describe('NavDrawerComponent', () => {
   let component: NavDrawerComponent;
