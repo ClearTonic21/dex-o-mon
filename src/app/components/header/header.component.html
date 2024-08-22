@@ -11,8 +11,8 @@
             >
                 <igx-icon family="material">{{ selectedIcon }}</igx-icon>
                 {{ selected }}
-                @if (!pageNavOpen) {<igx-icon family="material">keyboard_arrow_down</igx-icon>}
-                @else {<igx-icon family="material">close</igx-icon>}
+                @if (!pageNavOpen) {<igx-icon igxSuffix family="material">keyboard_arrow_down</igx-icon>}
+                @else {<igx-icon igxSuffix family="material">close</igx-icon>}
             </button>
             <igx-drop-down
                 #pageNavDropdown

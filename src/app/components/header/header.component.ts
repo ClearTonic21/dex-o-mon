@@ -12,12 +12,12 @@ interface NavItem {
 }
 
 @Component({
-  encapsulation: ViewEncapsulation.None,
   selector: 'dexo-header',
   standalone: true,
-  imports: [ IgxIconModule, IgxNavbarModule, IgxButtonModule, IgxDropDownComponent, IgxDropDownItemComponent, IgxToggleActionDirective, IgxDropDownItemNavigationDirective,NgFor],
+  imports: [ IgxIconModule, IgxNavbarModule, IgxButtonModule, IgxDropDownComponent, IgxDropDownItemComponent, IgxToggleActionDirective, IgxDropDownItemNavigationDirective, NgFor],
   styleUrls: ['./header.component.scss'],
-  templateUrl: './header.component.html'
+  templateUrl: './header.component.html',
+  encapsulation: ViewEncapsulation.None
 })
 export class DexoHeaderComponent {
   @Output() public selectionListToggle: EventEmitter<void> = new EventEmitter<void>();
