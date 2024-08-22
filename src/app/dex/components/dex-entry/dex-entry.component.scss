@@ -6,8 +6,11 @@
 .entry-image-container {
     display: flex;
     flex-flow: column;
-    margin: 0rem 1rem 0 1rem;
     align-items: center;
+    padding: 0 8rem 0 4rem;
+    height: 73vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .primary-image {
@@ -28,28 +31,58 @@
 
 .entry-cards-container {
     width: 100%;
-    padding: 0 4rem;
-    justify-content: center;
+    padding: 0 8rem 0 4rem;
+    height: 73vh;
+    overflow-y: scroll;
+    color: #212121;
 }
 
 .card-container {
     display: flex;
     justify-content: center;
     margin: 2px;
+    color: #212121;
+
     background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%237fffd4' stroke-width='4' stroke-dasharray='6%2c 14' stroke-dashoffset='2' stroke-linecap='square'/%3e%3c/svg%3e");    z-index: 0;
+    igx-icon {
+        cursor: move;
+        user-select: none;
+        color: #212121;
+
+    }
 }
 
-.dex-entry-controls-container {
+.dex-entry-control-container {
     width: fit-content;
     background-color: gray;
     border: solid 1px rgb(70, 70, 70);
 }
 
-.entry-controls-button {
+.entry-control-buttons {
     background-color: rgb(126, 126, 126);;
     border-radius: 3px;
     gap: 4px;
     height: fit-content;
+}
+
+.new-card-item {
+    background: whitesmoke;
+    width: 100%;
+    color: #212121;
+    cursor: pointer;
+    align-items: center;
+
+    igx-icon {
+        cursor: pointer;
+        user-select: none;
+        background: 0;
+        color: #212121;
+    }
+
+    div.igx-list__item-content {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 :host {
@@ -65,15 +98,11 @@
         z-index: 0;
         width: 99%;
         margin: 4px;
+        min-height: 5rem;
 
         &.dragged {
             box-shadow: elevation(8);
             z-index: 100;
         }
-    }
-
-    igx-icon {
-        cursor: move;
-        user-select: none;
     }
 }

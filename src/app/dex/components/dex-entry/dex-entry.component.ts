@@ -1,6 +1,6 @@
 import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { IDragBaseEventArgs, IDragMoveEventArgs, IgxDragDirective, IgxDragDropModule, IgxDragLocation, IgxIconComponent, IgxListActionDirective, IgxListComponent, IgxListItemComponent } from 'igniteui-angular';
-import { DexoScrollBarComponent, INavigation } from "../../../lib/dexo-navigation-bar/dexo-scroll-bar.component";
+import { DexoScrollBarComponent, INavigation } from "../../../lib/dexo-scroll-bar/dexo-scroll-bar.component";
 import { ViewEditButtonComponent } from "../../../lib/view-edit-button/view-edit-button.component";
 
 @Component({
@@ -33,6 +33,8 @@ export class DexEntryComponent {
   public animationDuration = 0.3;
   private listItemHeight = 72;
   public editMode: boolean = false;
+
+  // Drag & Drop methods
 
   public getDragDirectiveRef(id: number): any {
     return this.dragDirs.find((item) => item.data.id === id);
@@ -125,5 +127,10 @@ export class DexEntryComponent {
               dir.data.shifted = false;
           }
       });
+  }
+
+  // component methods
+  public addEntryCard(): void {
+    this.employees.push({ id: this.employees.length, name: 'New', title: 'Undefined' })
   }
 }

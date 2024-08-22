@@ -22,18 +22,30 @@
                     >
                         <h6 igxListLineTitle>{{employee.name}}</h6>
                         <div igxListLineSubTitle>{{employee.title}}</div>
-                        <igx-icon role="drag-dots" igxDragHandle igxListAction>drag_indicator</igx-icon>
+                        <igx-icon role="drag-dots" igxSuffix igxDragHandle igxListAction family="material">drag_indicator</igx-icon>
                     </igx-list-item>
                 </div>
             }
+            <div class="card-container">
+                <igx-list-item
+                    class="new-card-item"
+                    (click)="addEntryCard()"
+                >
+                    <igx-icon family="material">add_circle</igx-icon>
+                </igx-list-item>
+            </div>
         </igx-list>
     </div>
-    <div class="dex-entry-controls-container">
-        <div class="entry-controls-button">
+    <div class="dex-entry-control-container">
+        <div class="entry-control-buttons">
             <view-edit-button
                 id="dex-entry-view-edit-button"
                 defaultValue="true"
             ></view-edit-button>
+        </div>
+        <div class="entry-scroll-bar-container">
+            <dexo-scroll-bar
+            ></dexo-scroll-bar>
         </div>
     </div>
 </div>

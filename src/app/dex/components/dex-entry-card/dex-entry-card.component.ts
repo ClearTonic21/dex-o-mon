@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { INavigation } from '../../../lib/dexo-navigation-bar/dexo-scroll-bar.component';
+import { INavigation } from '../../../lib/dexo-scroll-bar/dexo-scroll-bar.component';
 
 @Component({
   selector: 'dex-entry-card',
