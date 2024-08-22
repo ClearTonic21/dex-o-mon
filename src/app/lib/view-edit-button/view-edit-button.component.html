@@ -1,46 +1,46 @@
 <div class="view-edit-container">
-    <div class="view-edit-control">
-        <igx-buttongroup class="view-edit-buttongroup">
-            <div class="buttongroup-button-1" [ngClass]="getVisibleState()">
-                @if (viewValue) {
-                <button
-                    id="view-btn-buttongroup"
-                    igxIconButton="flat"
-                    (buttonClick)="handleClick()"
-                >
-                    <igx-icon family="material">visibility</igx-icon>
-                </button>
-                }
-                @if (!viewValue) {
-                <button
-                    id="view-btn-buttongroup"
-                    igxIconButton="flat"
-                    (buttonClick)="handleClick()"
-                >
-                    <igx-icon class="disabled" family="material">visibility</igx-icon>
-                </button>
-                }
-            </div>
-            <div class="buttongroup-button-2" [ngClass]="getHiddenState()">
-                @if (editValue) {
-                <button
-                    id="hidden-btn-buttongroup"
-                    igxIconButton="flat"
-                    (buttonClick)="handleClick()"
-                >
-                    <igx-icon family="material">edit</igx-icon>
-                </button>
-                }
-                @if (!editValue) {
-                <button
-                    id="hidden-btn-buttongroup"
-                    igxIconButton="flat"
-                    (buttonClick)="handleClick()"
-                >
-                    <igx-icon class="disabled" family="material">edit</igx-icon>
-                </button>
-                }
-            </div>
-        </igx-buttongroup>
-    </div>
+  <div class="view-edit-control">
+    <igx-buttongroup class="view-edit-buttongroup">
+      <div class="buttongroup-button-1" [ngClass]="getVisibleState()">
+        @if (viewValue) {
+        <button
+          id="view-btn-buttongroup"
+          igxIconButton="flat"
+          (buttonClick)="handleClick()"
+        >
+          <igx-icon family="material">visibility</igx-icon>
+        </button>
+        }
+        @if (!viewValue) {
+        <button
+          id="view-btn-buttongroup"
+          igxIconButton="flat"
+          (buttonClick)="handleClick()"
+        >
+          <igx-icon class="disabled" family="material">visibility</igx-icon>
+        </button>
+        }
+      </div>
+      <div class="buttongroup-button-2" [ngClass]="getHiddenState()">
+        @if (editValue) {
+        <button
+          id="hidden-btn-buttongroup"
+          igxIconButton="flat"
+          (buttonClick)="handleClick()"
+        >
+          <igx-icon family="material">edit</igx-icon>
+        </button>
+        }
+        @if (!editValue) {
+        <button
+          id="hidden-btn-buttongroup"
+          igxIconButton="flat"
+          (buttonClick)="handleClick()"
+        >
+          <igx-icon class="disabled" family="material">edit</igx-icon>
+        </button>
+        }
+      </div>
+    </igx-buttongroup>
+  </div>
 </div>

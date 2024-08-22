@@ -1,69 +1,69 @@
 <div class="dexo-view-panel-container" igxLayout>
-    <igx-nav-drawer id="navigation" [isOpen]="true" [pin]="true" [pinThreshold]="20">
-        <ng-template igxDrawer>
-            <span
-                igxDrawerItem
-                class="header-item"
-                [isHeader]="true"
-                (click)="navDrawer.toggle()"
-            >
-                <igx-icon class="std-icon custom-icon" family="material">list_alt</igx-icon>
-            </span>
-            <div class="item-container">
-                @for (item of entryItems; track item) {
-                <div
-                    igxDrawerItem
-                    [active]="item.entryNumber === selected"
-                    igxRipple
-                    (click)="navigate(item)"
-                >
-                    <igx-icon class="std-icon" family="material">{{ item.iconSrc }}</igx-icon>
-                    <span>{{ item.entryNumber }} {{ item.name }}</span>
-                </div>
-                }
-            </div>
-            <span igxDrawerItem class="last-item" (click)="navDrawer.toggle()">
-                <button igxIconButton="flat">
-                    <igx-icon class="std-icon custom-icon" family="material">keyboard_arrow_left</igx-icon>
-                </button>
-            </span>
-        </ng-template>
-        <ng-template igxDrawerMini>
-            <span
-                igxDrawerItem
-                class="header-item"
-                [isHeader]="true"
-                (click)="navDrawer.toggle()"
-            >
-                <igx-icon class="std-icon custom-icon" family="material">list_alt</igx-icon>
-            </span>
-            <div class="item-container">
-                @for (item of entryItems; track item) {
-                <span
-                    igxDrawerItem
-                    [active]="item.entryNumber === selected"
-                    igxRipple (click)="navigate(item)"
-                >
-                    <igx-icon class="std-icon" family="material">{{ item.iconSrc }}</igx-icon>
-                </span>
-                }
-            </div>
-            <span
-                igxDrawerItem
-                [isHeader]="true"
-                class="last-item"
-                (click)="navDrawer.toggle()"
-            >
-                <button igxIconButton="flat">
-                    <igx-icon class="std-icon custom-icon last-item" family="material">keyboard_arrow_right</igx-icon>
-                </button>
-            </span>
-        </ng-template>
-    </igx-nav-drawer>
-
-    <div class="view-panel-container" igxFlex>
-        @if (selected >= 0) {
-            <dex-view-panel></dex-view-panel>
+  <igx-nav-drawer id="navigation" [isOpen]="true" [pin]="true" [pinThreshold]="20">
+    <ng-template igxDrawer>
+      <span
+        igxDrawerItem
+        class="header-item"
+        [isHeader]="true"
+        (click)="navDrawer.toggle()"
+      >
+        <igx-icon class="std-icon custom-icon" family="material">list_alt</igx-icon>
+      </span>
+      <div class="item-container">
+        @for (item of entryItems; track item) {
+          <div
+            igxDrawerItem
+            [active]="item.entryNumber === selected"
+            igxRipple
+            (click)="navigate(item)"
+          >
+            <igx-icon class="std-icon" family="material">{{ item.iconSrc }}</igx-icon>
+            <span>{{ item.entryNumber }} {{ item.name }}</span>
+          </div>
         }
-    </div>
+      </div>
+      <span igxDrawerItem class="last-item" (click)="navDrawer.toggle()">
+        <button igxIconButton="flat">
+          <igx-icon class="std-icon custom-icon" family="material">keyboard_arrow_left</igx-icon>
+        </button>
+      </span>
+    </ng-template>
+    <ng-template igxDrawerMini>
+      <span
+        igxDrawerItem
+        class="header-item"
+        [isHeader]="true"
+        (click)="navDrawer.toggle()"
+      >
+        <igx-icon class="std-icon custom-icon" family="material">list_alt</igx-icon>
+      </span>
+      <div class="item-container">
+        @for (item of entryItems; track item) {
+          <span
+            igxDrawerItem
+            [active]="item.entryNumber === selected"
+            igxRipple (click)="navigate(item)"
+          >
+            <igx-icon class="std-icon" family="material">{{ item.iconSrc }}</igx-icon>
+          </span>
+        }
+      </div>
+      <span
+        igxDrawerItem
+        [isHeader]="true"
+        class="last-item"
+        (click)="navDrawer.toggle()"
+      >
+        <button igxIconButton="flat">
+          <igx-icon class="std-icon custom-icon last-item" family="material">keyboard_arrow_right</igx-icon>
+        </button>
+      </span>
+    </ng-template>
+  </igx-nav-drawer>
+
+  <div class="view-panel-container" igxFlex>
+    @if (selected >= 0) {
+      <dex-view-panel></dex-view-panel>
+    }
+  </div>
 </div>

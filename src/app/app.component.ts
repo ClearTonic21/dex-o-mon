@@ -5,11 +5,11 @@ import { DexoContentContainerComponent } from "./components/content-container/co
 import { DexoHeaderComponent } from "./components/header/header.component";
 
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss',
-    imports: [RouterOutlet, DexoFooterComponent, DexoContentContainerComponent, DexoHeaderComponent]
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss',
+  imports: [RouterOutlet, DexoFooterComponent, DexoContentContainerComponent, DexoHeaderComponent]
 })
 export class AppComponent {
   @ViewChild("contentContainer") public contentContainer!: DexoContentContainerComponent;
@@ -18,6 +18,6 @@ export class AppComponent {
   title = 'Dex-o-Mon';
 
   public toggleNavDrawer(): void {
-    this.contentContainer.navDrawer.toggle();
+  this.contentContainer.navDrawer.toggle();
   }
 }

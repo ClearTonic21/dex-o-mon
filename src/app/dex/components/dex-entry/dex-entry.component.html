@@ -1,51 +1,51 @@
 <div class="dex-entry-container">
-    <div class="entry-image-container">
-        <igx-icon class="primary-image" family="material">image</igx-icon>
-        <igx-icon class="additional-image" family="material">image</igx-icon>
-    </div>
-    <div class="entry-cards-container">
-        <igx-list #cardListContainer>
-            @for (employee of employees; track $index) {
-                <div class="card-container"
-                    igxDrop
-                >
-                    <igx-list-item
-                        #dragDirRef="drag"
-                        igxDrop
-                        [igxDrag]="{ id: employee.id, dragged: false }"
-                        (dragStart)="onDragStart($event, $index)"
-                        (dragMove)="onDragMove($event, $index)"
-                        (dragEnd)="onDragEnd($event, $index)"
-                        (transitioned)="onTransitioned($event, $index)"
-                        [ghost]="false"
-                        [class.dragged]="dragDirRef.data && dragDirRef.data.dragged"
-                    >
-                        <h6 igxListLineTitle>{{employee.name}}</h6>
-                        <div igxListLineSubTitle>{{employee.title}}</div>
-                        <igx-icon role="drag-dots" igxSuffix igxDragHandle igxListAction family="material">drag_indicator</igx-icon>
-                    </igx-list-item>
-                </div>
-            }
-            <div class="card-container">
-                <igx-list-item
-                    class="new-card-item"
-                    (click)="addEntryCard()"
-                >
-                    <igx-icon family="material">add_circle</igx-icon>
-                </igx-list-item>
-            </div>
-        </igx-list>
-    </div>
-    <div class="dex-entry-control-container">
-        <div class="entry-control-buttons">
-            <view-edit-button
-                id="dex-entry-view-edit-button"
-                defaultValue="true"
-            ></view-edit-button>
+  <div class="entry-image-container">
+    <igx-icon class="primary-image" family="material">image</igx-icon>
+    <igx-icon class="additional-image" family="material">image</igx-icon>
+  </div>
+  <div class="entry-cards-container">
+    <igx-list #cardListContainer>
+      @for (employee of employees; track $index) {
+        <div class="card-container"
+          igxDrop
+        >
+          <igx-list-item
+            #dragDirRef="drag"
+            igxDrop
+            [igxDrag]="{ id: employee.id, dragged: false }"
+            (dragStart)="onDragStart($event, $index)"
+            (dragMove)="onDragMove($event, $index)"
+            (dragEnd)="onDragEnd($event, $index)"
+            (transitioned)="onTransitioned($event, $index)"
+            [ghost]="false"
+            [class.dragged]="dragDirRef.data && dragDirRef.data.dragged"
+          >
+            <h6 igxListLineTitle>{{employee.name}}</h6>
+            <div igxListLineSubTitle>{{employee.title}}</div>
+            <igx-icon role="drag-dots" igxSuffix igxDragHandle igxListAction family="material">drag_indicator</igx-icon>
+          </igx-list-item>
         </div>
-        <div class="entry-scroll-bar-container">
-            <dexo-scroll-bar
-            ></dexo-scroll-bar>
-        </div>
+      }
+      <div class="card-container">
+        <igx-list-item
+          class="new-card-item"
+          (click)="addEntryCard()"
+        >
+          <igx-icon family="material">add_circle</igx-icon>
+        </igx-list-item>
+      </div>
+    </igx-list>
+  </div>
+  <div class="dex-entry-control-container">
+    <div class="entry-control-buttons">
+      <view-edit-button
+        id="dex-entry-view-edit-button"
+        defaultValue="true"
+      ></view-edit-button>
     </div>
+    <div class="entry-scroll-bar-container">
+      <dexo-scroll-bar
+      ></dexo-scroll-bar>
+    </div>
+  </div>
 </div>

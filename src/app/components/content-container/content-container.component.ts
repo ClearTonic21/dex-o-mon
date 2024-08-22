@@ -6,11 +6,11 @@ import { DexoHeaderComponent } from "../header/header.component";
 import { DexEntry } from '../../dex/models/dex-entry';
 
 @Component({
-    selector: 'dexo-content-container',
-    standalone: true,
-    templateUrl: './content-container.component.html',
-    styleUrl: './content-container.component.scss',
-    imports: [IgxButtonModule, IgxIconModule, IgxNavigationDrawerModule, IgxNavDrawerItemDirective, IgxFlexDirective, DexoFooterComponent, DexViewPanelComponent, DexoHeaderComponent]
+  selector: 'dexo-content-container',
+  standalone: true,
+  templateUrl: './content-container.component.html',
+  styleUrl: './content-container.component.scss',
+  imports: [IgxButtonModule, IgxIconModule, IgxNavigationDrawerModule, IgxNavDrawerItemDirective, IgxFlexDirective, DexoFooterComponent, DexViewPanelComponent, DexoHeaderComponent]
 })
 export class DexoContentContainerComponent  {
   @ViewChild(IgxNavigationDrawerComponent, { static: true }) public navDrawer!: IgxNavigationDrawerComponent;
