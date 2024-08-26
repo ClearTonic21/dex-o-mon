@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DexoToolbarComponent } from './header.component';
+import { DexoHeaderComponent } from './header.component';
 
-describe('DexoNavbarComponent', () => {
-  let component: DexoToolbarComponent;
-  let fixture: ComponentFixture<DexoToolbarComponent>;
+describe('DexoHeaderComponent', () => {
+  let component: DexoHeaderComponent;
+  let fixture: ComponentFixture<DexoHeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DexoToolbarComponent]
+      imports: [DexoHeaderComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DexoToolbarComponent);
+    fixture = TestBed.createComponent(DexoHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -3,19 +3,18 @@ import { Component, Input } from '@angular/core';
 
 export interface INavigation {
   id: string;
-  name: string;
-  displayName: string;
+  title: string;
 }
 
 @Component({
-  selector: 'dexo-scroll-bar',
+  selector: 'entry-scroll-bar',
   standalone: true,
   imports: [NgClass],
-  templateUrl: './dexo-scroll-bar.component.html',
-  styleUrl: './dexo-scroll-bar.component.scss'
+  templateUrl: './entry-scroll-bar.component.html',
+  styleUrl: './entry-scroll-bar.component.scss'
 })
-export class DexoScrollBarComponent {
-  @Input() public scrollbarList: INavigation[] = [];
+export class EntryScrollBarComponent {
+  @Input() public scrollbarList: any[] = [];
   @Input() public selectedItemCount!: number;
   @Input() public batchedFilter: string[] = [];
   public hasItems: boolean = false;

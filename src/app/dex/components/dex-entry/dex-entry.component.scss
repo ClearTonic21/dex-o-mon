@@ -8,47 +8,54 @@
   flex-flow: column;
   align-items: center;
   padding: 0 8rem 0 4rem;
-  height: 73vh;
+  height: 30vh;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
+.image-container {
+  border: 2px solid #38EEB4;
+  z-index: 0;
+}
+
 .primary-image {
-  border: solid 2px hotpink;
   padding: 8rem;
   margin: 0 0 1rem 0;
   justify-content: center;
   align-items: center;
 }
 
+.additional-images-container {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+}
+
 .additional-image {
-  border: solid 2px hotpink;
   padding: 6rem;
   margin: 0 0 1rem 0;
-  justify-content: center;
+  justify-self: center;
   align-items: center;
+  width: min-content;
 }
 
 .entry-cards-container {
   width: 100%;
-  padding: 0 8rem 0 4rem;
+  padding: 0 2rem;
   height: 73vh;
   overflow-y: scroll;
   color: #212121;
 }
 
 .card-container {
-  display: flex;
-  justify-content: center;
   margin: 2px;
   color: #212121;
 
-  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%237fffd4' stroke-width='4' stroke-dasharray='6%2c 14' stroke-dashoffset='2' stroke-linecap='square'/%3e%3c/svg%3e");  z-index: 0;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%2338EEB4' stroke-width='4' stroke-dasharray='6%2c 14' stroke-dashoffset='2' stroke-linecap='square'/%3e%3c/svg%3e");  z-index: 0;
   igx-icon {
     cursor: move;
     user-select: none;
     color: #212121;
-
   }
 }
 
@@ -65,7 +72,7 @@
   height: fit-content;
 }
 
-.new-card-item {
+.new-item-button {
   background: whitesmoke;
   width: 100%;
   color: #212121;
@@ -77,6 +84,10 @@
     user-select: none;
     background: 0;
     color: #212121;
+  }
+
+  &.hover {
+    background: whitesmoke;
   }
 
   div.igx-list__item-content {
@@ -99,6 +110,7 @@
     width: 99%;
     margin: 4px;
     min-height: 5rem;
+    background-color: lightgray;
 
     &.dragged {
       box-shadow: elevation(8);

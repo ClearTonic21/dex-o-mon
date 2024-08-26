@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DexoNavigationBarComponent } from './dexo-scroll-bar.component';
+import { DexoNavigationBarComponent } from './entry-scroll-bar.component';
 
 describe('DexoNavigationBarComponent', () => {
   let component: DexoNavigationBarComponent;

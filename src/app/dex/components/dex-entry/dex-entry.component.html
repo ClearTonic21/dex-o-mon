@@ -1,18 +1,38 @@
 <div class="dex-entry-container">
-  <div class="entry-image-container">
-    <igx-icon class="primary-image" family="material">image</igx-icon>
-    <igx-icon class="additional-image" family="material">image</igx-icon>
+  <div class="image-cards-container">
+    <div class="primary-image image-container">
+      <igx-icon family="material">image</igx-icon>
+    </div>
+    <div class="additional-images-container">
+      <igx-list #imageListContainer>
+      @for (image of imageCards; track $index) {
+        <div class="additional-image image-container">
+          <igx-list-item>
+            <igx-icon family="material">{{ image.source }}</igx-icon>
+          </igx-list-item>
+        </div>
+      }
+      <div class="additional-image image-container">
+        <igx-list-item
+          class="new-item-button"
+          (click)="addImageCard()"
+        >
+          <igx-icon family="material">add_circle</igx-icon>
+        </igx-list-item>
+      </div>
+    </igx-list>
+    </div>
   </div>
   <div class="entry-cards-container">
     <igx-list #cardListContainer>
-      @for (employee of employees; track $index) {
+      @for (card of entryCards; track $index) {
         <div class="card-container"
           igxDrop
         >
           <igx-list-item
             #dragDirRef="drag"
             igxDrop
-            [igxDrag]="{ id: employee.id, dragged: false }"
+            [igxDrag]="{ id: card.index, dragged: false }"
             (dragStart)="onDragStart($event, $index)"
             (dragMove)="onDragMove($event, $index)"
             (dragEnd)="onDragEnd($event, $index)"
@@ -20,15 +40,16 @@
             [ghost]="false"
             [class.dragged]="dragDirRef.data && dragDirRef.data.dragged"
           >
-            <h6 igxListLineTitle>{{employee.name}}</h6>
-            <div igxListLineSubTitle>{{employee.title}}</div>
-            <igx-icon role="drag-dots" igxSuffix igxDragHandle igxListAction family="material">drag_indicator</igx-icon>
+            <h6 class="card-title" igxListLineTitle>{{ card.title }}</h6>
+            <div class="card-value" igxListLineSubTitle>{{ card.value }}</div>
+            <igx-icon role="delete-icon" igxSuffix family="material">trash_can</igx-icon>
+            <igx-icon role="drag-dots" igxSuffix igxDragHandle family="material">drag_indicator</igx-icon>
           </igx-list-item>
         </div>
       }
       <div class="card-container">
         <igx-list-item
-          class="new-card-item"
+          class="new-item-button"
           (click)="addEntryCard()"
         >
           <igx-icon family="material">add_circle</igx-icon>
@@ -44,8 +65,9 @@
       ></view-edit-button>
     </div>
     <div class="entry-scroll-bar-container">
-      <dexo-scroll-bar
-      ></dexo-scroll-bar>
+      <entry-scroll-bar
+        [scrollbarList]="entryCards"
+      ></entry-scroll-bar>
     </div>
   </div>
 </div>

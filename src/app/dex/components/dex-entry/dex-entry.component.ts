@@ -1,12 +1,13 @@
 import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { IDragBaseEventArgs, IDragMoveEventArgs, IgxDragDirective, IgxDragDropModule, IgxDragLocation, IgxIconComponent, IgxListActionDirective, IgxListComponent, IgxListItemComponent } from 'igniteui-angular';
-import { DexoScrollBarComponent, INavigation } from "../../../lib/dexo-scroll-bar/dexo-scroll-bar.component";
+import { EntryScrollBarComponent } from "../../../lib/entry-scroll-bar/entry-scroll-bar.component";
 import { ViewEditButtonComponent } from "../../../lib/view-edit-button/view-edit-button.component";
+import { EntryCard, ImageCard } from '../../models/entry-card';
 
 @Component({
   selector: 'dex-entry',
   standalone: true,
-  imports: [IgxIconComponent, IgxListComponent, IgxListItemComponent, IgxDragDropModule, DexoScrollBarComponent, ViewEditButtonComponent],
+  imports: [IgxIconComponent, IgxListComponent, IgxListItemComponent, IgxDragDropModule, EntryScrollBarComponent, ViewEditButtonComponent],
   templateUrl: './dex-entry.component.html',
   styleUrl: './dex-entry.component.scss'
 })
@@ -14,24 +15,19 @@ export class DexEntryComponent {
   @ViewChild('cardListContainer', { read: ElementRef }) public cardListContainer!: ElementRef;
   @ViewChildren('dragDirRef', { read: IgxDragDirective }) public dragDirs!: QueryList<IgxDragDirective>;
 
-  public employees = [
-    { id: 0, name: 'Ivan', title: 'Senior Product Owner' },
-    { id: 1, name: 'Amish', title: 'Business Tools Director' },
-    { id: 2, name: 'Elsi', title: 'Financial Director' },
-    { id: 3, name: 'Benito', title: 'Marketing Specialist' },
-    { id: 4, name: 'Beth', title: 'Platform Lead for Web' }
+  public entryCards: EntryCard[] = [
+    new EntryCard( 0, 'Name', 'Unown' ),
+    new EntryCard( 1, 'Type', 'Psychic' ),
+    new EntryCard( 2, 'Category', 'The Symbol Pokémon' ),
   ];
 
-  public categoriesCards: INavigation[] = [
-    { id: 'general-card', name: 'General', displayName: 'Senior Product Owner' },
-    { id: 'display-card', name: 'Display', displayName:'Business Tools Director' },
-    { id: 'behavior-card', name: 'Behavior', displayName: 'Marketing Specialist' },
-    { id: 'information-card', name: 'Information', displayName: 'Platform Lead for Web'  }
+  public imageCards: ImageCard[] = [
+    new ImageCard( 0, 'New' ),
   ];
 
   public newIndex: any = null;
   public animationDuration = 0.3;
-  private listItemHeight = 72;
+  private listItemHeight = 92;
   public editMode: boolean = false;
 
   // Drag & Drop methods
@@ -85,7 +81,7 @@ export class DexEntryComponent {
     const relativePosY = event.nextPageY - containerPosY;
 
     let newIndex = Math.floor(relativePosY / this.listItemHeight);
-    newIndex = newIndex < 0 ? 0 : (newIndex >= this.employees.length ? this.employees.length - 1 : newIndex);
+    newIndex = newIndex < 0 ? 0 : (newIndex >= this.entryCards.length ? this.entryCards.length - 1 : newIndex);
     if (newIndex === this.newIndex) {
       // If the current new index is unchanged do nothing.
       return;
@@ -97,7 +93,7 @@ export class DexEntryComponent {
       // If we are moving the dragged element down and the new index is bigger than the current
       // this means that the element we are stepping into is not shifted up and should be shifted.
       // Same if we moving the dragged element up and the new index is smaller than the current.
-      const elementToMove = this.getDragDirectiveRef(this.employees[newIndex].id);
+      const elementToMove = this.getDragDirectiveRef(this.entryCards[newIndex].index);
       const currentLocation = elementToMove.location;
       const prefix = movingDown ? -1 : 1;
       elementToMove.transitionTo(
@@ -108,7 +104,7 @@ export class DexEntryComponent {
       // Otherwise if are moving up but the new index is still bigger than the current, this means that
       // the item we are stepping into is already shifted and should be returned to its original position.
       // Same if we are moving down and the new index is still smaller than the current.
-      const elementToMove = this.getDragDirectiveRef(this.employees[this.newIndex].id);
+      const elementToMove = this.getDragDirectiveRef(this.entryCards[this.newIndex].index);
       elementToMove.transitionToOrigin({ duration: this.animationDuration });
     }
 
@@ -117,11 +113,11 @@ export class DexEntryComponent {
 
   private shiftElements(draggedIndex: number, targetIndex: number) {
     // Move the dragged element in DOM to the new position.
-    const movedElem = this.employees.splice(draggedIndex, 1);
-    this.employees.splice(targetIndex, 0, movedElem[0]);
+    const movedElem = this.entryCards.splice(draggedIndex, 1);
+    this.entryCards.splice(targetIndex, 0, movedElem[0]);
 
     this.dragDirs.forEach((dir) => {
-      if (this.employees[targetIndex].id !== dir.data.id) {
+      if (this.entryCards[targetIndex].index !== dir.data.index) {
         // Reset each element its location since it will be repositioned in the DOM except the element we drag.
         dir.setLocation(dir.originLocation);
         dir.data.shifted = false;
@@ -131,6 +127,10 @@ export class DexEntryComponent {
 
   // component methods
   public addEntryCard(): void {
-    this.employees.push({ id: this.employees.length, name: 'New', title: 'Undefined' })
+    this.entryCards.push(new EntryCard (this.entryCards.length, 'New', 'Undefined'))
+  }
+
+  public addImageCard(): void {
+    this.imageCards.push( new ImageCard( this.imageCards.length, 'New'))
   }
 }

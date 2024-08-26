@@ -2,3 +2,8 @@
 .std-icon {
   --size: 40px;
 }
+
+body {
+  overflow-y: hidden;
+  height: 100vh;
+}
