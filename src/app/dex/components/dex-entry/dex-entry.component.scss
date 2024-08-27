@@ -3,15 +3,34 @@
   column-gap: 2px;
 }
 
-.entry-image-container {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  padding: 0 8rem 0 4rem;
-  height: 30vh;
-  overflow-y: scroll;
-  overflow-x: hidden;
+.image-cards-container {
+  min-width: 22rem;
+  max-width: 22rem;
+  overflow-x: scroll;
+  padding: 0 1rem;
+  justify-content: center;
+
+  igx-list {
+    overflow-y: hidden;
+    overflow-x: scroll;
+    background: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  igx-list-item {
+    z-index: 0;
+    min-height: 0;
+    background: 0;
+
+    &.dragged {
+      box-shadow: elevation(8);
+      z-index: 100;
+    }
+  }
 }
+
 
 .image-container {
   border: 2px solid #38EEB4;
@@ -25,19 +44,20 @@
   align-items: center;
 }
 
-.additional-images-container {
-  display: flex;
-  flex-direction: column;
-  width: 20rem;
-}
+// .additional-images-container {
+//   border: 2px solid pink;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+// }
 
-.additional-image {
-  padding: 6rem;
-  margin: 0 0 1rem 0;
-  justify-self: center;
-  align-items: center;
-  width: min-content;
-}
+// .additional-image {
+//   padding: 6rem;
+//   margin: 0 0 1rem 0;
+//   justify-self: center;
+//   align-items: center;
+//   width: min-content;
+// }
 
 .entry-cards-container {
   width: 100%;
@@ -50,44 +70,30 @@
 .card-container {
   margin: 2px;
   color: #212121;
-
-  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%2338EEB4' stroke-width='4' stroke-dasharray='6%2c 14' stroke-dashoffset='2' stroke-linecap='square'/%3e%3c/svg%3e");  z-index: 0;
-  igx-icon {
-    cursor: move;
-    user-select: none;
-    color: #212121;
-  }
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%2338EEB4' stroke-width='4' stroke-dasharray='6%2c 14' stroke-dashoffset='2' stroke-linecap='square'/%3e%3c/svg%3e");
 }
 
-.dex-entry-control-container {
-  width: fit-content;
-  background-color: gray;
-  border: solid 1px rgb(70, 70, 70);
+igx-icon[role="drag-icon"] {
+  cursor: move;
+  user-select: none;
+  background: 0;
 }
 
-.entry-control-buttons {
-  background-color: rgb(126, 126, 126);;
-  border-radius: 3px;
-  gap: 4px;
-  height: fit-content;
+igx-icon[role="delete-icon"] {
+  cursor: pointer;
+  background: 0;
 }
 
 .new-item-button {
-  background: whitesmoke;
+  background-color: lightgray;
   width: 100%;
   color: #212121;
   cursor: pointer;
   align-items: center;
 
-  igx-icon {
-    cursor: pointer;
-    user-select: none;
-    background: 0;
-    color: #212121;
-  }
-
   &.hover {
-    background: whitesmoke;
+    background-color: whitesmoke;
   }
 
   div.igx-list__item-content {
@@ -109,12 +115,27 @@
     z-index: 0;
     width: 99%;
     margin: 4px;
+    justify-self: center;
     min-height: 5rem;
     background-color: lightgray;
 
     &.dragged {
       box-shadow: elevation(8);
       z-index: 100;
+      background-color: whitesmoke;
     }
   }
+}
+
+.dex-entry-control-container {
+  width: fit-content;
+  background-color: gray;
+  border: solid 1px rgb(70, 70, 70);
+}
+
+.entry-control-buttons {
+  background-color: rgb(126, 126, 126);;
+  border-radius: 3px;
+  gap: 4px;
+  height: fit-content;
 }

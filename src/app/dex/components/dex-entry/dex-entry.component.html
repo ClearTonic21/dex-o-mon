@@ -1,58 +1,58 @@
 <div class="dex-entry-container">
+  <div class=""></div>
   <div class="image-cards-container">
-    <div class="primary-image image-container">
-      <igx-icon family="material">image</igx-icon>
-    </div>
-    <div class="additional-images-container">
       <igx-list #imageListContainer>
-      @for (image of imageCards; track $index) {
-        <div class="additional-image image-container">
-          <igx-list-item>
-            <igx-icon family="material">{{ image.source }}</igx-icon>
-          </igx-list-item>
-        </div>
-      }
-      <div class="additional-image image-container">
-        <igx-list-item
-          class="new-item-button"
-          (click)="addImageCard()"
-        >
-          <igx-icon family="material">add_circle</igx-icon>
-        </igx-list-item>
-      </div>
-    </igx-list>
-    </div>
+        @for (image of imageCards; track $index) {
+          <div class="primary-image image-container">
+            <igx-list-item id="image-card-{{image.source}}" >
+              @if (image.source != 'image') {
+                <igx-icon family="material">{{ image.source }}</igx-icon>
+              }
+              @else {
+                <igx-icon family="material">image</igx-icon>
+              }
+            </igx-list-item>
+          </div>
+        }
+      </igx-list>
   </div>
   <div class="entry-cards-container">
     <igx-list #cardListContainer>
       @for (card of entryCards; track $index) {
-        <div class="card-container"
+      <div class="card-container" igxDrop>
+        <igx-list-item
+          id="entry-card-{{card.guid}}"
+          #dragDirRef="drag"
           igxDrop
+          [igxDrag]="{ id: card.index, dragged: false }"
+          (dragStart)="onDragStart($event, $index)"
+          (dragMove)="onDragMove($event, $index)"
+          (dragEnd)="onDragEnd($event, $index)"
+          (transitioned)="onTransitioned($event, $index)"
+          [ghost]="false"
+          [class.dragged]="dragDirRef.data && dragDirRef.data.dragged"
         >
-          <igx-list-item
-            #dragDirRef="drag"
-            igxDrop
-            [igxDrag]="{ id: card.index, dragged: false }"
-            (dragStart)="onDragStart($event, $index)"
-            (dragMove)="onDragMove($event, $index)"
-            (dragEnd)="onDragEnd($event, $index)"
-            (transitioned)="onTransitioned($event, $index)"
-            [ghost]="false"
-            [class.dragged]="dragDirRef.data && dragDirRef.data.dragged"
-          >
-            <h6 class="card-title" igxListLineTitle>{{ card.title }}</h6>
-            <div class="card-value" igxListLineSubTitle>{{ card.value }}</div>
-            <igx-icon role="delete-icon" igxSuffix family="material">trash_can</igx-icon>
-            <igx-icon role="drag-dots" igxSuffix igxDragHandle family="material">drag_indicator</igx-icon>
-          </igx-list-item>
-        </div>
+          <h6 class="card-title" igxListLineTitle>{{ card.title }}</h6>
+          <div class="card-value" igxListLineSubTitle>{{ card.value }}</div>
+          <igx-icon
+            role="delete-icon"
+            igxSuffix family="material"
+            (click)="deleteEntryCard(card.index)"
+          >delete</igx-icon>
+          <igx-icon
+            role="drag-icon"
+            igxSuffix igxDragHandle
+            family="material"
+          >drag_indicator</igx-icon>
+        </igx-list-item>
+      </div>
       }
       <div class="card-container">
         <igx-list-item
           class="new-item-button"
           (click)="addEntryCard()"
         >
-          <igx-icon family="material">add_circle</igx-icon>
+          <igx-icon role="add-icon" family="material">add_circle</igx-icon>
         </igx-list-item>
       </div>
     </igx-list>

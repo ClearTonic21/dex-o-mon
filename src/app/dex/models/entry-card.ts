@@ -27,4 +27,8 @@ export class ImageCard {
     this.title = title;
     this.source = value || `${DexoIcon.Image}`;
   }
+
+  public toString = () : string => {
+    return this.source;
+  }
 }

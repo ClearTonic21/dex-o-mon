@@ -22,7 +22,8 @@ export class DexEntryComponent {
   ];
 
   public imageCards: ImageCard[] = [
-    new ImageCard( 0, 'New' ),
+    new ImageCard( 0, 'New'),
+    new ImageCard( 1, 'New'),
   ];
 
   public newIndex: any = null;
@@ -127,10 +128,16 @@ export class DexEntryComponent {
 
   // component methods
   public addEntryCard(): void {
-    this.entryCards.push(new EntryCard (this.entryCards.length, 'New', 'Undefined'))
+    this.entryCards.push(new EntryCard (this.entryCards.length, 'New', 'Undefined'));
+  }
+
+  public deleteEntryCard(index: number): void {
+    if (index >= 0) {
+      this.entryCards.splice(index, 1);
+    }
   }
 
   public addImageCard(): void {
-    this.imageCards.push( new ImageCard( this.imageCards.length, 'New'))
+    this.imageCards.push( new ImageCard( this.imageCards.length, 'New'));
   }
 }
