@@ -1,13 +1,13 @@
-.dexo-view-panel-container {
+.inner-content-container {
   display: flex;
-  height: 100%;
-  padding: 8px 8px 0px;
+  height: 85vh;
+  padding: 8px;
   color: #212121;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
 
-.dexo-view-panel-container::-webkit-scrollbar {
+.inner-content-container::-webkit-scrollbar {
   display: none;
 }
 
