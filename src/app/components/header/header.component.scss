@@ -22,6 +22,7 @@ $custom-button-theme: button-theme(
   $background: #345779,
   $foreground: #fdfdfd,
 );
+
 @include css-vars($custom-navbar-theme);
 @include css-vars($custom-drop-down-theme);
 @include css-vars($custom-button-theme);
@@ -35,6 +36,11 @@ $custom-button-theme: button-theme(
   }
 }
 
+.igx-navbar,
+.header-container {
+  min-height: 6vh;
+  max-height: 0;
+}
 
 .header-button {
   display: flex;

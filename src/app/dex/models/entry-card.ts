@@ -32,3 +32,19 @@ export class ImageCard {
     return this.source;
   }
 }
+
+export class InfoSection {
+  public index: number = -1;
+  public title: string = 'new';
+  public value: string = '';
+
+  constructor(index: number, title: string, value?: string) {
+    this.index = index;
+    this.title = title;
+    this.value = value || '';
+  }
+
+  public toString = () : string => {
+    return `${this.title}:  ${this.value}`;
+  }
+}

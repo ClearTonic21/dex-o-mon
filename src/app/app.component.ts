@@ -1,4 +1,4 @@
-import { Component, ViewChild, viewChild } from '@angular/core';
+import { Component, Output, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { DexoFooterComponent } from './components/footer/footer.component';
 import { DexoContentContainerComponent } from "./components/content-container/content-container.component";
@@ -13,9 +13,7 @@ import { DexoHeaderComponent } from "./components/header/header.component";
 })
 export class AppComponent {
   @ViewChild("contentContainer") public contentContainer!: DexoContentContainerComponent;
-
-  // And of course add the key line to our navigate function
-  title = 'Dex-o-Mon';
+  @Output() public title: string = 'Dex-o-Mon';
 
   public toggleNavDrawer(): void {
   this.contentContainer.navDrawer.toggle();
