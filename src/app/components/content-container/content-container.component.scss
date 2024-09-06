@@ -1,7 +1,7 @@
 .inner-content-container {
   display: flex;
   height: 85vh;
-  padding: 8px;
+  padding: 0.5rem;
   color: #212121;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
@@ -17,7 +17,7 @@
 }
 
 .item-container {
-  height: 70vh;
+  height: 69vh;
   overflow-y: scroll;
   overflow-x: hidden;
   -ms-overflow-style: none;  /* IE and Edge */
@@ -30,17 +30,43 @@
 
 .view-panel-container {
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
 }
 
-:host {
-  display: block;
+aside {
+  display: flex;
+  flex-direction: column;
+}
+
+igx-nav-drawer__aside--normal,
+igx-nav-drawer__aside--pinned,
+igx-nav-drawer__aside {
+  display: flex;
+  flex-direction: column;
+}
+
+.igx-nav-drawer__aside,
+.igx-nav-drawer__aside--normal,
+.igx-nav-drawer__aside--pinned,
+.igx-nav-drawer__aside--mini {
+  display: flex;
+  flex-direction: column;
+}
+
+[role="navigation"] {
+  display: flex;
+  flex-direction: column;
+}
+
+igx-nav-drawer > aside {
+  display: flex;
+  flex-direction: column;
 }
 
 .header-item {
   cursor: pointer;
   z-index: 5;
-  padding: 8px 0px;
+  padding: 0.5rem 0;
   align-items: center;
   justify-content: center;
   background-color: #38EEB4;
@@ -49,7 +75,7 @@
 }
 
 .last-item {
-  padding: 8px 0px;
+  padding: 0.5rem 0;
   align-items: center;
   justify-content: center;
 }

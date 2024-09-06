@@ -1,0 +1,55 @@
+.info-panel-container {
+  height: 100%;
+
+  igx-list {
+    background-color: lightgray;
+    justify-content: start;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: 0;
+    gap: 1rem;
+    height: 40vh;
+  }
+
+  igx-list-item {
+    z-index: 0;
+    width: 99%;
+    margin: 4px;
+    min-height: 0;
+    min-height: 3rem;
+    background-color: lightgray;
+
+    &.dragged {
+      box-shadow: elevation(8);
+      z-index: 100;
+      background-color: whitesmoke;
+    }
+  }
+}
+
+.igx-expansion-panel__body {
+  padding: 0.5rem 0.25rem 0 0;
+
+}
+
+.card-title {
+  color: #212121;
+}
+
+.new-item-button {
+  background-color: lightgray;
+  width: 100%;
+  color: #212121;
+  cursor: pointer;
+  align-items: center;
+
+  &.hover {
+    background-color: whitesmoke;
+  }
+
+  div.igx-list__item-content {
+    width: 100%;
+    justify-content: center;
+  }
+}
+

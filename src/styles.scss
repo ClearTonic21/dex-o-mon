@@ -12,3 +12,16 @@ igx-divider {
   margin: 10px 0;
   padding: 1px;
 }
+
+:root {
+  --std-icon-size: 2.5rem;
+  --std-text-color: #212121;
+  --dex-bg-color: #5f7575;
+  --footer-bg-color: #444444;;
+  --accent-light-color: #38EEB4;
+  --accent-color: #ABFFE4;
+  --accent-dark-color: #1a5442;
+
+  --card-bg-color: lightgray;
+  --card-hover-bg-color: whitesmoke;
+}

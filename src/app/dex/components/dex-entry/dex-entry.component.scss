@@ -1,27 +1,35 @@
 .dex-entry-container {
   display: flex;
-  column-gap: 2px;
+}
+
+.primary-info-column {
+  height: 82vh;
 }
 
 .image-cards-container {
-  min-width: 22rem;
-  max-width: 22rem;
-  overflow-x: scroll;
-  padding: 0 1rem;
+  display: flex;
+  width: 22rem;
+  height: 17rem;
+  padding: 0 2.5rem;
   justify-content: center;
+  align-content: center;
+  box-shadow: elevation(2);
 
   igx-list {
+    display: flex;
     overflow-y: hidden;
     overflow-x: scroll;
     background: 0;
-    display: flex;
     flex-direction: row;
-    gap: 1rem;
+    gap: 0.5rem;
   }
 
   igx-list-item {
+    display: flex;
     z-index: 0;
     min-height: 0;
+    justify-content: center;
+    align-content: center;
     background: 0;
 
     &.dragged {
@@ -31,46 +39,43 @@
   }
 }
 
-
-.image-container {
-  border: 2px solid #38EEB4;
+.primary-image-container {
+  border: 0.125rem solid #38EEB4;
+  display: flex;
   z-index: 0;
-}
-
-.primary-image {
-  padding: 8rem;
-  margin: 0 0 1rem 0;
+  padding: 0.25rem;
   justify-content: center;
   align-items: center;
+  min-height: 17rem;
+  min-width: 17rem;
+  max-height: 17rem;
+  max-width: 17rem;
 }
 
-// .additional-images-container {
-//   border: 2px solid pink;
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: center;
-// }
-
-// .additional-image {
-//   padding: 6rem;
-//   margin: 0 0 1rem 0;
-//   justify-self: center;
-//   align-items: center;
-//   width: min-content;
-// }
 
 .entry-cards-container {
+width: stretch;
+  padding: 0 1rem;
+  height: 82vh;
   width: 100%;
-  padding: 0 2rem;
-  height: 73vh;
+  color: var(--std-text-color);
+  display: flex;
   overflow-y: scroll;
-  color: #212121;
+  overflow-x: hidden;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.entry-cards-container::-webkit-scrollbar {
+  display: none;
 }
 
 .card-container {
-  margin: 2px;
+  margin: 0.125rem;
   color: #212121;
   z-index: 0;
+  display: flex;
+  justify-content: center;
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%2338EEB4' stroke-width='4' stroke-dasharray='6%2c 14' stroke-dashoffset='2' stroke-linecap='square'/%3e%3c/svg%3e");
 }
 
@@ -86,14 +91,14 @@ igx-icon[role="delete-icon"] {
 }
 
 .new-item-button {
-  background-color: lightgray;
+  background-color: var(--card-bg-color);
   width: 100%;
   color: #212121;
   cursor: pointer;
   align-items: center;
 
   &.hover {
-    background-color: whitesmoke;
+    background-color: var(--card-hover-bg-color);
   }
 
   div.igx-list__item-content {
@@ -104,38 +109,42 @@ igx-icon[role="delete-icon"] {
 
 :host {
   display: block;
-  margin: 16px;
+  margin: 0 1rem 0 1rem;
 
   igx-list {
-    overflow: hidden;
+    width: 100%;
     background: 0;
   }
 
   igx-list-item {
     z-index: 0;
     width: 99%;
-    margin: 4px;
+    margin: 0.25rem;
     justify-self: center;
     min-height: 5rem;
-    background-color: lightgray;
+    background-color: var(--card-bg-color);
+
+    &.hover {
+      background-color: var(--card-hover-bg-color);
+    }
 
     &.dragged {
       box-shadow: elevation(8);
       z-index: 100;
-      background-color: whitesmoke;
+      background-color: var(--card-hover-bg-color);;
     }
   }
 }
 
 .dex-entry-control-container {
-  width: fit-content;
-  background-color: gray;
-  border: solid 1px rgb(70, 70, 70);
+  min-height: 82vh;
+  background-color: var(--footer-bg-color);
+  border: solid 0.125rem var(--std-text-color);
 }
 
 .entry-control-buttons {
-  background-color: rgb(126, 126, 126);;
-  border-radius: 3px;
-  gap: 4px;
+  background-color: var(--card-hover-bg-color);
+  border-radius: 0.25rem;
+  gap: 0.25rem;
   height: fit-content;
 }

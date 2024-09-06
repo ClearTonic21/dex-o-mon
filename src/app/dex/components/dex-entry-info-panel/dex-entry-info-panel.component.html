@@ -1,0 +1,47 @@
+
+<div class="info-panel-container">
+  <igx-expansion-panel class="my-expansion-panel">
+    <igx-expansion-panel-header [iconPosition]="'right'">
+      <igx-expansion-panel-title>
+        DexEntry
+      </igx-expansion-panel-title>
+      <igx-expansion-panel-description>
+        Primary Information
+      </igx-expansion-panel-description>
+      <igx-expansion-panel-icon>
+        @if (panel.collapsed) {
+          <igx-icon family="material">unfold_more</igx-icon>
+        }
+        @else {
+          <igx-icon family="material">unfold_less</igx-icon>
+        }
+      </igx-expansion-panel-icon>
+    </igx-expansion-panel-header>
+    <igx-expansion-panel-body>
+      <igx-list #infoListContainer>
+        @for (infoSec of infoSections; track $index) {
+          <div class="info-sec-container" id="info-sec-{{infoSec.title}}">
+            <igx-list-item>
+              <h6 class="card-title" igxListLineTitle>
+                {{ infoSec.title }}
+              </h6>
+              <div class="card-value" igxListLineSubTitle>
+                {{ infoSec.value }}
+              </div>
+            </igx-list-item>
+          </div>
+        }
+        <div
+        class="info-sec-container"
+        id="info-sec-add-button">
+          <igx-list-item
+            class="new-item-button"
+            (click)="addInfoSec()"
+          >
+            <igx-icon role="add-icon" family="material">add_circle</igx-icon>
+          </igx-list-item>
+        </div>
+      </igx-list>
+    </igx-expansion-panel-body>
+  </igx-expansion-panel>
+</div>

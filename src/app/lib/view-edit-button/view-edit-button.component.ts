@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input, OnInit, ViewEncapsulation, forwardRef } from '@angular/core';
+import { Component, Input, OnInit, Output, ViewEncapsulation, forwardRef } from '@angular/core';
 import { FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IgxButtonGroupComponent, IgxIconComponent } from 'igniteui-angular';
 
@@ -12,14 +12,16 @@ import { IgxButtonGroupComponent, IgxIconComponent } from 'igniteui-angular';
 })
 
 export class ViewEditButtonComponent implements OnInit {
-  @Input()  public formControlName!: string;
+  @Input() public formControlName!: string;
   @Input() public formGroup!: FormGroup;
   @Input() public id!: string;
   @Input() public label!: string;
   @Input() public labelPosition: 'left' | 'right' = 'left';
   @Input() public required: boolean = false;
   @Input() public invert: boolean = false; // This.invert ensures that this.value is inverted. True will show Hidden instead of Visible.
+  @Output() public editMode: boolean = false;
   // @Input() public valueSetters?: IControlValueSetters;
+
   public visibleLabel = '';
   public hiddenLabel = '';
   public control!: FormControl;
