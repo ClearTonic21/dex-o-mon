@@ -3,7 +3,6 @@
   align-self: stretch;
   border-radius: 4px;
   display: flex;
-  gap: 6px;
   padding: 0;
 }
 
@@ -12,19 +11,21 @@
   // -------------------------
 
 .scrollbar-container {
+  height: 120%;
   background-color: black;
   align-items: flex-start;
   align-self: stretch;
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 0.6rem;
+  padding: 0.6rem 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
 
   .scrollbar-anchor-list {
     align-items: flex-start;
-    align-self: stretch;
     display: flex;
     flex-direction: column;
-    gap: 4px;
 
     .scrollbar-anchor-item {
       @include anchorItem();

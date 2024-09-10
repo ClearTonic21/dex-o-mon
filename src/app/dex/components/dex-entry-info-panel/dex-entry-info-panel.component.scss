@@ -1,8 +1,9 @@
 .info-panel-container {
   height: 100%;
+  background-color: whitesmoke;
 
   igx-list {
-    background-color: lightgray;
+    background-color: whitesmoke;
     justify-content: start;
     overflow-y: scroll;
     overflow-x: hidden;

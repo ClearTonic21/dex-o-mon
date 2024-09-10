@@ -1,0 +1,37 @@
+<div class="entry-cards-list-container">
+  <igx-list #cardListContainer>
+    @for (card of entryCards; track $index) {
+    <div class="card-container" igxDrop ngStyle="{background-image:}">
+      <igx-list-item
+        id="entry-card-{{card.guid}}"
+        #dragDirRef="drag"
+        igxDrop
+        [igxDrag]="{ id: card.index, dragged: false }"
+        (dragStart)="onDragStart($event, $index)"
+        (dragMove)="onDragMove($event, $index)"
+        (dragEnd)="onDragEnd($event, $index)"
+        (transitioned)="onTransitioned($event, $index)"
+        [ghost]="false"
+        [class.dragged]="dragDirRef.data && dragDirRef.data.dragged"
+      >
+        <h6 class="card-title" igxListLineTitle>{{ card.title }}</h6>
+        <div class="card-value" igxListLineSubTitle>{{ card.value }}</div>
+        <igx-icon
+          role="drag-icon"
+          igxSuffix igxDragHandle
+          family="material"
+        >drag_indicator</igx-icon>
+      </igx-list-item>
+    </div>
+    }
+    <div class="card-container">
+      <igx-list-item
+        id="entry-card-add-button"
+        class="new-item-button"
+        (click)="addEntryCard()"
+      >
+        <igx-icon role="add-icon" family="material">add_circle</igx-icon>
+      </igx-list-item>
+    </div>
+  </igx-list>
+</div>
