@@ -17,6 +17,7 @@ import { EntryCardsListComponent } from "../entry-cards-list/entry-cards-list.co
 export class DexEntryComponent {
   @ViewChild('cardListContainer', { read: ElementRef }) public cardListContainer!: ElementRef;
   @ViewChildren('dragDirRef', { read: IgxDragDirective }) public dragDirs!: QueryList<IgxDragDirective>;
+  @ViewChild('viewEditControls', { read: ElementRef }) public viewEditControls!: ViewEditButtonComponent;
   @Output() editing: boolean = false;
   // @Input() public dexEntry!: DexEntry;
 
