@@ -4,7 +4,7 @@
 
 .card-container {
   margin: 0.125rem;
-  color: #212121;
+  color: var(--text-color);
   z-index: 0;
   display: flex;
   justify-content: center;
@@ -23,14 +23,19 @@ igx-icon[role="delete-icon"] {
 }
 
 .new-item-button {
-  background-color: var(--card-bg-color);
-  width: 100%;
-  color: #212121;
-  cursor: pointer;
+  width: 99%;
+  min-height: 2rem;
+  margin: 0.6rem 0.6rem;
+  z-index: 0;
+  justify-self: center;
   align-items: center;
+  background-color: var(--card-bg-color);
+  border: 3px solid var(--accent-color-light);
+  box-shadow: 4px 4px 4px;
+  cursor: pointer;
 
-  &.hover {
-    background-color: var(--card-hover-bg-color);
+  &:hover {
+    background-color: var(--text-color-invert);
   }
 
   div.igx-list__item-content {
@@ -50,21 +55,23 @@ igx-icon[role="delete-icon"] {
   }
 
   igx-list-item {
-    z-index: 0;
+    display: flex;
     width: 99%;
-    margin: 0.25rem;
-    justify-self: center;
-    min-height: 5rem;
+    min-height: 2rem;
+    margin: 0.6rem 0.6rem;
+    z-index: 0;
     background-color: var(--card-bg-color);
+    border: 3px solid var(--accent-color-light);
+    box-shadow: 4px 4px 4px;
 
     &.hover {
-      background-color: var(--card-hover-bg-color);
+      background-color: var(--text-color-invert);
     }
 
     &.dragged {
       box-shadow: elevation(8);
       z-index: 100;
-      background-color: var(--card-hover-bg-color);;
+      background-color: var(--text-color-invert);;
     }
   }
 }

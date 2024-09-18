@@ -1,8 +1,8 @@
-import { Component, EventEmitter, HostListener, Output, viewChild, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
 import { ConnectedPositioningStrategy, HorizontalAlignment, IgxButtonModule, IgxDropDownComponent, IgxDropDownItemComponent, IgxDropDownItemNavigationDirective, IgxIconModule, IgxNavbarComponent, IgxNavbarModule, IgxToggleActionDirective, ISelectionEventArgs, VerticalAlignment } from 'igniteui-angular';
 import { DexoIcon } from '../../enums/DexoIcon';
 import { Page } from '../../enums/Page';
-import { NgFor, NgClass } from '@angular/common';
+import { NgFor } from '@angular/common';
 
 interface NavItem {
   icon: string;
@@ -14,7 +14,7 @@ interface NavItem {
 @Component({
   selector: 'dexo-header',
   standalone: true,
-  imports: [ IgxIconModule, IgxNavbarModule, IgxButtonModule, IgxDropDownComponent, IgxDropDownItemComponent, IgxToggleActionDirective, IgxDropDownItemNavigationDirective, NgFor],
+  imports: [IgxIconModule, IgxNavbarModule, IgxButtonModule, IgxDropDownComponent, IgxDropDownItemComponent, IgxToggleActionDirective, IgxDropDownItemNavigationDirective, NgFor],
   styleUrls: ['./header.component.scss'],
   templateUrl: './header.component.html',
   encapsulation: ViewEncapsulation.None

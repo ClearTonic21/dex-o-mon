@@ -23,6 +23,7 @@
         [entryCards]="dexBasicInfoCards"
       ></entry-cards-list>
     </div>
+    <igx-divider></igx-divider>
   </div>
   <div class="dex-entry-cards-column">
     <entry-cards-list
@@ -30,16 +31,18 @@
     ></entry-cards-list>
   </div>
   <div class="dex-entry-control-column">
-    <div #viewEditControls class="entry-control-buttons">
-      <view-edit-button
-        id="dex-entry-view-edit-button"
-        [defaultValue]="true"
-      ></view-edit-button>
-    </div>
-    <div class="entry-scroll-bar-container">
-      <entry-scroll-bar
-        [scrollbarList]="dexEntryCards"
-      ></entry-scroll-bar>
+    <div class="control-content">
+      <div #viewEditControls class="entry-control-buttons">
+        <view-edit-button
+          id="dex-entry-view-edit-button"
+          [defaultValue]="true"
+        ></view-edit-button>
+      </div>
+      <div class="entry-scroll-bar-container">
+        <entry-scroll-bar
+          [scrollbarList]="dexEntryCards"
+        ></entry-scroll-bar>
+      </div>
     </div>
   </div>
 </div>

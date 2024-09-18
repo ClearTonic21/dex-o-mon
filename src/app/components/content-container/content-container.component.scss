@@ -1,10 +1,17 @@
+@use "igniteui-angular/theming" as *;
+
 .inner-content-container {
   display: flex;
   height: 85vh;
-  padding: 0.5rem;
-  color: #212121;
+  padding: 0.5rem 0;
+  color: var(--text-color);
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+
+.nav-drawer-container {
+  box-shadow: 5px 5px 10px;
+  overflow-y: hidden;
 }
 
 .inner-content-container::-webkit-scrollbar {
@@ -17,7 +24,7 @@
 }
 
 .item-container {
-  height: 69vh;
+  height: 90%;
   overflow-y: scroll;
   overflow-x: hidden;
   -ms-overflow-style: none;  /* IE and Edge */
@@ -33,49 +40,78 @@
   overflow: hidden;
 }
 
-aside {
-  display: flex;
-  flex-direction: column;
-}
-
-igx-nav-drawer__aside--normal,
-igx-nav-drawer__aside--pinned,
-igx-nav-drawer__aside {
-  display: flex;
-  flex-direction: column;
-}
-
-.igx-nav-drawer__aside,
-.igx-nav-drawer__aside--normal,
-.igx-nav-drawer__aside--pinned,
-.igx-nav-drawer__aside--mini {
-  display: flex;
-  flex-direction: column;
-}
-
-[role="navigation"] {
-  display: flex;
-  flex-direction: column;
-}
-
-igx-nav-drawer > aside {
-  display: flex;
-  flex-direction: column;
-}
-
 .header-item {
-  cursor: pointer;
-  z-index: 5;
   padding: 0.5rem 0;
+  margin: 0 0 0.2rem;
   align-items: center;
   justify-content: center;
-  background-color: #38EEB4;
-  border: solid 4px #38EEB4 ;
-  border-radius: 2%;
+  color: var(--text-color-invert);
+  z-index: 5;
+  background-color: var(--accent-color-dark);
+  border-radius: 0.25rem;
+  cursor: pointer;
+
+  igx-icon {
+    color: var(--text-color-invert);
+  }
+
+  &:hover {
+    background-color: var(--accent-color);
+
+    igx-icon {
+      color: var(--text-color),
+    }
+  }
 }
 
 .last-item {
+  display: flex;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   padding: 0.5rem 0;
+  margin: 0.2rem 0 0 0;
   align-items: center;
   justify-content: center;
+  z-index: 5;
+  background-color: var(--text-color-invert);
+  border-radius: 0.25rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--accent-color);
+
+    igx-icon {
+      color: var(--text-color);
+    }
+  }
+}
+
+
+$custom-theme: navdrawer-theme(
+  $item-active-background: var(--accent-color),
+  $item-active-text-color: var(--text-color),
+  $item-active-icon-color: var(--text-color),
+  $item-hover-background: var(--accent-color-light),
+  $item-hover-text-color: var(--text-color),
+  $item-hover-icon-color: var(--text-color),
+
+  $item-header-text-color: var(--text-color),
+  $item-text-color: var(--text-color),
+  $item-icon-color: var(--text-color),
+
+  $border-color: var(--border-color),
+  $shadow: 5px 5px 10px
+);
+
+:host {
+
+  ::ng-deep{
+    @include css-vars($custom-theme);
+    $display: flex;
+    $flex-direction: column;
+    $overflow-y: hidden;
+  }
 }

@@ -37,18 +37,22 @@
         <button igxIconButton="flat">
           <igx-icon>add_circle</igx-icon>
         </button>
-        <button igxIconButton="flat">
-          <igx-icon>upload</igx-icon>
-        </button>
-        <button igxIconButton="flat">
-          <igx-icon>download</igx-icon>
-        </button>
+        <div class="header-button tandem">
+          <button igxIconButton="flat">
+            <igx-icon>upload</igx-icon>
+          </button>
+          <button igxIconButton="flat">
+            <igx-icon>download</igx-icon>
+          </button>
+        </div>
       </div>
     </igx-navbar-action>
-    <div class="header-button">
-      <button igxIconButton="flat">
-        <igx-icon class="std-icon">account_circle</igx-icon>
-      </button>
+    <div igxSuffix>
+      <div class="header-button">
+        <button igxIconButton="flat">
+          <igx-icon class="std-icon">account_circle</igx-icon>
+        </button>
+      </div>
     </div>
   </igx-navbar>
 </div>

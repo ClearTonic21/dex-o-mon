@@ -4,24 +4,25 @@
 }
 
 body {
-  overflow-y: hidden;
   height: 100vh;
+  overflow-y: hidden;
 }
 
 igx-divider {
-  margin: 10px 0;
-  padding: 1px;
+  margin: 0.625rem 0;
+  padding: 0.01rem;
 }
 
 :root {
   --std-icon-size: 2.5rem;
-  --std-text-color: #212121;
-  --dex-bg-color: #5f7575;
+  --text-color: #212121;
+  --text-color-invert: #F5F5F5;
+  --dex-bg-color: #5F7575;
   --footer-bg-color: #444444;;
   --accent-color: #38EEB4;
-  --accent-light-color: #ABFFE4;
-  --accent-dark-color: #1a5442;
+  --accent-color-light: #ABFFE4;
+  --accent-color-dark: #1A5442;
+  --border-color: #808080;
 
-  --card-bg-color: lightgray;
-  --card-hover-bg-color: whitesmoke;
+  --card-bg-color: #D3D3D3;
 }

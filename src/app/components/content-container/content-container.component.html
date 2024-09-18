@@ -23,9 +23,12 @@
             </div>
           }
         </div>
-        <span igxDrawerItem class="last-item" (click)="navDrawer.toggle()">
+        <span
+          class="last-item"
+          (click)="navDrawer.toggle()"
+        >
           <button igxIconButton="flat">
-            <igx-icon class="std-icon custom-icon" family="material">keyboard_arrow_left</igx-icon>
+            <igx-icon class="std-icon custom-icon" family="material">keyboard_arrow_right</igx-icon>
           </button>
         </span>
       </ng-template>
@@ -50,17 +53,16 @@
           }
         </div>
         <span
-          igxDrawerItem
-          [isHeader]="true"
           class="last-item"
           (click)="navDrawer.toggle()"
-        >
+          >
           <button igxIconButton="flat">
-            <igx-icon class="std-icon custom-icon" family="material">keyboard_arrow_right</igx-icon>
+            <igx-icon class="std-icon custom-icon" family="material">keyboard_arrow_left</igx-icon>
           </button>
         </span>
       </ng-template>
     </igx-nav-drawer>
+
   </div>
   <div class="view-panel-container" igxFlex>
     @if (selected >= 0) {

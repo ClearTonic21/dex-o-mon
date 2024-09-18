@@ -3,13 +3,14 @@ import { Component, ElementRef, HostBinding, Input, OnInit, Output, QueryList, V
 import { IDragBaseEventArgs, IDragMoveEventArgs, IgxButtonGroupComponent, IgxDividerDirective, IgxDragDirective, IgxDragDropModule, IgxDragLocation, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelHeaderComponent, IgxExpansionPanelIconDirective, IgxExpansionPanelTitleDirective, IgxIconComponent, IgxListComponent, IgxListItemComponent } from 'igniteui-angular';
 import { EntryScrollBarComponent } from "../../../lib/entry-scroll-bar/entry-scroll-bar.component";
 import { ViewEditButtonComponent } from "../../../lib/view-edit-button/view-edit-button.component";
-import { EntryCard, ImageCard, InfoSection } from '../../models/entry-card';
+import { EntryCard} from '../../models/entry-card';
 import { DexEntryInfoPanelComponent } from '../dex-entry-info-panel/dex-entry-info-panel.component';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'entry-cards-list',
   standalone: true,
-  imports: [IgxIconComponent, IgxButtonGroupComponent, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelHeaderComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelTitleDirective, IgxExpansionPanelIconDirective, IgxDividerDirective, IgxListComponent, IgxListItemComponent, IgxDragDropModule, EntryScrollBarComponent, ViewEditButtonComponent, DexEntryInfoPanelComponent],
+  imports: [NgClass, IgxIconComponent, IgxButtonGroupComponent, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelHeaderComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelTitleDirective, IgxExpansionPanelIconDirective, IgxDividerDirective, IgxListComponent, IgxListItemComponent, IgxDragDropModule, EntryScrollBarComponent, ViewEditButtonComponent, DexEntryInfoPanelComponent],
   templateUrl: './entry-cards-list.component.html',
   styleUrl: './entry-cards-list.component.scss'
 })
@@ -17,13 +18,13 @@ export class EntryCardsListComponent implements OnInit {
   @HostBinding(`style.background-image`) bgImage: string =`url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%2338EEB4' stroke-width='4' stroke-dasharray='6%2c 14' stroke-dashoffset='2' stroke-linecap='square'/%3e%3c/svg%3e")`
   @ViewChild('cardListContainer', { read: ElementRef }) public cardListContainer!: ElementRef;
   @ViewChildren('dragDirRef', { read: IgxDragDirective }) public dragDirs!: QueryList<IgxDragDirective>;
-  @Output() editing: boolean = false;
+  @Input() editing: boolean = false;
   @Input() entryCards: EntryCard[] = [];
   @Input() cardBgImage: string = '';
 
   public newIndex: any = null;
   public animationDuration = 0.3;
-  private listItemHeight = 92;
+  private listItemHeight = 89;
   public editMode: boolean = false;
 
   public ngOnInit() {

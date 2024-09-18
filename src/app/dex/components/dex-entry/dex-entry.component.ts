@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, Output, QueryList, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, Input, OnChanges, OnInit, Output, QueryList, SimpleChanges, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
 import { IDragBaseEventArgs, IDragMoveEventArgs, IgxButtonGroupComponent, IgxDividerDirective, IgxDragDirective, IgxDragDropModule, IgxDragLocation, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelHeaderComponent, IgxExpansionPanelIconDirective, IgxExpansionPanelTitleDirective, IgxIconComponent, IgxListComponent, IgxListItemComponent } from 'igniteui-angular';
 import { EntryScrollBarComponent } from "../../../lib/entry-scroll-bar/entry-scroll-bar.component";
 import { ViewEditButtonComponent } from "../../../lib/view-edit-button/view-edit-button.component";
@@ -14,11 +14,11 @@ import { EntryCardsListComponent } from "../entry-cards-list/entry-cards-list.co
   styleUrl: './dex-entry.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
-export class DexEntryComponent {
+export class DexEntryComponent implements OnChanges{
   @ViewChild('cardListContainer', { read: ElementRef }) public cardListContainer!: ElementRef;
   @ViewChildren('dragDirRef', { read: IgxDragDirective }) public dragDirs!: QueryList<IgxDragDirective>;
   @ViewChild('viewEditControls', { read: ElementRef }) public viewEditControls!: ViewEditButtonComponent;
-  @Output() editing: boolean = false;
+  @Output() editMode: boolean = false;
   // @Input() public dexEntry!: DexEntry;
 
   // public entryGuid!: Guid;
@@ -44,7 +44,14 @@ export class DexEntryComponent {
     new EntryCard( 2, 'Category', 'The Symbol Pokémon' ),
   ];
 
-  public editMode: boolean = false;
+  ngOnChanges(): void {
+    if(this.viewEditControls.editMode) {
+      this.editMode = true;
+    }
+    else {
+      this.editMode = false;
+    }
+  }
 
   // component methods
   public addEntryCard(): void {

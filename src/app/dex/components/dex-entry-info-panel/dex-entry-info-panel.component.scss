@@ -1,9 +1,9 @@
 .info-panel-container {
   height: 100%;
-  background-color: whitesmoke;
+  background-color: var(--text-color-invert);
 
   igx-list {
-    background-color: whitesmoke;
+    background-color: var(--text-color-invert);
     justify-content: start;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -23,7 +23,7 @@
     &.dragged {
       box-shadow: elevation(8);
       z-index: 100;
-      background-color: whitesmoke;
+      background-color: var(--text-color-invert);
     }
   }
 }
@@ -34,18 +34,18 @@
 }
 
 .card-title {
-  color: #212121;
+  color: var(--text-color);
 }
 
 .new-item-button {
   background-color: lightgray;
   width: 100%;
-  color: #212121;
+  color: var(--text-color);
   cursor: pointer;
   align-items: center;
 
   &.hover {
-    background-color: whitesmoke;
+    background-color: var(--text-color-invert);
   }
 
   div.igx-list__item-content {

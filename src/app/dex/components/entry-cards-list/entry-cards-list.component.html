@@ -1,7 +1,7 @@
 <div class="entry-cards-list-container">
   <igx-list #cardListContainer>
     @for (card of entryCards; track $index) {
-    <div class="card-container" igxDrop ngStyle="{background-image:}">
+    <div class="card-container" igxDrop>
       <igx-list-item
         id="entry-card-{{card.guid}}"
         #dragDirRef="drag"
