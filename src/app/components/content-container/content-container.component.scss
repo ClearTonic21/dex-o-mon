@@ -23,6 +23,16 @@
   overflow: hidden;
 }
 
+.igx-nav-drawer__item,
+.igx-nav-drawer__item--active {
+  gap: 1rem;
+}
+
+.entry-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .item-container {
   height: 90%;
   overflow-y: scroll;
