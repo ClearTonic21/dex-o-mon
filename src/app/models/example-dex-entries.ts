@@ -1,12 +1,13 @@
 import { DexEntry } from "../dex/models/dex-entry";
+import { EntryCard } from "../dex/models/entry-card";
 
 export class ExampleDexEntries {
   static dexEntries: DexEntry[] = [
-    new DexEntry(0,   'Mining Truck'),
-    new DexEntry(1,   'Auto Turret'),
-    new DexEntry(2,   'Anti-Armor Pod'),
-    new DexEntry(3,   'Assault Troopers'),
-    new DexEntry(4,   'Mortar Men'),
+    new DexEntry(0,   'Mining Truck', '', '', '',     [new EntryCard( 1, 'Unit Type', 'Armor'),      new EntryCard( 2, 'Cost', '60'), new EntryCard( 3, 'HP', '120'),    new EntryCard( 4, 'Squad Size', '1x')], [new EntryCard( 0, 'Unit Traits', 'Shard Collector')]),
+    new DexEntry(1,   'Auto Turret', '', '', '',      [new EntryCard( 1, 'Unit Type', 'Structure'),  new EntryCard( 2, 'Cost', '50'), new EntryCard( 3, 'HP', '75'),     new EntryCard( 4, 'Squad Size', '1x')], [new EntryCard( 0, 'Unit Traits', 'Detector')]),
+    new DexEntry(2,   'Anti-Armor Pod', '', '', '',   [new EntryCard( 1, 'Unit Type', 'Structure'),  new EntryCard( 2, 'Cost', '70'), new EntryCard( 3, 'HP', '40'),     new EntryCard( 4, 'Squad Size', '1x')], [new EntryCard( 0, 'Unit Traits', 'Burrow, Suicide, Pathable')]),
+    new DexEntry(3,   'Assault Troopers', '', '', '', [new EntryCard( 1, 'Unit Type', 'Infantry'),   new EntryCard( 2, 'Cost', '20'), new EntryCard( 3, 'HP', '20'),     new EntryCard( 4, 'Squad Size', '5x')], [new EntryCard( 0, 'Unit Traits', 'Scout')], ),
+    new DexEntry(4,   'Mortar Men', '', '', '',       [new EntryCard( 1, 'Unit Type', 'Infantry'),   new EntryCard( 2, 'Cost', '30'), new EntryCard( 3, 'HP', '40'),     new EntryCard( 4, 'Squad Size', '1x')], [new EntryCard( 0, 'Unit Traits', '')]),
     new DexEntry(5,   'Decon ATV'),
     new DexEntry(6,   'Crusader ATV'),
     new DexEntry(7,   'Shepard Tank'),

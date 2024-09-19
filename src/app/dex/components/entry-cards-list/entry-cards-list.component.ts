@@ -24,7 +24,7 @@ export class EntryCardsListComponent implements OnInit {
 
   public newIndex: any = null;
   public animationDuration = 0.3;
-  private listItemHeight = 89;
+  private listItemHeight = 95;
   public editMode: boolean = false;
 
   public ngOnInit() {

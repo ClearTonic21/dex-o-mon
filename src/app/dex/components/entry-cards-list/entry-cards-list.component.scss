@@ -13,6 +13,7 @@
 
 igx-icon[role="drag-icon"] {
   cursor: move;
+  color: var(--text-color);
   user-select: none;
   background: 0;
 }
@@ -31,6 +32,7 @@ igx-icon[role="delete-icon"] {
   align-items: center;
   background-color: var(--card-bg-color);
   border: 3px solid var(--accent-color-light);
+  color: var(--text-color);
   box-shadow: 4px 4px 4px;
   cursor: pointer;
 
@@ -62,6 +64,7 @@ igx-icon[role="delete-icon"] {
     z-index: 0;
     background-color: var(--card-bg-color);
     border: 3px solid var(--accent-color-light);
+    color: var(--text-color);
     box-shadow: 4px 4px 4px;
 
     &.hover {

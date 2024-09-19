@@ -62,11 +62,15 @@
         </span>
       </ng-template>
     </igx-nav-drawer>
-
   </div>
   <div class="view-panel-container" igxFlex>
-    @if (selected >= 0) {
-      <dex-entry></dex-entry>
-    }
+      <dex-entry
+        [dexEntry]="selectedEntry"
+        [entryGuid]="selectedEntry.guid"
+        [entryNumber]="selectedEntry.entryNumber"
+        [name]="selectedEntry.name"
+        [dexBasicInfoCards]="selectedEntry.basicInfoCards || []"
+        [dexEntryCards]="selectedEntry.entryCards || []"
+      ></dex-entry>
   </div>
 </div>

@@ -15,7 +15,6 @@
   margin: 0 3rem 0 3rem;
   justify-content: center;
   align-content: center;
-  height: 40%;
   cursor:inherit;
 
   igx-list {
@@ -26,7 +25,7 @@
     flex-direction: row;
     gap: 0.5rem;
     -ms-overflow-style: none;
-    scrollbar-width: none;
+    scrollbar-width: thin;
 
     &:hover {
       -ms-overflow-style: auto;
@@ -127,7 +126,6 @@ entry-cards-list {
 .dex-entry-control-column {
   height: 100%;
   z-index: 100;
-  margin: 0 1rem 0 0;
 }
 
 .control-content {

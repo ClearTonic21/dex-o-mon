@@ -1,10 +1,13 @@
-import { Component, ElementRef, Input, OnChanges, OnInit, Output, QueryList, SimpleChanges, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
-import { IDragBaseEventArgs, IDragMoveEventArgs, IgxButtonGroupComponent, IgxDividerDirective, IgxDragDirective, IgxDragDropModule, IgxDragLocation, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelHeaderComponent, IgxExpansionPanelIconDirective, IgxExpansionPanelTitleDirective, IgxIconComponent, IgxListComponent, IgxListItemComponent } from 'igniteui-angular';
+import { Component, ElementRef, Input, OnChanges, OnInit, Output, QueryList, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
+import { IgxButtonGroupComponent, IgxDividerDirective, IgxDragDirective, IgxDragDropModule, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelHeaderComponent, IgxExpansionPanelIconDirective, IgxExpansionPanelTitleDirective, IgxIconComponent, IgxListComponent, IgxListItemComponent } from 'igniteui-angular';
 import { EntryScrollBarComponent } from "../../../lib/entry-scroll-bar/entry-scroll-bar.component";
 import { ViewEditButtonComponent } from "../../../lib/view-edit-button/view-edit-button.component";
-import { EntryCard, ImageCard, InfoSection } from '../../models/entry-card';
+import { EntryCard, ImageCard } from '../../models/entry-card';
 import { DexEntryInfoPanelComponent } from '../dex-entry-info-panel/dex-entry-info-panel.component';
 import { EntryCardsListComponent } from "../entry-cards-list/entry-cards-list.component";
+import { DexoIcon } from '../../../enums/DexoIcon';
+import { DexEntry } from '../../models/dex-entry';
+import { Guid } from '../../../models/guid';
 
 @Component({
   selector: 'dex-entry',
@@ -14,35 +17,36 @@ import { EntryCardsListComponent } from "../entry-cards-list/entry-cards-list.co
   styleUrl: './dex-entry.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
-export class DexEntryComponent implements OnChanges{
+export class DexEntryComponent implements OnChanges, OnInit{
   @ViewChild('cardListContainer', { read: ElementRef }) public cardListContainer!: ElementRef;
   @ViewChildren('dragDirRef', { read: IgxDragDirective }) public dragDirs!: QueryList<IgxDragDirective>;
   @ViewChild('viewEditControls', { read: ElementRef }) public viewEditControls!: ViewEditButtonComponent;
   @Output() editMode: boolean = false;
-  // @Input() public dexEntry!: DexEntry;
+  @Input() public dexEntry!: DexEntry;
 
-  // public entryGuid!: Guid;
-  // public entryNumber!: number;
-  // public name!: string;
-  // public iconSrc: string = `${DexoIcon.Image}`;
-  // public imageSrc: string = `${DexoIcon.Image}`
-  // public primaryInformation =
-
-  public dexEntryCards: EntryCard[] = [
-    new EntryCard( 0, 'Moves', 'Hidden Power, Power Trip, Stored Energy' ),
-    new EntryCard( 1, 'Ability 1', 'Levitate' ),
-  ];
+  @Input() public entryGuid!: Guid;
+  @Input() public entryNumber!: number;
+  @Input() public name!: string;
+  @Input() public iconSrc: string = `${DexoIcon.Image}`;
+  @Input() public imageSrc: string = `${DexoIcon.Image}`
+  @Input() public dexBasicInfoCards: EntryCard[] = [];
+  @Input() public dexEntryCards: EntryCard[] = [];
 
   public imageCards: ImageCard[] = [
     new ImageCard( 0, 'New'),
     new ImageCard( 1, '../../../../../public/SPINOMIRE.png'),
   ];
 
-  public dexBasicInfoCards: EntryCard[] = [
-    new EntryCard(0, 'Name', 'Unown'),
-    new EntryCard( 1, 'Type', 'Psychic' ),
-    new EntryCard( 2, 'Category', 'The Symbol Pokémon' ),
-  ];
+  ngOnInit(): void {
+    this.entryGuid =  this.dexEntry.guid;
+    this.entryNumber =  this.dexEntry.entryNumber;
+    this.name = this.dexEntry.name;
+    this.iconSrc = `${DexoIcon.Image}`;
+    this.imageSrc = `${DexoIcon.Image}`
+    this.dexBasicInfoCards = this.dexEntry.basicInfoCards || [new EntryCard( 0, 'Name', this.dexEntry.name || '')];
+    this.dexBasicInfoCards.unshift(new EntryCard( 0, 'Name', this.dexEntry.name || ''))
+    this.dexEntryCards = this.dexEntry.entryCards || [];
+  }
 
   ngOnChanges(): void {
     if(this.viewEditControls.editMode) {
