@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnChanges, OnInit, Output, QueryList, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, Input, OnChanges, OnInit, Output, QueryList, signal, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
 import { IgxButtonGroupComponent, IgxDividerDirective, IgxDragDirective, IgxDragDropModule, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelHeaderComponent, IgxExpansionPanelIconDirective, IgxExpansionPanelTitleDirective, IgxIconComponent, IgxListComponent, IgxListItemComponent } from 'igniteui-angular';
 import { EntryScrollBarComponent } from "../../../lib/entry-scroll-bar/entry-scroll-bar.component";
 import { ViewEditButtonComponent } from "../../../lib/view-edit-button/view-edit-button.component";
@@ -22,6 +22,7 @@ export class DexEntryComponent implements OnChanges, OnInit{
   @ViewChildren('dragDirRef', { read: IgxDragDirective }) public dragDirs!: QueryList<IgxDragDirective>;
   @ViewChild('viewEditControls', { read: ElementRef }) public viewEditControls!: ViewEditButtonComponent;
   @Output() editMode: boolean = false;
+  @Output() inEditMode = signal(this.editMode);
   @Input() public dexEntry!: DexEntry;
 
   @Input() public entryGuid!: Guid;

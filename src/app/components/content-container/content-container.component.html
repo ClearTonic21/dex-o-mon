@@ -1,76 +1,50 @@
 <div class="inner-content-container" igxLayout>
   <div class="nav-drawer-container">
-    <igx-nav-drawer id="navigation" [isOpen]="true" [pin]="true" [pinThreshold]="20">
-      <ng-template igxDrawer>
-        <span
-          igxDrawerItem
-          class="header-item"
-          [isHeader]="true"
-          (click)="navDrawer.toggle()"
-        >
-          <igx-icon class="std-icon custom-icon" family="material">list_alt</igx-icon>
-        </span>
-        <div class="item-container">
-          @for (item of entryItems; track item) {
-            <div
-              igxDrawerItem
-              [active]="item.entryNumber === selected"
-              igxRipple
-              (click)="navigate(item)"
-            >
-              <igx-icon class="std-icon" family="material">{{ item.iconSrc }}</igx-icon>
-              <span>{{ item.entryNumber }} {{ item.name }}</span>
-            </div>
-          }
-        </div>
-        <span
-          class="last-item"
-          (click)="navDrawer.toggle()"
-        >
-          <button igxIconButton="flat">
-            <igx-icon class="std-icon custom-icon" family="material">keyboard_arrow_right</igx-icon>
-          </button>
-        </span>
-      </ng-template>
-      <ng-template igxDrawerMini>
-        <span
-          igxDrawerItem
-          class="header-item"
-          [isHeader]="true"
-          (click)="navDrawer.toggle()"
-        >
-          <igx-icon class="std-icon custom-icon" family="material">list_alt</igx-icon>
-        </span>
-        <div class="item-container">
-          @for (item of entryItems; track item) {
-            <span
-              igxDrawerItem
-              [active]="item.entryNumber === selected"
-              igxRipple (click)="navigate(item)"
-            >
-              <igx-icon class="std-icon" family="material">{{ item.iconSrc }}</igx-icon>
-            </span>
-          }
-        </div>
-        <span
-          class="last-item"
-          (click)="navDrawer.toggle()"
+    <igx-list #entryListContainer>
+      <igx-list-item
+        class="header-item"
+        id="entry-list-header"
+        [isHeader]="true"
+        (click)="toggleNavDrawer()"
+      >
+        <igx-icon class="std-icon custom-icon" family="material">list_alt</igx-icon>
+      </igx-list-item>
+      <div class="items-container">
+        @for (item of navItems; track $index) {
+          <igx-list-item
+            igxRipple
+            [ngClass]="item.selected ? 'selected' : ''"
+            (click)="onSelect(item.object)"
           >
-          <button igxIconButton="flat">
+            <igx-icon class="std-icon" family="material">{{ item.object.iconSrc }}</igx-icon>
+            <span>{{ item.object.entryNumber }} {{ item.object.name }}</span>
+          </igx-list-item>
+        }
+      </div>
+      <igx-list-item
+        class="last-item"
+        igxSuffix
+        (click)="toggleNavDrawer()"
+      >
+        <button igxIconButton="flat">
+          @if (collapsed) {
             <igx-icon class="std-icon custom-icon" family="material">keyboard_arrow_left</igx-icon>
-          </button>
-        </span>
-      </ng-template>
-    </igx-nav-drawer>
+          }
+          @else {
+            <igx-icon class="std-icon custom-icon" family="material">keyboard_arrow_right</igx-icon>
+          }
+        </button>
+      </igx-list-item>
+    </igx-list>
   </div>
   <div class="view-panel-container" igxFlex>
       <dex-entry
-        [dexEntry]="selectedEntry"
-        [entryGuid]="selectedEntry.guid"
-        [entryNumber]="selectedEntry.entryNumber"
-        [name]="selectedEntry.name"
-        [dexBasicInfoCards]="selectedEntry.basicInfoCards || []"
-        [dexEntryCards]="selectedEntry.entryCards || []"
+        [dexEntry]="selectedDexEntry"
+        [entryGuid]="selectedDexEntry.guid"
+        [entryNumber]="selectedDexEntry.entryNumber"
+        [name]="selectedDexEntry.name"
+        [dexBasicInfoCards]="selectedDexEntry.basicInfoCards || []"
+        [dexEntryCards]="selectedDexEntry.entryCards || []"
       ></dex-entry>
   </div>
 </div>

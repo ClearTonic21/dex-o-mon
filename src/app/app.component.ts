@@ -18,6 +18,6 @@ export class AppComponent {
   @Output() public title: string = 'Dex-o-Mon';
 
   public toggleNavDrawer(): void {
-    this.contentContainer.navDrawer.toggle();
+    this.contentContainer.toggleNavDrawer();
   }
 }

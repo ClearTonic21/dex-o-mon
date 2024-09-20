@@ -9,23 +9,51 @@
   scrollbar-width: none;  /* Firefox */
 }
 
-.nav-drawer-container {
-  box-shadow: 5px 5px 10px;
-  overflow-y: hidden;
-}
-
 .inner-content-container::-webkit-scrollbar {
   display: none;
 }
 
-.igx-nav-drawer--pinned {
-  width: max-content;
-  overflow: hidden;
+.nav-drawer-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 14rem;
+  overflow-y: hidden;
+  border-top-right-radius: 0.4rem;
+  border-top-left-radius: 0.4rem;
+  box-shadow: 5px 5px 10px;
 }
 
-.igx-nav-drawer__item,
-.igx-nav-drawer__item--active {
-  gap: 1rem;
+igx-list-item {
+  overflow: hidden;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+  color: var(--text-color);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--accent-color-light);
+    color: var(--text-color);
+  }
+}
+
+.selected {
+  background-color: var(--accent-color);
+
+  &:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color-invert);
+  }
+}
+
+.list-item-content {
+  align-items: center;
+}
+
+.entry-number {
+  color: var(--text-color);
+  font-size: medium;
 }
 
 .entry-name {
@@ -33,16 +61,10 @@
   text-overflow: ellipsis;
 }
 
-.item-container {
-  height: 90%;
+.items-container {
+  height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
-.item-container::-webkit-scrollbar {
-  display: none;
 }
 
 .view-panel-container {
@@ -58,7 +80,8 @@
   color: var(--text-color-invert);
   z-index: 5;
   background-color: var(--accent-color-dark);
-  border-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
   cursor: pointer;
 
   igx-icon {
@@ -81,13 +104,13 @@
   left: 0;
   right: 0;
   width: 100%;
-  padding: 0.5rem 0;
   margin: 0.2rem 0 0 0;
   align-items: center;
   justify-content: center;
   z-index: 5;
   background-color: var(--text-color-invert);
-  border-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  border-top-left-radius: 0.25rem;
   cursor: pointer;
 
   &:hover {
