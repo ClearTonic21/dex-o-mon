@@ -1,8 +1,6 @@
-@use "igniteui-angular/theming" as *;
-
 .inner-content-container {
   display: flex;
-  height: 85vh;
+  height: 100%;
   padding: 0.5rem 0;
   color: var(--text-color);
   -ms-overflow-style: none;  /* IE and Edge */
@@ -13,19 +11,23 @@
   display: none;
 }
 
+.nav-split-panel {
+  box-shadow: 5px 5px 5px;
+}
+
 .nav-drawer-container {
   display: flex;
   flex-direction: column;
   height: 100%;
-  max-width: 14rem;
+  width: 100%;
+  margin: 0 0 0 0.25rem;
+  width: 100%;
   overflow-y: hidden;
-  border-top-right-radius: 0.4rem;
-  border-top-left-radius: 0.4rem;
   box-shadow: 5px 5px 10px;
 }
 
 igx-list-item {
-  overflow: hidden;
+  width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   text-wrap: nowrap;
@@ -38,6 +40,10 @@ igx-list-item {
   }
 }
 
+.igx-list__item-content {
+  gap: 1rem;
+}
+
 .selected {
   background-color: var(--accent-color);
 
@@ -47,28 +53,33 @@ igx-list-item {
   }
 }
 
-.list-item-content {
-  align-items: center;
-}
-
 .entry-number {
   color: var(--text-color);
   font-size: medium;
+  padding: 0 0.5rem;
 }
 
 .entry-name {
   overflow: hidden;
   text-overflow: ellipsis;
+  padding: 0 0.5rem;
 }
 
 .items-container {
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.items-container::-webkit-scrollbar {
+  display: none;
 }
 
 .view-panel-container {
   height: 100%;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -80,8 +91,6 @@ igx-list-item {
   color: var(--text-color-invert);
   z-index: 5;
   background-color: var(--accent-color-dark);
-  border-bottom-right-radius: 0.25rem;
-  border-bottom-left-radius: 0.25rem;
   cursor: pointer;
 
   igx-icon {
@@ -109,8 +118,6 @@ igx-list-item {
   justify-content: center;
   z-index: 5;
   background-color: var(--text-color-invert);
-  border-top-right-radius: 0.25rem;
-  border-top-left-radius: 0.25rem;
   cursor: pointer;
 
   &:hover {
@@ -119,32 +126,5 @@ igx-list-item {
     igx-icon {
       color: var(--text-color);
     }
-  }
-}
-
-
-$custom-theme: navdrawer-theme(
-  $item-active-background: var(--accent-color),
-  $item-active-text-color: var(--text-color),
-  $item-active-icon-color: var(--text-color),
-  $item-hover-background: var(--accent-color-light),
-  $item-hover-text-color: var(--text-color),
-  $item-hover-icon-color: var(--text-color),
-
-  $item-header-text-color: var(--text-color),
-  $item-text-color: var(--text-color),
-  $item-icon-color: var(--text-color),
-
-  $border-color: var(--border-color),
-  $shadow: 5px 5px 10px
-);
-
-:host {
-
-  ::ng-deep{
-    @include css-vars($custom-theme);
-    $display: flex;
-    $flex-direction: column;
-    $overflow-y: hidden;
   }
 }

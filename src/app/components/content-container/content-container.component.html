@@ -1,50 +1,56 @@
 <div class="inner-content-container" igxLayout>
-  <div class="nav-drawer-container">
-    <igx-list #entryListContainer>
-      <igx-list-item
-        class="header-item"
-        id="entry-list-header"
-        [isHeader]="true"
-        (click)="toggleNavDrawer()"
-      >
-        <igx-icon class="std-icon custom-icon" family="material">list_alt</igx-icon>
-      </igx-list-item>
-      <div class="items-container">
-        @for (item of navItems; track $index) {
+  <igx-splitter [nonCollapsible]="true" style='height: 82.25vh;' [style.width]='"100%"'>
+    <igx-splitter-pane class="nav-split-panel" style='min-width: 3.4rem; max-width: fit-content;'>
+      <div class="nav-drawer-container">
+        <igx-list #entryListContainer>
           <igx-list-item
-            igxRipple
-            [ngClass]="item.selected ? 'selected' : ''"
-            (click)="onSelect(item.object)"
+            class="header-item"
+            id="entry-list-header"
+            [isHeader]="true"
+            (click)="toggleNavDrawer()"
           >
-            <igx-icon class="std-icon" family="material">{{ item.object.iconSrc }}</igx-icon>
-            <span>{{ item.object.entryNumber }} {{ item.object.name }}</span>
+            <igx-icon class="std-icon custom-icon" family="material">list_alt</igx-icon>
           </igx-list-item>
-        }
+          <div class="items-container">
+            @for (item of navItems; track $index) {
+              <igx-list-item
+                igxRipple
+                [ngClass]="item.selected ? 'selected' : ''"
+                (click)="onSelect(item.object)"
+              >
+                <igx-icon class="std-icon" family="material">{{ item.object.iconSrc }}</igx-icon>
+                <span class="entry-number">{{ item.object.entryNumber }}</span><span class="entry-name" igxSuffix> {{ item.object.name }}</span>
+              </igx-list-item>
+            }
+          </div>
+          <igx-list-item
+            class="last-item"
+            igxSuffix
+            (click)="toggleNavDrawer()"
+          >
+            <button igxIconButton="flat">
+              @if (collapsed) {
+                <igx-icon class="std-icon custom-icon" family="material">keyboard_arrow_left</igx-icon>
+              }
+              @else {
+                <igx-icon class="std-icon custom-icon" family="material">keyboard_arrow_right</igx-icon>
+              }
+            </button>
+          </igx-list-item>
+        </igx-list>
       </div>
-      <igx-list-item
-        class="last-item"
-        igxSuffix
-        (click)="toggleNavDrawer()"
-      >
-        <button igxIconButton="flat">
-          @if (collapsed) {
-            <igx-icon class="std-icon custom-icon" family="material">keyboard_arrow_left</igx-icon>
-          }
-          @else {
-            <igx-icon class="std-icon custom-icon" family="material">keyboard_arrow_right</igx-icon>
-          }
-        </button>
-      </igx-list-item>
-    </igx-list>
-  </div>
-  <div class="view-panel-container" igxFlex>
-      <dex-entry
-        [dexEntry]="selectedDexEntry"
-        [entryGuid]="selectedDexEntry.guid"
-        [entryNumber]="selectedDexEntry.entryNumber"
-        [name]="selectedDexEntry.name"
-        [dexBasicInfoCards]="selectedDexEntry.basicInfoCards || []"
-        [dexEntryCards]="selectedDexEntry.entryCards || []"
-      ></dex-entry>
-  </div>
+    </igx-splitter-pane>
+    <igx-splitter-pane style='min-width: 85%; max-width: 200vh;'>
+      <div class="view-panel-container" igxFlex>
+          <dex-entry
+            [dexEntry]="selectedDexEntry"
+            [entryGuid]="selectedDexEntry.guid"
+            [entryNumber]="selectedDexEntry.entryNumber"
+            [name]="selectedDexEntry.name"
+            [dexBasicInfoCards]="selectedDexEntry.basicInfoCards || []"
+            [dexEntryCards]="selectedDexEntry.entryCards || []"
+          ></dex-entry>
+      </div>
+    </igx-splitter-pane>
+  </igx-splitter>
 </div>

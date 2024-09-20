@@ -1,7 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { IgxButtonModule, IgxFlexDirective, IgxIconModule, IgxListComponent, IgxListItemComponent, IgxNavDrawerItemDirective, IgxNavigationDrawerComponent, IgxNavigationDrawerModule, IgxRippleDirective } from 'igniteui-angular';
-import { DexoFooterComponent } from "../footer/footer.component";
-import { DexoHeaderComponent } from "../header/header.component";
+import { Component, OnInit } from '@angular/core';
+import { IgxButtonModule, IgxIconModule, IgxListComponent, IgxListItemComponent, IgxRippleDirective, IgxSplitterComponent, IgxSplitterPaneComponent, IgxSuffixDirective } from 'igniteui-angular';
 import { DexEntry } from '../../dex/models/dex-entry';
 import { DexEntryComponent } from "../../dex/components/dex-entry/dex-entry.component";
 import { ExampleDexEntries } from '../../models/example-dex-entries';
@@ -21,7 +19,7 @@ export class NavigationItem {
   standalone: true,
   templateUrl: './content-container.component.html',
   styleUrl: './content-container.component.scss',
-  imports: [ NgClass, IgxRippleDirective, IgxListComponent, IgxListItemComponent, IgxButtonModule, IgxIconModule, IgxNavigationDrawerModule, IgxNavDrawerItemDirective, IgxFlexDirective, DexoFooterComponent, DexoHeaderComponent, DexEntryComponent]
+  imports: [ NgClass, IgxSuffixDirective, IgxRippleDirective, IgxListComponent, IgxListItemComponent, IgxSplitterComponent,  IgxSplitterPaneComponent, IgxButtonModule, IgxIconModule, DexEntryComponent]
 })
 export class DexoContentContainerComponent implements OnInit {
   public selected!: number;
