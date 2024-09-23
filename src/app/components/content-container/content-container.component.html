@@ -1,6 +1,6 @@
 <div class="inner-content-container" igxLayout>
   <igx-splitter [nonCollapsible]="true" style='height: 82.25vh;' [style.width]='"100%"'>
-    <igx-splitter-pane class="nav-split-panel" style='min-width: 3.4rem; max-width: fit-content;'>
+    <igx-splitter-pane class="nav-split-panel" style='color: var(--accent-color-dark); min-width: 4.12rem; max-width: fit-content;'>
       <div class="nav-drawer-container">
         <igx-list #entryListContainer>
           <igx-list-item
@@ -40,7 +40,7 @@
         </igx-list>
       </div>
     </igx-splitter-pane>
-    <igx-splitter-pane style='min-width: 85%; max-width: 200vh;'>
+    <igx-splitter-pane style='min-width: 85%; max-width: 100%;'>
       <div class="view-panel-container" igxFlex>
           <dex-entry
             [dexEntry]="selectedDexEntry"

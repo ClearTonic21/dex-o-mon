@@ -1,5 +1,5 @@
-import { Component, ElementRef, Input, OnChanges, OnInit, Output, QueryList, signal, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
-import { IgxButtonGroupComponent, IgxDividerDirective, IgxDragDirective, IgxDragDropModule, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelHeaderComponent, IgxExpansionPanelIconDirective, IgxExpansionPanelTitleDirective, IgxIconComponent, IgxListComponent, IgxListItemComponent } from 'igniteui-angular';
+import { Component, ElementRef, Input, OnInit, QueryList, signal, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
+import { IgxButtonGroupComponent, IgxDividerDirective, IgxDragDirective, IgxIconComponent, IgxListComponent, IgxListItemComponent } from 'igniteui-angular';
 import { EntryScrollBarComponent } from "../../../lib/entry-scroll-bar/entry-scroll-bar.component";
 import { ViewEditButtonComponent } from "../../../lib/view-edit-button/view-edit-button.component";
 import { EntryCard, ImageCard } from '../../models/entry-card';
@@ -12,19 +12,16 @@ import { Guid } from '../../../models/guid';
 @Component({
   selector: 'dex-entry',
   standalone: true,
-  imports: [IgxIconComponent, IgxButtonGroupComponent, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelHeaderComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelTitleDirective, IgxExpansionPanelIconDirective, IgxDividerDirective, IgxListComponent, IgxListItemComponent, IgxDragDropModule, EntryScrollBarComponent, ViewEditButtonComponent, DexEntryInfoPanelComponent, EntryCardsListComponent],
+  imports: [IgxIconComponent, IgxButtonGroupComponent, IgxDragDirective, IgxDividerDirective, IgxListComponent, IgxListItemComponent, EntryScrollBarComponent, ViewEditButtonComponent, DexEntryInfoPanelComponent, EntryCardsListComponent],
   templateUrl: './dex-entry.component.html',
   styleUrl: './dex-entry.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
-export class DexEntryComponent implements OnChanges, OnInit{
+export class DexEntryComponent implements OnInit{
   @ViewChild('cardListContainer', { read: ElementRef }) public cardListContainer!: ElementRef;
   @ViewChildren('dragDirRef', { read: IgxDragDirective }) public dragDirs!: QueryList<IgxDragDirective>;
   @ViewChild('viewEditControls', { read: ElementRef }) public viewEditControls!: ViewEditButtonComponent;
-  @Output() editMode: boolean = false;
-  @Output() inEditMode = signal(this.editMode);
   @Input() public dexEntry!: DexEntry;
-
   @Input() public entryGuid!: Guid;
   @Input() public entryNumber!: number;
   @Input() public name!: string;
@@ -32,10 +29,10 @@ export class DexEntryComponent implements OnChanges, OnInit{
   @Input() public imageSrc: string = `${DexoIcon.Image}`
   @Input() public dexBasicInfoCards: EntryCard[] = [];
   @Input() public dexEntryCards: EntryCard[] = [];
+  public dexEditMode = signal(true);
 
   public imageCards: ImageCard[] = [
     new ImageCard( 0, 'New'),
-    new ImageCard( 1, '../../../../../public/SPINOMIRE.png'),
   ];
 
   ngOnInit(): void {
@@ -47,15 +44,6 @@ export class DexEntryComponent implements OnChanges, OnInit{
     this.dexBasicInfoCards = this.dexEntry.basicInfoCards || [new EntryCard( 0, 'Name', this.dexEntry.name || '')];
     this.dexBasicInfoCards.unshift(new EntryCard( 0, 'Name', this.dexEntry.name || ''))
     this.dexEntryCards = this.dexEntry.entryCards || [];
-  }
-
-  ngOnChanges(): void {
-    if(this.viewEditControls.editMode) {
-      this.editMode = true;
-    }
-    else {
-      this.editMode = false;
-    }
   }
 
   // component methods
@@ -71,5 +59,9 @@ export class DexEntryComponent implements OnChanges, OnInit{
 
   public addImageCard(): void {
     this.imageCards.push( new ImageCard( this.imageCards.length, 'New'));
+  }
+
+  public enterEditMode(ev: boolean): void {
+    this.dexEditMode.set(ev);
   }
 }

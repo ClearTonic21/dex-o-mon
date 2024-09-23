@@ -1,5 +1,5 @@
 <div class="view-edit-container">
-  @if(viewMode) {
+  @if(!editMode) {
     <div class="view-button active">
       <button
         igxIconButton="outlined"
@@ -10,7 +10,7 @@
       </button>
     </div>
   }
-  @else if(!viewMode) {
+  @else if(editMode) {
     <div class="view-button inactive">
       <button
         igxIconButton="outlined"

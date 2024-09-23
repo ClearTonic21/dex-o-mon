@@ -1,6 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input, OnInit, Output, ViewEncapsulation, forwardRef } from '@angular/core';
-import { FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IgxButtonGroupComponent, IgxIconComponent } from 'igniteui-angular';
 
 @Component({
@@ -12,22 +11,24 @@ import { IgxButtonGroupComponent, IgxIconComponent } from 'igniteui-angular';
 })
 
 export class ViewEditButtonComponent implements OnInit {
-  @Input() public defaultValue: boolean = true;
-  @Output() public editMode: boolean = true;
-  @Output() public viewMode: boolean = false;
+  @Input() public defaultValue = false;
+  @Output() public editModeOut: EventEmitter<boolean> = new EventEmitter<boolean>();
+  editMode: boolean = false;
 
   public ngOnInit(): void {
     this.editMode = this.defaultValue;
-    this.viewMode = !this.defaultValue;
+    console.log(this.editMode);
   }
 
   public visibilityClick(): void {
+    this.editModeOut.emit(false);
     this.editMode = false;
-    this.viewMode = true;
+    console.log(this.editMode);
   }
 
   public editClick(): void {
+    this.editModeOut.emit(true);
     this.editMode = true;
-    this.viewMode = false;
+    console.log(this.editMode);
   }
 }

@@ -15,18 +15,33 @@
             </igx-list-item>
           </div>
         }
+        @if (dexEditMode()) {
+          <div
+            class="primary-image-container new-item-button"
+            (click)="addImageCard()"
+          >
+            <igx-list-item
+              id="image-card-add-button"
+              class="new-item-button"
+            >
+              <igx-icon role="add-icon" family="material">add_circle</igx-icon>
+            </igx-list-item>
+          </div>
+        }
       </igx-list>
     </div>
     <igx-divider></igx-divider>
     <div class="info-panel-container">
       <entry-cards-list
         [entryCards]="dexBasicInfoCards"
+        [editMode]="dexEditMode()"
       ></entry-cards-list>
     </div>
   </div>
   <div class="dex-entry-cards-column">
     <entry-cards-list
       [entryCards]="dexEntryCards"
+      [editMode]="dexEditMode()"
     ></entry-cards-list>
   </div>
   <div class="dex-entry-control-column">
@@ -35,6 +50,7 @@
         <view-edit-button
           id="dex-entry-view-edit-button"
           [defaultValue]="true"
+          (editModeOut)="enterEditMode($event)"
         ></view-edit-button>
       </div>
       <div class="entry-scroll-bar-container">

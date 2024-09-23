@@ -18,14 +18,13 @@ export class EntryCardsListComponent implements OnInit {
   @HostBinding(`style.background-image`) bgImage: string =`url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%2338EEB4' stroke-width='4' stroke-dasharray='6%2c 14' stroke-dashoffset='2' stroke-linecap='square'/%3e%3c/svg%3e")`
   @ViewChild('cardListContainer', { read: ElementRef }) public cardListContainer!: ElementRef;
   @ViewChildren('dragDirRef', { read: IgxDragDirective }) public dragDirs!: QueryList<IgxDragDirective>;
-  @Input() editing: boolean = false;
+  @Input() editMode: boolean = false;
   @Input() entryCards: EntryCard[] = [];
   @Input() cardBgImage: string = '';
 
   public newIndex: any = null;
-  public animationDuration = 0.3;
-  private listItemHeight = 95;
-  public editMode: boolean = false;
+  public animationDuration = 0.6;
+  private listItemHeight = 93;
 
   public ngOnInit() {
     this.bgImage = this.cardBgImage;

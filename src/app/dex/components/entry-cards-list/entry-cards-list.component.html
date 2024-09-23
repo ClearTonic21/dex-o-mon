@@ -1,7 +1,7 @@
 <div class="entry-cards-list-container">
   <igx-list #cardListContainer>
     @for (card of entryCards; track $index) {
-    <div class="card-container" igxDrop>
+    <div class="card-container" [ngClass]="{'not-edit-mode' : !editMode}" igxDrop>
       <igx-list-item
         id="entry-card-{{card.guid}}"
         #dragDirRef="drag"
@@ -16,22 +16,26 @@
       >
         <h6 class="card-title" igxListLineTitle>{{ card.title }}</h6>
         <div class="card-value" igxListLineSubTitle>{{ card.value }}</div>
-        <igx-icon
-          role="drag-icon"
-          igxSuffix igxDragHandle
-          family="material"
-        >drag_indicator</igx-icon>
+        @if (editMode) {
+          <igx-icon
+            role="drag-icon"
+            igxSuffix igxDragHandle
+            family="material"
+          >drag_indicator</igx-icon>
+        }
       </igx-list-item>
     </div>
     }
-    <div class="card-container">
-      <igx-list-item
-        id="entry-card-add-button"
-        class="new-item-button"
-        (click)="addEntryCard()"
-      >
-        <igx-icon role="add-icon" family="material">add_circle</igx-icon>
-      </igx-list-item>
-    </div>
+    @if (editMode) {
+      <div class="card-container">
+        <igx-list-item
+          id="entry-card-add-button"
+          class="new-item-button"
+          (click)="addEntryCard()"
+        >
+          <igx-icon role="add-icon" family="material">add_circle</igx-icon>
+        </igx-list-item>
+      </div>
+    }
   </igx-list>
 </div>

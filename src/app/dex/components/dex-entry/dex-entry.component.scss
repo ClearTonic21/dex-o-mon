@@ -30,6 +30,7 @@
     &:hover {
       -ms-overflow-style: auto;
       scrollbar-width: thin;
+      background: 0;
     }
   }
 
@@ -40,6 +41,7 @@
     &:hover {
       background: 0;
       cursor: unset;
+      background: 0;
     }
   }
 
@@ -104,6 +106,15 @@
       z-index: 100;
       background-color: var(--text-color-invert);
     }
+  }
+}
+
+.new-item-button {
+  cursor: pointer;
+  background-color: var(--card-bg-color);
+
+  &:hover {
+    background-color: var(--text-color-invert);
   }
 }
 
