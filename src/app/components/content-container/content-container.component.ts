@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { IgxButtonModule, IgxIconModule, IgxListComponent, IgxListItemComponent, IgxRippleDirective, IgxSplitterComponent, IgxSplitterPaneComponent, IgxSuffixDirective } from 'igniteui-angular';
 import { DexEntry } from '../../dex/models/dex-entry';
 import { DexEntryComponent } from "../../dex/components/dex-entry/dex-entry.component";
@@ -22,11 +22,11 @@ export class NavigationItem {
   imports: [ NgClass, IgxSuffixDirective, IgxRippleDirective, IgxListComponent, IgxListItemComponent, IgxSplitterComponent,  IgxSplitterPaneComponent, IgxButtonModule, IgxIconModule, DexEntryComponent]
 })
 export class DexoContentContainerComponent implements OnInit {
-  public selected!: number;
-  public selectedItem!: NavigationItem;
+  @ViewChild('dexEntryContainer') public dexEntryContainer!: DexEntryComponent;
+  private dexEntries = ExampleDexEntries.dexEntries;
+  public selected: number = 0;
   public selectedDexEntry!: DexEntry;
   public collapsed: boolean = false;
-  private dexEntries = ExampleDexEntries.dexEntries;
 
   public navItems: NavigationItem[] = [];
 
@@ -35,8 +35,6 @@ export class DexoContentContainerComponent implements OnInit {
       this.navItems.push(new NavigationItem(de))
     });
     this.navItems[0].selected = true;
-    this.selected = 0;
-    this.selectedItem = this.navItems[0];
     this.selectedDexEntry = this.navItems[0].object;
   }
 
@@ -46,10 +44,9 @@ export class DexoContentContainerComponent implements OnInit {
     }
     this.navItems[item.entryNumber].selected = true;
     this.navItems[this.selected].selected = false;
-
     this.selected = item.entryNumber;
-    this.selectedItem = this.navItems.filter(ni => ni.object.entryNumber === item.entryNumber)[0];
     this.selectedDexEntry = this.dexEntries[item.entryNumber];
+    this.dexEntryContainer.setDexEntry(this.selectedDexEntry);
   }
 
   public toggleNavDrawer() {
