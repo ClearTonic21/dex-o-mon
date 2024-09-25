@@ -18,7 +18,6 @@ import { Guid } from '../../../models/guid';
   encapsulation: ViewEncapsulation.None,
 })
 export class DexEntryComponent implements OnInit{
-  @ViewChildren('dragDirRef', { read: IgxDragDirective }) public dragDirs!: QueryList<IgxDragDirective>;
   @ViewChild('cardListContainer', { read: ElementRef }) public cardListContainer!: ElementRef;
   @ViewChild('viewEditControls', { read: ElementRef }) public viewEditControls!: ViewEditButtonComponent;
   @Input() public initialDexEntry!: DexEntry;

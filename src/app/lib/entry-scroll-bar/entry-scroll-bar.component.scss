@@ -47,10 +47,10 @@
         @include anchorItem();
 
         .scrollbar-active-bar {
-          border-radius: 4px;
-          height: 16px;
+          border-radius: 0.25rem;
+          height: 1rem;
           visibility: visible;
-          width: 3px;
+          width: 0.25rem;
         }
 
         .scrollbar-anchor-item-text {

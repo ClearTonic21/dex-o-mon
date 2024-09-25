@@ -7,6 +7,13 @@
   padding: 0.5rem 2rem 2rem 0;
   height: 40vh;
   overflow-y: scroll;
+  overflow-x: hidden;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.igx-expansion-panel__body::-webkit-scrollbar {
+  display: none;
 }
 
 .card-title {

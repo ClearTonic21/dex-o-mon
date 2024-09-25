@@ -118,8 +118,22 @@ $custom-button-theme: button-theme(
     color: var(--text-color-invert);
   }
 
-  &.hover {
+  &:hover {
     background-color: var(--accent-color);
+    color: var(--text-color);
+
+    igx-icon {
+      color: var(--text-color);
+    }
+  }
+
+  &:focus {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+
+    igx-icon {
+      color: var(--text-color);
+    }
   }
 }
 
