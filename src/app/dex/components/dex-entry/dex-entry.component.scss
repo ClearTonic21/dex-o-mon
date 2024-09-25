@@ -1,0 +1,169 @@
+.dex-entry-container {
+  display: flex;
+  height: 82vh;
+}
+
+.basic-info-column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 24rem;
+  padding: 0.25rem 0 0 0;
+}
+
+.image-cards-container {
+  display: flex;
+  margin: 0.5rem 3rem 0.25rem 2.5rem;
+  justify-content: center;
+  align-content: center;
+  cursor: inherit;
+  background-color: var(--dex-bg-color);
+  border-top: 4px solid var(--footer-bg-color);
+  border-left: 4px solid var(--footer-bg-color);
+  border-bottom: 2px solid var(--border-color);
+  border-right: 2px solid var(--border-color);
+  box-shadow: 10px 10px 10px inset;
+
+  igx-list {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    background: 0;
+    flex-direction: row;
+    gap: 0.5rem;
+    -ms-overflow-style: none;
+    scrollbar-width: thin;
+
+    &:hover {
+      -ms-overflow-style: auto;
+      scrollbar-width: thin;
+      background: 0;
+    }
+  }
+
+  igx-icon {
+    background: 0;
+    cursor: unset;
+
+    &:hover {
+      background: 0;
+      cursor: unset;
+      background: 0;
+    }
+  }
+
+  igx-list-item {
+    display: flex;
+    z-index: 0;
+    min-height: 0;
+    justify-content: center;
+    align-content: center;
+    background: 0;
+
+    &.dragged {
+      box-shadow: elevation(8);
+      z-index: 100;
+    }
+  }
+}
+
+.primary-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 16rem;
+  min-width: 16rem;
+  padding: 0.25rem;
+  margin: 0.5rem 1rem 1rem 1rem;
+  z-index: 0;
+  border: 0.125rem solid var(--accent-color);
+  box-shadow: 5px 5px 10px;
+}
+
+.igx-divider:not(.igx-divider--vertical) {
+  width: 94%;
+  align-self: center;
+}
+
+.info-panel-container {
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  overflow-x: hidden;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
+  igx-list {
+    background-color: var(--text-color-invert);
+    justify-content: start;
+    overflow-x: hidden;
+    background: 0;
+    height: 40vh;
+  }
+
+  igx-list-item {
+    z-index: 0;
+    width: 99%;
+    min-height: 0;
+    min-height: 2.5rem;
+    background-color: var(--text-color-invert);
+
+    &.dragged {
+      box-shadow: elevation(8);
+      z-index: 100;
+      background-color: var(--text-color-invert);
+    }
+  }
+}
+
+.new-item-button {
+  cursor: pointer;
+  background-color: var(--card-bg-color);
+
+  &:hover {
+    background-color: var(--text-color-invert);
+  }
+}
+
+.dex-entry-cards-column {
+  height: 100%;
+  width: 100%;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: row;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+entry-cards-list {
+  width: 100%
+}
+
+.dex-entry-control-column {
+  height: 100%;
+  z-index: 100;
+}
+
+.control-content {
+  margin: 0 0.5rem 0 0;
+  box-shadow: 5px 5px 5px;
+  border: 0.1rem solid gray;
+  border-top-right-radius: 0.25rem;
+  border-top-left-radius: 0.25rem;
+}
+
+entry-scroll-bar {
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  z-index: -1;
+}
+
+.entry-control-buttons {
+  background-color: var(--card-bg-color);
+  border-radius: 0.25rem;
+}

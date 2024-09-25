@@ -1,0 +1,58 @@
+<div class="header-container">
+  <igx-navbar>
+    <igx-navbar-action>
+      <button
+        class="header-button page-nav"
+        igxButton="contained"
+        [igxToggleAction]="pageNavDropdown"
+        [igxDropDownItemNavigation]="pageNavDropdown"
+        [overlaySettings]="dropdownOverlaySettings"
+        (click)="pageNavOpen = !pageNavOpen"
+      >
+        <igx-icon family="material">{{ selectedIcon }}</igx-icon>
+        {{ selected }}
+        @if (!pageNavOpen) {
+          <igx-icon igxSuffix family="material">keyboard_arrow_down</igx-icon>
+        }
+        @else {
+          <igx-icon igxSuffix family="material">close</igx-icon>
+        }
+      </button>
+      <igx-drop-down
+        #pageNavDropdown
+        (selectionChanging)='handleSelection($event)'
+      >
+        <div class="drop-down-virtual-wrapper">
+          @for (item of navItems; track item) {
+            <igx-drop-down-item [value]="item">
+              <span class="inner-drop-down-item">
+                <igx-icon class="std-icon" family="material">{{ item.icon }}</igx-icon>
+                <div>{{ item.text }}</div>
+              </span>
+            </igx-drop-down-item>
+          }
+        </div>
+      </igx-drop-down>
+      <div class="header-button">
+        <button igxIconButton="flat">
+          <igx-icon>add_circle</igx-icon>
+        </button>
+        <div class="header-button tandem">
+          <button igxIconButton="flat">
+            <igx-icon>upload</igx-icon>
+          </button>
+          <button igxIconButton="flat">
+            <igx-icon>download</igx-icon>
+          </button>
+        </div>
+      </div>
+    </igx-navbar-action>
+    <div igxSuffix>
+      <div class="header-button">
+        <button igxIconButton="flat">
+          <igx-icon class="std-icon">account_circle</igx-icon>
+        </button>
+      </div>
+    </div>
+  </igx-navbar>
+</div>

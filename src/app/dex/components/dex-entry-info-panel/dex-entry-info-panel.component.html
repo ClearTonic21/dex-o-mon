@@ -1,0 +1,27 @@
+
+<div class="basic-info-panel-container">
+  <igx-expansion-panel class="my-expansion-panel" (click)="clickHeader($event)">
+    <igx-expansion-panel-header (click)="clickHeader($event)" [iconPosition]="'right'">
+      <igx-expansion-panel-title>
+        {{ entryName }}
+      </igx-expansion-panel-title>
+      <igx-expansion-panel-description>
+        Basic Information
+      </igx-expansion-panel-description>
+      <igx-expansion-panel-icon>
+        @if (panel.collapsed) {
+          <igx-icon family="material">unfold_more</igx-icon>
+        }
+        @else {
+          <igx-icon family="material">unfold_less</igx-icon>
+        }
+      </igx-expansion-panel-icon>
+    </igx-expansion-panel-header>
+    <igx-expansion-panel-body>
+      <entry-cards-list
+        [entryCards]="basicInfoCards || []"
+        [editMode]="infoEditMode"
+      ></entry-cards-list>
+    </igx-expansion-panel-body>
+  </igx-expansion-panel>
+</div>

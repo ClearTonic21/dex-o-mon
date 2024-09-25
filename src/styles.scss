@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+.std-icon {
+  --size: 2.5rem;
+}
+
+body {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+igx-divider {
+  margin: 0.625rem 0;
+  padding: 0.01rem;
+}
+
+:root {
+  --std-icon-size: 2.5rem;
+  --text-color: #212121;
+  --text-color-invert: #F5F5F5;
+  --dex-bg-color: #5F7575;
+  --footer-bg-color: #444444;;
+  --accent-color: #38EEB4;
+  --accent-color-light: #ABFFE4;
+  --accent-color-dark: #1A5442;
+  --border-color: #808080;
+
+  --card-bg-color: #D3D3D3;
+}

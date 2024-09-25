@@ -1,0 +1,46 @@
+<div class="view-edit-container">
+  @if(!editMode) {
+    <div class="view-button active">
+      <button
+        igxIconButton="outlined"
+        igxRipple
+        (click)="editClick()"
+        >
+        <igx-icon family="material">visibility</igx-icon>
+      </button>
+    </div>
+  }
+  @else if(editMode) {
+    <div class="view-button inactive">
+      <button
+        igxIconButton="outlined"
+        igxRipple
+        (click)="visibilityClick()"
+      >
+        <igx-icon family="material">visibility</igx-icon>
+      </button>
+    </div>
+  }
+  @if(editMode) {
+    <div class="edit-button active">
+      <button
+        igxIconButton="outlined"
+        igxRipple
+        (click)="visibilityClick()"
+      >
+        <igx-icon family="material">edit</igx-icon>
+      </button>
+    </div>
+  }
+  @else if(!editMode) {
+    <div class="edit-button inactive">
+      <button
+        igxIconButton="outlined"
+        igxRipple
+        (click)="editClick()"
+      >
+        <igx-icon family="material">edit</igx-icon>
+      </button>
+    </div>
+  }
+</div>

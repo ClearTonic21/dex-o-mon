@@ -1,0 +1,132 @@
+.inner-content-container {
+  display: flex;
+  height: 100%;
+  padding: 0.5rem 0;
+  color: var(--text-color);
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.inner-content-container::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-split-panel {
+  box-shadow: 5px 5px 5px;
+}
+
+.nav-drawer-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  margin: 0 0 0 0.25rem;
+  width: 100%;
+  overflow-y: hidden;
+  box-shadow: 5px 5px 10px;
+  border-left: 0.4rem solid lightgray;
+}
+
+igx-list-item {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+  color: var(--text-color);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--accent-color-light);
+    color: var(--text-color);
+  }
+}
+
+.igx-list__item-content {
+  gap: 1rem;
+}
+
+.selected {
+  background-color: var(--accent-color);
+
+  &:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color-invert);
+  }
+}
+
+.entry-number {
+  color: var(--text-color);
+  font-size: medium;
+  padding: 0 0.5rem;
+}
+
+.entry-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 0.5rem;
+}
+
+.items-container {
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.items-container::-webkit-scrollbar {
+  display: none;
+}
+
+.view-panel-container {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.header-item {
+  padding: 0.5rem 0;
+  margin: 0 0 0.2rem;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color-invert);
+  z-index: 5;
+  background-color: var(--accent-color-dark);
+  cursor: pointer;
+
+  igx-icon {
+    color: var(--text-color-invert);
+  }
+
+  &:hover {
+    background-color: var(--accent-color);
+
+    igx-icon {
+      color: var(--text-color),
+    }
+  }
+}
+
+.last-item {
+  display: flex;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: 0.2rem 0 0 0;
+  padding: 0.5rem 0;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  background-color: var(--text-color-invert);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--accent-color);
+
+    igx-icon {
+      color: var(--text-color);
+    }
+  }
+}

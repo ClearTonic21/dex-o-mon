@@ -1,0 +1,165 @@
+@use "igniteui-angular/theming" as *;
+
+$custom-navbar-theme: navbar-theme(
+  $background: var(--card-bg-color),
+  $text-color: var(--text-color),
+  $idle-icon-color: var(--text-color),
+  $hover-icon-color: var(--text-color-invert),
+  $shadow: null,
+);
+
+$custom-drop-down-theme: drop-down-theme(
+  $background-color: var(--accent-color-dark),
+  $item-text-color: var(--text-color-invert),
+  $selected-item-background: var(--accent-color),
+  $selected-item-text-color: var(--text-color),
+  $selected-hover-item-background: var(--accent-color-light),
+  $selected-hover-item-text-color: var(--text-color),
+  $hover-item-background: var(--accent-color),
+  $hover-item-text-color: var(--text-color)
+);
+
+$custom-button-theme: button-theme(
+  $background: var(--accent-color-dark),
+  $foreground: var(--text-color-invert),
+  $hover-background: var(--accent-color),
+  $hover-foreground: var(--text-color),
+  $icon-color: var(--text-color-invert),
+  $icon-color-hover: var(--text-color),
+
+  $focus-background: scale(var(--accent-color), 5%),
+  $focus-foreground: var(--text-color-invert),
+  $focus-hover-background: scale(var(--accent-color), 5%),
+  $focus-hover-foreground: var(--text-color-invert),
+
+  $focus-visible-background: scale(var(--accent-color), 5%),
+  $focus-visible-foreground: var(--text-color-invert),
+
+  $active-background: scale(var(--accent-color), 5%),
+  $active-foreground: var(--text-color-invert),
+
+  $border-radius: null,
+  $border-color: null,
+  $hover-border-color: null,
+  $focus-border-color: null,
+  $focus-visible-border-color: null,
+  $active-border-color: null,
+
+  $shadow-color: null,
+
+  $resting-shadow: null,
+  $hover-shadow: null,
+  $focus-shadow: null,
+  $active-shadow: null,
+
+  $disabled-background: null,
+  $disabled-foreground: null,
+  $disabled-border-color: null,
+  $size: null,
+);
+
+@include css-vars($custom-navbar-theme);
+@include css-vars($custom-drop-down-theme);
+@include css-vars($custom-button-theme);
+
+:host {
+  ::ng-deep {
+    @include navbar($custom-navbar-theme);
+    @include css-vars($custom-drop-down-theme);
+    @include css-vars($custom-button-theme);
+  }
+}
+
+.igx-navbar {
+  min-height: 6vh;
+  max-height: 0;
+  border: 2px solid darkgray;
+}
+
+.header-container {
+  min-height: 6vh;
+  margin: 0 0 0.5rem 0;
+  box-shadow: 8px 8px 10px;
+  z-index: 999;
+}
+
+.header-buttons {
+  margin: 0 1rem 0 2rem;
+  gap: 0;
+}
+
+.tandem {
+  gap: 0;
+  margin: 0;
+}
+
+.header-button {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  padding: 0;
+  color: var(--text-color);
+
+  button {
+    padding: 0 1.5rem;
+    margin: 0 0 0 0.5rem;
+    color: var(--text-color);
+  }
+}
+
+.page-nav {
+  justify-content: space-between;
+  width: 12rem;
+  color: var(--text-color-invert);
+  background-color: var(--accent-color-dark);
+  margin: 0 2rem 0 0;
+
+  igx-icon {
+    color: var(--text-color-invert);
+  }
+
+  &:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+
+    igx-icon {
+      color: var(--text-color);
+    }
+  }
+
+  &:focus {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+
+    igx-icon {
+      color: var(--text-color);
+    }
+  }
+}
+
+:host {
+  display: flex;
+  flex-flow: row;
+  margin: 1rem;
+}
+
+.button {
+  width: 15rem;
+}
+
+.selection {
+  line-height: 4rem;
+  padding: 0.5rem;
+}
+
+.drop-down-virtual-wrapper {
+  padding: 0;
+  gap: 0.1rem;
+}
+
+.inner-drop-down-item {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  gap: 1rem;
+}
