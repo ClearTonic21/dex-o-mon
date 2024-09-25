@@ -7,7 +7,6 @@ import { NgFor } from '@angular/common';
 interface NavItem {
   icon: string;
   text: string;
-  header?: boolean;
   disabled?: boolean;
 }
 
@@ -20,7 +19,7 @@ interface NavItem {
   encapsulation: ViewEncapsulation.None
 })
 export class DexoHeaderComponent {
-  @Output() public selectionListToggle: EventEmitter<void> = new EventEmitter<void>();
+  @Output() public selectionChanged: EventEmitter<Page> = new EventEmitter<Page>();
   public dropdownOverlaySettings = {
   positionStrategy: new ConnectedPositioningStrategy({
     horizontalStartPoint: HorizontalAlignment.Right + 0.025,
@@ -33,14 +32,15 @@ export class DexoHeaderComponent {
   { icon: `${DexoIcon.GroupWork}`,   text: `${Page.Defaults}`  }
   ];
 
-  public selected = `${Page.Dex}`;
+  public selected: Page = Page.Dex
   public selectedIcon = `${DexoIcon.ListAlt}`;
   public pageNavOpen: boolean = false;
 
   public handleSelection(ev: ISelectionEventArgs): void {
-  const newselection = ev.newSelection.value;
-  this.selected = newselection.text;
-  this.selectedIcon = newselection.icon;
-  this.pageNavOpen = false;
+    const newselection = ev.newSelection.value;
+    this.selected = newselection.text;
+    this.selectedIcon = newselection.icon;
+    this.pageNavOpen = false;
+    this.selectionChanged.emit(this.selected);
   }
 }

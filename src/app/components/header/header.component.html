@@ -10,7 +10,7 @@
         (click)="pageNavOpen = !pageNavOpen"
       >
         <igx-icon family="material">{{ selectedIcon }}</igx-icon>
-        {{ selected }}
+        <span class="page-nav-selected-text">{{ selected }}</span>
         @if (!pageNavOpen) {
           <igx-icon igxSuffix family="material">keyboard_arrow_down</igx-icon>
         }

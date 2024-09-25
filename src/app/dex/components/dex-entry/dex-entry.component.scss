@@ -1,6 +1,6 @@
 .dex-entry-container {
   display: flex;
-  height: 82vh;
+  height: 84vh;
 }
 
 .basic-info-column {
@@ -9,19 +9,22 @@
   height: 100%;
   width: 24rem;
   padding: 0.25rem 0 0 0;
+  margin: 0 1rem;
 }
 
 .image-cards-container {
   display: flex;
-  margin: 0.5rem 3rem 0.25rem 2.5rem;
   justify-content: center;
   align-content: center;
+  min-height: 18.5rem;
+  min-width: 18.5rem;
+  margin: 0.5rem 3rem 0.25rem 2.5rem;
   cursor: inherit;
   background-color: var(--dex-bg-color);
   border-top: 4px solid var(--footer-bg-color);
   border-left: 4px solid var(--footer-bg-color);
   border-bottom: 2px solid var(--border-color);
-  border-right: 2px solid var(--border-color);
+  border-right: 2px solid var(--card-bg-color);
   box-shadow: 10px 10px 10px inset;
 
   igx-list {
@@ -64,6 +67,25 @@
       box-shadow: elevation(8);
       z-index: 100;
     }
+  }
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 1rem;
+  color: var(--accent-color-light);
+  font-size: 1rem;
+  background-color: var(--footer-bg-color);
+  border: 1px solid var(--text-color);
+
+  igx-icon {
+    display: inline;
+    --size: 2rem;
+    align-self: center;
+    background: 0;
+    cursor: unset;
   }
 }
 
@@ -131,10 +153,7 @@
   color: var(--text-color);
   display: flex;
   flex-direction: row;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  overflow-y: hidden;
 }
 
 entry-cards-list {
