@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, QueryList, signal, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, Signal, Input, OnInit, QueryList, signal, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
 import { IgxButtonGroupComponent, IgxDividerDirective, IgxDragDirective, IgxIconComponent, IgxListComponent, IgxListItemComponent } from 'igniteui-angular';
 import { EntryScrollBarComponent } from "../../../lib/entry-scroll-bar/entry-scroll-bar.component";
 import { ViewEditButtonComponent } from "../../../lib/view-edit-button/view-edit-button.component";
@@ -18,50 +18,40 @@ import { Guid } from '../../../models/guid';
   encapsulation: ViewEncapsulation.None,
 })
 export class DexEntryComponent implements OnInit{
-  @ViewChild('cardListContainer', { read: ElementRef }) public cardListContainer!: ElementRef;
   @ViewChildren('dragDirRef', { read: IgxDragDirective }) public dragDirs!: QueryList<IgxDragDirective>;
+  @ViewChild('cardListContainer', { read: ElementRef }) public cardListContainer!: ElementRef;
   @ViewChild('viewEditControls', { read: ElementRef }) public viewEditControls!: ViewEditButtonComponent;
-  @Input() public dexEntry!: DexEntry;
-  @Input() public entryGuid!: Guid;
-  @Input() public entryNumber!: number;
-  @Input() public name!: string;
-  @Input() public iconSrc: string = `${DexoIcon.Image}`;
-  @Input() public imageSrc: string = `${DexoIcon.Image}`
-  @Input() public dexBasicInfoCards: EntryCard[] = [];
-  @Input() public dexEntryCards: EntryCard[] = [];
+  @Input() public initialDexEntry!: DexEntry;
+  public dexEntry = signal(new DexEntry(0, 'New'));
+  public dexEntryName = signal('New');
   public dexEditMode = signal(true);
 
-  public imageCards: ImageCard[] = [
-    new ImageCard( 0, 'New'),
-  ];
-
   ngOnInit(): void {
-    this.entryGuid =  this.dexEntry.guid;
-    this.entryNumber =  this.dexEntry.entryNumber;
-    this.name = this.dexEntry.name;
-    this.iconSrc = `${DexoIcon.Image}`;
-    this.imageSrc = `${DexoIcon.Image}`
-    this.dexBasicInfoCards = this.dexEntry.basicInfoCards || [new EntryCard( 0, 'Name', this.dexEntry.name || '')];
-    this.dexBasicInfoCards.unshift(new EntryCard( 0, 'Name', this.dexEntry.name || ''))
-    this.dexEntryCards = this.dexEntry.entryCards || [];
+    this.dexEntry.set(this.initialDexEntry);
   }
 
   // component methods
   public addEntryCard(): void {
-    this.dexEntryCards.push(new EntryCard (this.dexEntryCards.length, 'New', 'Undefined'));
+    this.dexEntry().entryCards!.push(new EntryCard (this.dexEntry().entryCards!.length, 'New', 'Undefined'));
   }
 
   public deleteEntryCard(index: number): void {
     if (index >= 0) {
-      this.dexEntryCards.splice(index, 1);
+      this.dexEntry().entryCards!.splice(index, 1);
     }
   }
 
   public addImageCard(): void {
-    this.imageCards.push( new ImageCard( this.imageCards.length, 'New'));
+    this.dexEntry().imageCards!.push( new ImageCard( this.dexEntry().imageCards!.length, 'New'));
   }
 
   public enterEditMode(ev: boolean): void {
     this.dexEditMode.set(ev);
   }
+
+  public setDexEntry(selectedDexEntry: DexEntry)  {
+    this.dexEntry.set(selectedDexEntry);
+  }
 }
+
+

@@ -2,7 +2,7 @@
   <div class="basic-info-column">
     <div class="image-cards-container">
       <igx-list #imageListContainer>
-        @for (image of imageCards; track $index) {
+        @for (image of dexEntry().imageCards; track $index) {
           <div class="primary-image-container">
             <igx-list-item id="image-card-{{image.source}}">
               @if (image.source != 'image') {
@@ -31,17 +31,16 @@
       </igx-list>
     </div>
     <igx-divider></igx-divider>
-    <div class="info-panel-container">
-      <entry-cards-list
-        [entryCards]="dexBasicInfoCards"
-        [editMode]="dexEditMode()"
-      ></entry-cards-list>
-    </div>
+    <basic-info-panel
+      [entryName]="dexEntry().name"
+      [basicInfoCards]="dexEntry().basicInfoCards || []"
+      [infoEditMode]="dexEditMode()"
+    ></basic-info-panel>
   </div>
   <div class="dex-entry-cards-column">
     <entry-cards-list
-      [entryCards]="dexEntryCards"
-      [editMode]="dexEditMode()"
+    [entryCards]="dexEntry().entryCards || []"
+    [editMode]="dexEditMode()"
     ></entry-cards-list>
   </div>
   <div class="dex-entry-control-column">
@@ -55,7 +54,7 @@
       </div>
       <div class="entry-scroll-bar-container">
         <entry-scroll-bar
-          [scrollbarList]="dexEntryCards"
+          [scrollbarList]="dexEntry().entryCards || []"
         ></entry-scroll-bar>
       </div>
     </div>

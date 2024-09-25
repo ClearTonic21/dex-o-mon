@@ -8,14 +8,21 @@
   flex-direction: column;
   height: 100%;
   width: 24rem;
+  padding: 0.25rem 0 0 0;
 }
 
 .image-cards-container {
   display: flex;
-  margin: 0 3rem 0 3rem;
+  margin: 0.5rem 3rem 0.25rem 2.5rem;
   justify-content: center;
   align-content: center;
-  cursor:inherit;
+  cursor: inherit;
+  background-color: var(--dex-bg-color);
+  border-top: 4px solid var(--footer-bg-color);
+  border-left: 4px solid var(--footer-bg-color);
+  border-bottom: 2px solid var(--border-color);
+  border-right: 2px solid var(--border-color);
+  box-shadow: 10px 10px 10px inset;
 
   igx-list {
     display: flex;
@@ -67,7 +74,7 @@
   height: 16rem;
   min-width: 16rem;
   padding: 0.25rem;
-  margin: 0 1rem 1rem 1rem;
+  margin: 0.5rem 1rem 1rem 1rem;
   z-index: 0;
   border: 0.125rem solid var(--accent-color);
   box-shadow: 5px 5px 10px;
