@@ -28,6 +28,9 @@
             </igx-list-item>
           </div>
         }
+        <ng-template igxEmptyList>
+          <span class="emptyState">Switch to Edit mode: <igx-icon class="inline-icon" family="material">edit</igx-icon> to add images.</span>
+        </ng-template>
       </igx-list>
     </div>
     <igx-divider></igx-divider>
@@ -36,6 +39,7 @@
       [basicInfoCards]="dexEntry().basicInfoCards || []"
       [infoEditMode]="dexEditMode()"
     ></basic-info-panel>
+    <igx-divider></igx-divider>
   </div>
   <div class="dex-entry-cards-column">
     <entry-cards-list

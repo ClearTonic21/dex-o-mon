@@ -16,7 +16,9 @@ $custom-drop-down-theme: drop-down-theme(
   $selected-hover-item-background: var(--accent-color-light),
   $selected-hover-item-text-color: var(--text-color),
   $hover-item-background: var(--accent-color),
-  $hover-item-text-color: var(--text-color)
+  $hover-item-text-color: var(--text-color),
+  $focused-item-background: var(--accent-color-light),
+  $focused-item-text-color: var(--text-color),
 );
 
 $custom-button-theme: button-theme(
@@ -27,12 +29,12 @@ $custom-button-theme: button-theme(
   $icon-color: var(--text-color-invert),
   $icon-color-hover: var(--text-color),
 
-  $focus-background: scale(var(--accent-color), 5%),
+  $focus-background: var(--accent-color-light),
   $focus-foreground: var(--text-color-invert),
-  $focus-hover-background: scale(var(--accent-color), 5%),
+  $focus-hover-background: var(--accent-color-light),
   $focus-hover-foreground: var(--text-color-invert),
 
-  $focus-visible-background: scale(var(--accent-color), 5%),
+  $focus-visible-background: var(--accent-color-light),
   $focus-visible-foreground: var(--text-color-invert),
 
   $active-background: scale(var(--accent-color), 5%),
@@ -81,6 +83,10 @@ $custom-button-theme: button-theme(
   margin: 0 0 0.5rem 0;
   box-shadow: 8px 8px 10px;
   z-index: 999;
+}
+
+.page-nav-selected-text {
+  color: var(--text-color);
 }
 
 .header-buttons {
@@ -150,6 +156,7 @@ $custom-button-theme: button-theme(
 .selection {
   line-height: 4rem;
   padding: 0.5rem;
+  background-color: var(--accent-color);
 }
 
 .drop-down-virtual-wrapper {

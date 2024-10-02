@@ -1,19 +1,14 @@
 .info-panel-container {
-  height: 100%;
   background-color: var(--text-color-invert);
 }
 
 .igx-expansion-panel__body {
-  padding: 0.5rem 2rem 2rem 0;
-  height: 40vh;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
-.igx-expansion-panel__body::-webkit-scrollbar {
-  display: none;
+  display: flex;
+  justify-content: center;
+  height: 38vh;
+  padding: 0;
+  background: var(--footer-bg-color);
+  border: 2px solid black;
 }
 
 .card-title {
@@ -22,4 +17,24 @@
 
 entry-cards-list {
   margin: 0;
+
+  .emptyState {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    color: var(--accent-color-light);
+    font-size: 1rem;
+    background-color: 0;
+    border: 0;
+
+    igx-icon {
+      display: inline;
+      --size: 2rem;
+      align-self: center;
+      background: 0;
+      cursor: unset;
+    }
+  }
 }

@@ -1,6 +1,9 @@
 .entry-cards-list-container {
+  height: 100%;
   width: 100%;
+  padding: 0 0 4rem 0;
 }
+
 
 .card-container {
   margin: 0.125rem;
@@ -26,6 +29,26 @@ igx-icon[role="delete-icon"] {
   cursor: pointer;
   background: 0;
 }
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 1rem;
+  color: var(--accent-color-light);
+  font-size: 1rem;
+  background-color: var(--footer-bg-color);
+  border: 1px solid var(--text-color);
+
+  igx-icon {
+    display: inline;
+    --size: 2rem;
+    align-self: center;
+    background: 0;
+    cursor: unset;
+  }
+}
+
 
 .new-item-button {
   width: 99%;
@@ -58,6 +81,14 @@ igx-icon[role="delete-icon"] {
     width: 100%;
     background: 0;
     height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .igx-list::-webkit-scrollbar {
+    display: none;
   }
 
   igx-list-item {

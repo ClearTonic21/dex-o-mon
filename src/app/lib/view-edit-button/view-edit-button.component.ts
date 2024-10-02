@@ -17,18 +17,15 @@ export class ViewEditButtonComponent implements OnInit {
 
   public ngOnInit(): void {
     this.editMode = this.defaultValue;
-    console.log(this.editMode);
   }
 
   public visibilityClick(): void {
     this.editModeOut.emit(false);
     this.editMode = false;
-    console.log(this.editMode);
   }
 
   public editClick(): void {
     this.editModeOut.emit(true);
     this.editMode = true;
-    console.log(this.editMode);
   }
 }
