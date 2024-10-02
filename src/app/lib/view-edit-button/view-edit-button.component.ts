@@ -1,5 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { HotkeysService } from '@ngneat/hotkeys';
 import { IgxButtonGroupComponent, IgxIconComponent } from 'igniteui-angular';
 
 @Component({
@@ -15,20 +16,20 @@ export class ViewEditButtonComponent implements OnInit {
   @Output() public editModeOut: EventEmitter<boolean> = new EventEmitter<boolean>();
   editMode: boolean = false;
 
+  constructor(private hotkeys: HotkeysService) {}
+
   public ngOnInit(): void {
     this.editMode = this.defaultValue;
-    console.log(this.editMode);
+    this.hotkeys.addShortcut({ keys: 'meta.e' }).subscribe(e => console.log('Hotkey', e));
   }
 
   public visibilityClick(): void {
     this.editModeOut.emit(false);
     this.editMode = false;
-    console.log(this.editMode);
   }
 
   public editClick(): void {
     this.editModeOut.emit(true);
     this.editMode = true;
-    console.log(this.editMode);
   }
 }
