@@ -1,6 +1,6 @@
 import { DexoIcon } from "../../enums/DexoIcon";
 import { Guid, newGuid } from "../../models/guid";
-import { EntryCard, ImageCard } from "./entry-card";
+import { EntryCard, ImageCard } from "./entry-card.model";
 
 export class DexEntry {
   public guid: Guid;

@@ -4,10 +4,10 @@
       <igx-list #imageListContainer>
         @for (image of dexEntry().imageCards; track $index) {
           <div class="primary-image-container">
-            <igx-list-item id="image-card-{{image.source}}">
-              @if (image.source != 'image') {
-                <img height="100" [src]="image.source" alt="">
-                <igx-icon family="material">{{ image.source }}</igx-icon>
+            <igx-list-item id="image-card-{{image.value}}">
+              @if (image.value != 'image') {
+                <img height="100" [src]="image.value" alt="">
+                <igx-icon family="material">{{ image.value }}</igx-icon>
               }
               @else {
                 <igx-icon family="material">image</igx-icon>
@@ -43,8 +43,8 @@
   </div>
   <div class="dex-entry-cards-column">
     <entry-cards-list
-    [entryCards]="dexEntry().entryCards || []"
-    [editMode]="dexEditMode()"
+      [entryCards]="dexEntry().entryCards || []"
+      [editMode]="dexEditMode()"
     ></entry-cards-list>
   </div>
   <div class="dex-entry-control-column">

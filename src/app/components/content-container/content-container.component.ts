@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IgxButtonModule, IgxIconModule, IgxListComponent, IgxListItemComponent, IgxRippleDirective, IgxSplitterComponent, IgxSplitterPaneComponent, IgxSuffixDirective } from 'igniteui-angular';
-import { DexEntry } from '../../dex/models/dex-entry';
+import { DexEntry } from '../../dex/models/dex-entry.model';
 import { DexEntryComponent } from "../../dex/components/dex-entry/dex-entry.component";
 import { ExampleDexEntries } from '../../models/example-dex-entries';
 import { NgClass } from '@angular/common';

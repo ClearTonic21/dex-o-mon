@@ -1,5 +1,5 @@
-import { DexEntry } from "../dex/models/dex-entry";
-import { EntryCard, ImageCard } from "../dex/models/entry-card";
+import { DexEntry } from "../dex/models/dex-entry.model";
+import { EntryCard, ImageCard } from "../dex/models/entry-card.model";
 import { DexoIcon } from "../enums/DexoIcon";
 
 export class ExampleDexEntries {
