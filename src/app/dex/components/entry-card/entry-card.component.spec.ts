@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DexEntryCardComponent } from './dex-entry-card.component';
+import { DexEntryCardComponent } from './entry-card.component';
 
 describe('DexEntrySpecComponent', () => {
   let component: DexEntryCardComponent;

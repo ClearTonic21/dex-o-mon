@@ -1,18 +1,19 @@
 
-import { Component, ElementRef, HostBinding, Input, OnInit, Output, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, Input, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { IDragBaseEventArgs, IDragMoveEventArgs, IgxButtonGroupComponent, IgxDividerDirective, IgxDragDirective, IgxDragDropModule, IgxDragLocation, IgxEmptyListTemplateDirective, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelHeaderComponent, IgxExpansionPanelIconDirective, IgxExpansionPanelTitleDirective, IgxIconComponent, IgxListComponent, IgxListItemComponent } from 'igniteui-angular';
 import { EntryScrollBarComponent } from "../../../lib/entry-scroll-bar/entry-scroll-bar.component";
 import { ViewEditButtonComponent } from "../../../lib/view-edit-button/view-edit-button.component";
-import { EntryCard} from '../../models/entry-card';
+import { EntryCard} from '../../models/entry-card.model';
 import { DexEntryInfoPanelComponent } from '../dex-entry-info-panel/dex-entry-info-panel.component';
 import { NgClass } from '@angular/common';
+import { DexEntryCardComponent } from "../entry-card/entry-card.component";
 
 @Component({
-  selector: 'entry-cards-list',
+  selector: 'dex-entry-cards-list',
   standalone: true,
-  imports: [NgClass, IgxIconComponent, IgxButtonGroupComponent, IgxEmptyListTemplateDirective, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelHeaderComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelTitleDirective, IgxExpansionPanelIconDirective, IgxDividerDirective, IgxListComponent, IgxListItemComponent, IgxDragDropModule, EntryScrollBarComponent, ViewEditButtonComponent, DexEntryInfoPanelComponent],
-  templateUrl: './entry-cards-list.component.html',
-  styleUrl: './entry-cards-list.component.scss'
+  imports: [NgClass, IgxIconComponent, IgxButtonGroupComponent, IgxEmptyListTemplateDirective, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelHeaderComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelTitleDirective, IgxExpansionPanelIconDirective, IgxDividerDirective, IgxListComponent, IgxListItemComponent, IgxDragDropModule, EntryScrollBarComponent, ViewEditButtonComponent, DexEntryInfoPanelComponent, DexEntryCardComponent],
+  templateUrl: './dex-entry-cards-list.component.html',
+  styleUrl: './dex-entry-cards-list.component.scss',
 })
 export class EntryCardsListComponent {
   @ViewChild('cardListContainer', { read: ElementRef }) public cardListContainer!: ElementRef;

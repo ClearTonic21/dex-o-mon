@@ -2,8 +2,8 @@ import { Component, Input, OnInit, QueryList, ViewChild, ViewChildren, ViewEncap
 import { IgxIconComponent, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelHeaderComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelTitleDirective, IgxExpansionPanelIconDirective, IgxDividerDirective, IgxListComponent, IgxListItemComponent, IgxDragDropModule, IgxDragDirective } from 'igniteui-angular';
 import { EntryScrollBarComponent } from '../../../lib/entry-scroll-bar/entry-scroll-bar.component';
 import { ViewEditButtonComponent } from '../../../lib/view-edit-button/view-edit-button.component';
-import { EntryCard } from '../../models/entry-card';
-import { EntryCardsListComponent } from '../entry-cards-list/entry-cards-list.component';
+import { EntryCard } from '../../models/entry-card.model';
+import { EntryCardsListComponent } from '../dex-entry-cards-list/dex-entry-cards-list.component';
 
 @Component({
   selector: 'basic-info-panel',

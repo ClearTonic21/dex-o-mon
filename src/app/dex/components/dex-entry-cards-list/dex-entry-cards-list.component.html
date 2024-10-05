@@ -14,8 +14,7 @@
         [ghost]="false"
         [class.dragged]="dragDirRef.data && dragDirRef.data.dragged"
       >
-        <h6 class="card-title" igxListLineTitle>{{ card.title }}</h6>
-        <div class="card-value" igxListLineSubTitle>{{ card.value }}</div>
+        <entry-card [entryCard]="card"></entry-card>
         @if (editMode) {
           <igx-icon
             role="drag-icon"
