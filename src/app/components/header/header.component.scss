@@ -114,11 +114,12 @@ $custom-button-theme: button-theme(
 }
 
 .page-nav {
+  display: flex;
   justify-content: space-between;
   width: 12rem;
+  margin: 0 2rem 0 0;
   color: var(--text-color-invert);
   background-color: var(--accent-color-dark);
-  margin: 0 2rem 0 0;
 
   igx-icon {
     color: var(--text-color-invert);
