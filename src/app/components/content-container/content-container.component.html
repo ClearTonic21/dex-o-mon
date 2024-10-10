@@ -15,6 +15,7 @@
             @for (item of navItems; track $index) {
               <igx-list-item
                 igxRipple
+                igxRippleTarget=".igx-list__item-content"
                 [ngClass]="item.selected ? 'selected' : ''"
                 (click)="onSelect(item.object)"
               >
@@ -27,6 +28,7 @@
           <igx-list-item
             class="last-item"
             igxSuffix
+            igxRippleTarget=".igx-list__item-content"
             (click)="toggleNavDrawer()"
           >
             <button igxIconButton="flat">
