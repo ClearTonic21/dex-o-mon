@@ -1,4 +1,18 @@
-<div class="entry-card-container">
-  <h6 class="card-title" igxListLineTitle>{{ entryCard.title }}</h6>
-  <div class="card-value" igxListLineSubTitle>{{ entryCard.value }}</div>
+<div class="entry-card-data-container">
+  @if (editMode) {
+    <div class="input-group">
+      <div class="input-groupie">
+        <label igxListLineTitle for="entryTitle"><h6>Title</h6></label>
+        <input igxInput name="entryTitle" type="line" value="{{entryCard.title}}"/>
+      </div>
+      <div class="input-groupie">
+        <label class="card-value" igxListLineSubTitle for="entryValue">Value</label>
+        <input igxInput name="entryValue" type="box" value="{{entryCard.value}}"/>
+      </div>
+    </div>
+  }
+  @else {
+    <h6 class="card-title" igxListLineTitle>{{ entryCard.title }}</h6>
+    <div class="card-value" igxListLineSubTitle>{{ entryCard.value }}</div>
+  }
 </div>

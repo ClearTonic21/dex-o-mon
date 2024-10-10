@@ -1,29 +1,132 @@
 
-import { Component, ElementRef, Input, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { IDragBaseEventArgs, IDragMoveEventArgs, IgxButtonGroupComponent, IgxDividerDirective, IgxDragDirective, IgxDragDropModule, IgxDragLocation, IgxEmptyListTemplateDirective, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelHeaderComponent, IgxExpansionPanelIconDirective, IgxExpansionPanelTitleDirective, IgxIconComponent, IgxListComponent, IgxListItemComponent } from 'igniteui-angular';
+import { Component, ElementRef, Input, QueryList, ViewChild, ViewChildren, WritableSignal, signal } from '@angular/core';
+import { AbsolutePosition, AbsoluteScrollStrategy, BlockScrollStrategy, ConnectedPositioningStrategy, HorizontalAlignment, IDragBaseEventArgs, IDragMoveEventArgs, IgxButtonGroupComponent, IgxDividerDirective, IgxDragDirective, IgxDragDropModule, IgxDragLocation, IgxDropDirective, IgxDropDownComponent, IgxDropDownItemComponent, IgxEmptyListTemplateDirective, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelHeaderComponent, IgxExpansionPanelIconDirective, IgxExpansionPanelTitleDirective, IgxIconComponent, IgxListActionDirective, IgxListComponent, IgxListItemComponent, IgxSuffixDirective, ISelectionEventArgs, OverlaySettings, Point, VerticalAlignment } from 'igniteui-angular';
 import { EntryScrollBarComponent } from "../../../lib/entry-scroll-bar/entry-scroll-bar.component";
-import { ViewEditButtonComponent } from "../../../lib/view-edit-button/view-edit-button.component";
 import { EntryCard} from '../../models/entry-card.model';
 import { DexEntryInfoPanelComponent } from '../dex-entry-info-panel/dex-entry-info-panel.component';
 import { NgClass } from '@angular/common';
 import { DexEntryCardComponent } from "../entry-card/entry-card.component";
+import { EntryActions, EntryActionTypes as EntryActionType } from '../../models/entry-actions.model';
+import { EntryCardType } from '../../../enums/EntryCardType';
 
 @Component({
   selector: 'dex-entry-cards-list',
   standalone: true,
-  imports: [NgClass, IgxIconComponent, IgxButtonGroupComponent, IgxEmptyListTemplateDirective, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelHeaderComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelTitleDirective, IgxExpansionPanelIconDirective, IgxDividerDirective, IgxListComponent, IgxListItemComponent, IgxDragDropModule, EntryScrollBarComponent, ViewEditButtonComponent, DexEntryInfoPanelComponent, DexEntryCardComponent],
+  imports: [NgClass, IgxSuffixDirective, IgxListActionDirective, IgxDropDirective, IgxDropDownItemComponent, IgxDropDownComponent, IgxIconComponent, IgxButtonGroupComponent, IgxEmptyListTemplateDirective, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelHeaderComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelTitleDirective, IgxExpansionPanelIconDirective, IgxDividerDirective, IgxListComponent, IgxListItemComponent, IgxDragDropModule, EntryScrollBarComponent, DexEntryInfoPanelComponent, DexEntryCardComponent],
   templateUrl: './dex-entry-cards-list.component.html',
   styleUrl: './dex-entry-cards-list.component.scss',
 })
 export class EntryCardsListComponent {
   @ViewChild('cardListContainer', { read: ElementRef }) public cardListContainer!: ElementRef;
+  @ViewChild('actionDropdown') public actionDropdown!: IgxDropDownComponent;
+  @ViewChild('entryCardTypeDropdown') public entryCardTypeDropdown!: IgxDropDownComponent;
   @ViewChildren('dragDirRef', { read: IgxDragDirective }) public dragDirs!: QueryList<IgxDragDirective>;
-  @Input() editMode: boolean = false;
+  @Input() listEditMode: boolean = false;
   @Input() entryCards: EntryCard[] = [];
+  @Input() infoColumn: boolean = false;
+
+  public entryActions: EntryActions[] = [
+    { value: EntryActionType.Switch, label: 'Switch Entry Type', iconName: 'flip' },
+    { value: EntryActionType.Duplicate, label: 'Duplicate', iconName: 'control_point_duplicate' },
+    { value: EntryActionType.Delete, label: 'Delete', iconName: 'delete', isDelete: true }
+  ];
+
+  public entryCardClicked = signal<EntryCard>(this.entryCards[0]);
+  public entryActionTypes = EntryActionType;
+  public entryCardTypes: EntryCardType[] = Object.values(EntryCardType);
 
   public newIndex: any = null;
   public animationDuration = 0.6;
-  private listItemHeight = 93;
+  private _listItemHeight = 93;
+
+  // component method
+  public onClick(mouseEvent: MouseEvent, entry: EntryCard): void {
+    if (!this.listEditMode) {
+      mouseEvent.preventDefault();
+      mouseEvent.stopPropagation();
+      return;
+    }
+    this.entryCardClicked.set(entry);
+    const point: Point = new Point(mouseEvent.clientX, mouseEvent.clientY);
+    const overlaySettings: OverlaySettings = {
+      scrollStrategy: new BlockScrollStrategy,
+      target: point,
+      positionStrategy: new ConnectedPositioningStrategy({
+        horizontalDirection: this.infoColumn ? HorizontalAlignment.Right : HorizontalAlignment.Left,
+        horizontalStartPoint: HorizontalAlignment.Center,
+        verticalStartPoint: VerticalAlignment.Bottom,
+        verticalDirection:
+          window.innerHeight - mouseEvent.clientY < 200
+            ? VerticalAlignment.Top
+            : VerticalAlignment.Bottom
+      }),
+      modal: false
+    };
+    this.actionDropdown.toggle(overlaySettings);
+  }
+
+  public addEntryCard(): void {
+    this.entryCards.push(new EntryCard (this.entryCards.length, 'New', 'Undefined'));
+  }
+
+  public handleSelection($event: ISelectionEventArgs): void {
+    switch ($event.newSelection.value) {
+      case (this.entryActionTypes.Switch): {
+        this.openEntryCardEditor();
+        break;
+      }
+      case (this.entryActionTypes.Duplicate): {
+        this.duplicateEntryCard();
+        break;
+      }
+      case (this.entryActionTypes.Delete): {
+        this.deleteEntryCard();
+        break;
+      }
+    }
+    this.actionDropdown.clearSelection();
+  }
+
+  public deleteEntryCard(): void {
+    const indexToDelete = this.entryCardClicked().index
+    if (indexToDelete >= 0) {
+      this.entryCards.splice(indexToDelete, 1);
+    }
+  }
+
+  public duplicateEntryCard(): void {
+    if (this.entryCardClicked().index >= 0) {
+      this.entryCards.push(new EntryCard (
+        this.entryCards.length, this.entryCardClicked().title,
+        this.entryCardClicked().value,
+        this.entryCardClicked().entryCardType
+      ));
+    }
+  }
+
+  public openEntryCardEditor(): void {
+    const overlaySettings: OverlaySettings = {
+      scrollStrategy: new BlockScrollStrategy,
+      positionStrategy: new ConnectedPositioningStrategy({
+        horizontalDirection: this.infoColumn ? HorizontalAlignment.Right : HorizontalAlignment.Left,
+        horizontalStartPoint: HorizontalAlignment.Center,
+        verticalStartPoint: VerticalAlignment.Bottom,
+        verticalDirection: VerticalAlignment.Bottom
+      }),
+      modal: false
+    };
+    this.entryCardTypeDropdown.toggle(overlaySettings);
+  }
+
+  public switchEntryCardType(): void {
+
+  }
+
+  public isDiabledEntryCardType(type: EntryCardType): boolean {
+    console.log(type);
+    console.log(this.entryCardClicked().entryCardType);
+    return type === this.entryCardClicked().entryCardType;
+  }
 
   // Drag & Drop methods
   public getDragDirectiveRef(id: number): any {
@@ -44,7 +147,7 @@ export class EntryCardsListComponent {
       // If the new position is below add the height moved down, otherwise subtract it.
       const prefix = moveDown ? 1 : -1;
       // The height that the new position differs from the current. We know that each item is 55px height.
-      const movedHeight = prefix * Math.abs(this.newIndex - itemIndex) * this.listItemHeight;
+      const movedHeight = prefix * Math.abs(this.newIndex - itemIndex) * this._listItemHeight;
       const originLocation = event.owner.originLocation;
       event.owner.transitionTo(
         new IgxDragLocation(originLocation.pageX, originLocation.pageY + movedHeight),
@@ -74,7 +177,7 @@ export class EntryCardsListComponent {
     // Relative position of the dragged element to the list container.
     const relativePosY = event.nextPageY - containerPosY;
 
-    let newIndex = Math.floor(relativePosY / this.listItemHeight);
+    let newIndex = Math.floor(relativePosY / this._listItemHeight);
     newIndex = newIndex < 0 ? 0 : (newIndex >= this.entryCards.length ? this.entryCards.length - 1 : newIndex);
     if (newIndex === this.newIndex) {
       // If the current new index is unchanged do nothing.
@@ -91,7 +194,7 @@ export class EntryCardsListComponent {
       const currentLocation = elementToMove.location;
       const prefix = movingDown ? -1 : 1;
       elementToMove.transitionTo(
-        new IgxDragLocation(currentLocation.pageX, currentLocation.pageY + prefix * this.listItemHeight),
+        new IgxDragLocation(currentLocation.pageX, currentLocation.pageY + prefix * this._listItemHeight),
         { duration: this.animationDuration }
       );
     } else {
@@ -117,16 +220,5 @@ export class EntryCardsListComponent {
         dir.data.shifted = false;
       }
     });
-  }
-
-  // component methods
-  public addEntryCard(): void {
-    this.entryCards.push(new EntryCard (this.entryCards.length, 'New', 'Undefined'));
-  }
-
-  public deleteEntryCard(index: number): void {
-    if (index >= 0) {
-      this.entryCards.splice(index, 1);
-    }
   }
 }
