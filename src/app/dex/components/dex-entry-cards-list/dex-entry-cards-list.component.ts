@@ -1,18 +1,18 @@
 
-import { Component, ElementRef, Input, QueryList, ViewChild, ViewChildren, WritableSignal, signal } from '@angular/core';
-import { AbsolutePosition, AbsoluteScrollStrategy, BlockScrollStrategy, ConnectedPositioningStrategy, HorizontalAlignment, IDragBaseEventArgs, IDragMoveEventArgs, IgxButtonGroupComponent, IgxDividerDirective, IgxDragDirective, IgxDragDropModule, IgxDragLocation, IgxDropDirective, IgxDropDownComponent, IgxDropDownItemComponent, IgxEmptyListTemplateDirective, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelHeaderComponent, IgxExpansionPanelIconDirective, IgxExpansionPanelTitleDirective, IgxIconComponent, IgxListActionDirective, IgxListComponent, IgxListItemComponent, IgxSuffixDirective, ISelectionEventArgs, OverlaySettings, Point, VerticalAlignment } from 'igniteui-angular';
+import { Component, ElementRef, Input, QueryList, ViewChild, ViewChildren, signal } from '@angular/core';
+import { BlockScrollStrategy, ConnectedPositioningStrategy, HorizontalAlignment, IDragBaseEventArgs, IDragMoveEventArgs, IgxButtonGroupComponent, IgxDividerDirective, IgxDragDirective, IgxDragDropModule, IgxDragLocation, IgxDropDirective, IgxDropDownComponent, IgxDropDownItemComponent, IgxEmptyListTemplateDirective, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelHeaderComponent, IgxExpansionPanelIconDirective, IgxExpansionPanelTitleDirective, IgxIconComponent, IgxListActionDirective, IgxListComponent, IgxListItemComponent, IgxSuffixDirective, ISelectionEventArgs, OverlaySettings, Point, VerticalAlignment } from 'igniteui-angular';
 import { EntryScrollBarComponent } from "../../../lib/entry-scroll-bar/entry-scroll-bar.component";
 import { EntryCard} from '../../models/entry-card.model';
 import { DexEntryInfoPanelComponent } from '../dex-entry-info-panel/dex-entry-info-panel.component';
 import { NgClass } from '@angular/common';
-import { DexEntryCardComponent } from "../entry-card/entry-card.component";
-import { EntryActions, EntryActionTypes as EntryActionType } from '../../models/entry-actions.model';
+import { EntryActions, EntryActionType } from '../../models/entry-actions.model';
 import { EntryCardType } from '../../../enums/EntryCardType';
+import { EntryCardComponent } from '../entry-cards/entry-card/entry-card.component';
 
 @Component({
   selector: 'dex-entry-cards-list',
   standalone: true,
-  imports: [NgClass, IgxSuffixDirective, IgxListActionDirective, IgxDropDirective, IgxDropDownItemComponent, IgxDropDownComponent, IgxIconComponent, IgxButtonGroupComponent, IgxEmptyListTemplateDirective, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelHeaderComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelTitleDirective, IgxExpansionPanelIconDirective, IgxDividerDirective, IgxListComponent, IgxListItemComponent, IgxDragDropModule, EntryScrollBarComponent, DexEntryInfoPanelComponent, DexEntryCardComponent],
+  imports: [NgClass, IgxSuffixDirective, IgxListActionDirective, IgxDropDirective, IgxDropDownItemComponent, IgxDropDownComponent, IgxIconComponent, IgxButtonGroupComponent, IgxEmptyListTemplateDirective, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelHeaderComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelTitleDirective, IgxExpansionPanelIconDirective, IgxDividerDirective, IgxListComponent, IgxListItemComponent, IgxDragDropModule, EntryScrollBarComponent, DexEntryInfoPanelComponent, EntryCardComponent],
   templateUrl: './dex-entry-cards-list.component.html',
   styleUrl: './dex-entry-cards-list.component.scss',
 })

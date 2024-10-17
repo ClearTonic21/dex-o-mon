@@ -1,0 +1,61 @@
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input-groupie {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-title {
+  font-size: large;
+  font-weight: 600;
+}
+
+.card-value {
+  font-size: medium;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 18.5rem;
+  min-width: 18.5rem;
+  margin: 1rem 0.5rem;
+  cursor: inherit;
+  background-color: var(--card-bg-color-dark);
+  border-top: 4px solid var(--footer-bg-color);
+  border-left: 4px solid var(--footer-bg-color);
+  border-bottom: 2px solid var(--border-color);
+  border-right: 2px solid var(--card-bg-color);
+  box-shadow: 3px 3px 3px inset;
+}
+
+.image-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 16rem;
+  min-width: 16rem;
+  padding: 0.25rem;
+  margin: 0.5rem;
+  z-index: 0;
+  background-color: var(--dex-bg-color);
+  border: 0.125rem solid var(--accent-color);
+  box-shadow: 5px 5px 5px;
+}
+
+.new-item-button {
+  cursor: pointer;
+  background-color: var(--card-bg-color);
+
+  &:hover {
+    background-color: var(--text-color-invert);
+  }
+}

@@ -6,7 +6,7 @@ export interface EntryActions {
   isDelete?: boolean;
 }
 
-export enum EntryActionTypes {
+export enum EntryActionType {
   Switch = 'switch',
   Duplicate = 'duplicate',
   Delete = 'delete',

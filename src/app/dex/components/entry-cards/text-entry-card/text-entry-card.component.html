@@ -1,0 +1,18 @@
+<div class="text-entry-data-container">
+  @if (editMode) {
+    <div class="input-group">
+      <div class="input-groupie">
+        <label igxListLineTitle for="entryTitle"><h6>Title</h6></label>
+        <input igxInput name="entryTitle" type="line" value="{{textCard.title}}"/>
+      </div>
+      <div class="input-groupie">
+        <label class="card-value" igxListLineSubTitle for="entryValue">Value</label>
+        <input igxInput name="entryValue" type="box" value="{{textCard.value}}"/>
+      </div>
+    </div>
+  }
+  @else {
+    <h6 class="card-title" igxListLineTitle>{{ textCard.title }}</h6>
+    <div class="card-value" igxListLineSubTitle>{{ textCard.value }}</div>
+  }
+</div>
