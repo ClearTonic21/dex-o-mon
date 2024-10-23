@@ -1,12 +1,11 @@
 import { DexEntry } from "../dex/models/dex-entry.model";
-import { EntryCard, ImageCard } from "../dex/models/entry-card.model";
+import { EntryCard, ImageCard, ListCard } from "../dex/models/entry-card.model";
 import { DexoIcon } from "../enums/DexoIcon";
 import { EntryCardType } from "../enums/EntryCardType";
 
 export class ExampleDexEntries {
   static dexEntries: DexEntry[] = [
-    new DexEntry(0,   'Mining Truck', '', '',     [new EntryCard( 1, 'Unit Type', 'Armor'),      new EntryCard( 2, 'Cost', '60'), new EntryCard( 3, 'HP', '120'), new EntryCard( 4, 'Squad Size', '1x')], [new EntryCard( 0, 'Unit Traits', 'Shard Collector'), new ImageCard( 1, 'Alternate Form', 'image')], [new ImageCard( 0, `${DexoIcon.Image}`)]),
-    new DexEntry(1,   'Auto Turret', '', '',      [new EntryCard( 1, 'Unit Type', 'Structure'),  new EntryCard( 2, 'Cost', '50'), new EntryCard( 3, 'HP', '75'),  new EntryCard( 4, 'Squad Size', '1x')], [new EntryCard( 0, 'Unit Traits', 'Detector')], [new ImageCard( 0, `${DexoIcon.Image}`)]),
+    new DexEntry(0,   'Mining Truck', '', '',     [new EntryCard( 1, 'Unit Type', 'Armor'),      new EntryCard( 2, 'Cost', '60'), new EntryCard( 3, 'HP', '120'), new EntryCard( 4, 'Squad Size', '1x')], [new EntryCard( 0, 'Unit Traits', 'Shard Collector'), new ImageCard( 1, 'Alternate Form', 'image'), new ListCard( 1, 'Abilities', '', ['Shard Resistant', 'Power Shock'])], [new ImageCard( 0, `${DexoIcon.Image}`)]),   new DexEntry(1,   'Auto Turret', '', '',      [new EntryCard( 1, 'Unit Type', 'Structure'),  new EntryCard( 2, 'Cost', '50'), new EntryCard( 3, 'HP', '75'),  new EntryCard( 4, 'Squad Size', '1x')], [new EntryCard( 0, 'Unit Traits', 'Detector')], [new ImageCard( 0, `${DexoIcon.Image}`)]),
     new DexEntry(2,   'Anti-Armor Pod', '', '',   [new EntryCard( 1, 'Unit Type', 'Structure'),  new EntryCard( 2, 'Cost', '70'), new EntryCard( 3, 'HP', '40'),  new EntryCard( 4, 'Squad Size', '1x')], [new EntryCard( 0, 'Unit Traits', 'Burrow, Suicide, Pathable')], [new ImageCard( 0, `${DexoIcon.Image}`)]),
     new DexEntry(3,   'Assault Troopers', '', '', [new EntryCard( 1, 'Unit Type', 'Infantry'),   new EntryCard( 2, 'Cost', '20'), new EntryCard( 3, 'HP', '20'),  new EntryCard( 4, 'Squad Size', '5x')], [new EntryCard( 0, 'Unit Traits', 'Scout')], [new ImageCard( 0, `${DexoIcon.Image}`)]),
     new DexEntry(4,   'Mortar Men', '', '',       [new EntryCard( 1, 'Unit Type', 'Infantry'),   new EntryCard( 2, 'Cost', '30'), new EntryCard( 3, 'HP', '40'),  new EntryCard( 4, 'Squad Size', '1x')], [new EntryCard( 0, 'Unit Traits', '')], [new ImageCard( 0, `${DexoIcon.Image}`)]),

@@ -27,9 +27,9 @@ export class DexoHeaderComponent {
   }),
   }
   public navItems: NavItem[] = [
-  { icon: `${DexoIcon.ListAlt}`,     text: `${Page.Dex}`     },
-  { icon: `${DexoIcon.Error}`,     text: `${Page.References}`  },
-  { icon: `${DexoIcon.GroupWork}`,   text: `${Page.Defaults}`  }
+    { icon: `${DexoIcon.ListAlt}`,     text: `${Page.Dex}`     },
+    { icon: `${DexoIcon.Error}`,     text: `${Page.References}`  },
+    { icon: `${DexoIcon.GroupWork}`,   text: `${Page.Defaults}`  }
   ];
 
   public selected: Page = Page.Dex

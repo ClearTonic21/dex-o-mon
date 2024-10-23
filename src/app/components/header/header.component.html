@@ -7,16 +7,10 @@
         [igxToggleAction]="pageNavDropdown"
         [igxDropDownItemNavigation]="pageNavDropdown"
         [overlaySettings]="dropdownOverlaySettings"
-        (click)="pageNavOpen = !pageNavOpen"
       >
         <igx-icon family="material">{{ selectedIcon }}</igx-icon>
         <span class="page-nav-selected-text">{{ selected }}</span>
-        @if (!pageNavOpen) {
-          <igx-icon igxSuffix family="material">keyboard_arrow_down</igx-icon>
-        }
-        @else {
-          <igx-icon igxSuffix family="material">close</igx-icon>
-        }
+        <igx-icon igxSuffix family="material">keyboard_arrow_down</igx-icon>
       </button>
       <igx-drop-down
         #pageNavDropdown

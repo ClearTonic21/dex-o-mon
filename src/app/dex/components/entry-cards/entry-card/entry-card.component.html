@@ -11,4 +11,10 @@
       [editMode]="entryEditMode"
     ></image-entry-card>
   }
+  @if (isListEntryCard()) {
+    <list-entry-card
+      [listCard]="entryCard"
+      [editMode]="entryEditMode"
+    ></list-entry-card>
+  }
 </div>

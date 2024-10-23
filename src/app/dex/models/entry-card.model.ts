@@ -28,10 +28,14 @@ export class ImageCard extends EntryCard {
   }
 }
 
-export class DropdownCard extends EntryCard {
-  public options: string[] = [];
-  constructor(index: number, title: string, value: string, options: string[] = ['default']) {
-    super(index, title, value, EntryCardType.Dropdown);
-    this.options = options;
+export class ListCard extends EntryCard {
+  public items: string[] = [];
+  constructor(index: number, title: string, value: string, items: string[] = ['default']) {
+    super(index, title, items[0], EntryCardType.List);
+    this.items = items;
+  }
+
+  public getItems(): string[] {
+    return this.items;
   }
 }
