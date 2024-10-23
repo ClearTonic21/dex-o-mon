@@ -11,7 +11,7 @@
         [igxToggleAction]="listCardDropdown"
         [overlaySettings]="dropdownOverlaySettings"
       >
-        <span class="page-nav-selected-text">{{ listCard.value }}</span>
+        <span class="list-entry-selected">{{ selected }}</span>
         <igx-icon igxSuffix family="material">keyboard_arrow_down</igx-icon>
       </button>
       <igx-drop-down
@@ -33,6 +33,6 @@
   }
   @else {
     <h6 class="card-title" igxListLineTitle>{{ listCard.title }}</h6>
-    <button igxButton="contained" class="card-list">{{ listCard.value }}</button>
+    <button igxButton="contained" class="card-list">{{ selected }}</button>
   }
 </div>

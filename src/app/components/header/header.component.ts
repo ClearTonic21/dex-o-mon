@@ -21,10 +21,10 @@ interface NavItem {
 export class DexoHeaderComponent {
   @Output() public selectionChanged: EventEmitter<Page> = new EventEmitter<Page>();
   public dropdownOverlaySettings = {
-  positionStrategy: new ConnectedPositioningStrategy({
-    horizontalStartPoint: HorizontalAlignment.Right + 0.025,
-    verticalStartPoint: VerticalAlignment.Top
-  }),
+    positionStrategy: new ConnectedPositioningStrategy({
+      horizontalStartPoint: HorizontalAlignment.Right + 0.025,
+      verticalStartPoint: VerticalAlignment.Top
+    }),
   }
   public navItems: NavItem[] = [
     { icon: `${DexoIcon.ListAlt}`,     text: `${Page.Dex}`     },
