@@ -1,9 +1,7 @@
 
 import { Component, ElementRef, Input, QueryList, ViewChild, ViewChildren, signal } from '@angular/core';
-import { BlockScrollStrategy, ConnectedPositioningStrategy, HorizontalAlignment, IDragBaseEventArgs, IDragMoveEventArgs, IgxButtonGroupComponent, IgxDividerDirective, IgxDragDirective, IgxDragDropModule, IgxDragLocation, IgxDropDirective, IgxDropDownComponent, IgxDropDownItemComponent, IgxEmptyListTemplateDirective, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelHeaderComponent, IgxExpansionPanelIconDirective, IgxExpansionPanelTitleDirective, IgxIconComponent, IgxListActionDirective, IgxListComponent, IgxListItemComponent, IgxSuffixDirective, ISelectionEventArgs, OverlaySettings, Point, VerticalAlignment } from 'igniteui-angular';
-import { EntryScrollBarComponent } from "../../../lib/entry-scroll-bar/entry-scroll-bar.component";
+import { BlockScrollStrategy, ConnectedPositioningStrategy, HorizontalAlignment, IDragBaseEventArgs, IDragMoveEventArgs, IgxDividerDirective, IgxDragDirective, IgxDragDropModule, IgxDragLocation, IgxDropDirective, IgxDropDownComponent, IgxDropDownItemComponent, IgxEmptyListTemplateDirective, IgxIconComponent, IgxListActionDirective, IgxListComponent, IgxListItemComponent, ISelectionEventArgs, OverlaySettings, Point, VerticalAlignment } from 'igniteui-angular';
 import { EntryCard} from '../../models/entry-card.model';
-import { DexEntryInfoPanelComponent } from '../dex-entry-info-panel/dex-entry-info-panel.component';
 import { NgClass } from '@angular/common';
 import { EntryActions, EntryActionType } from '../../models/entry-actions.model';
 import { EntryCardType } from '../../../enums/EntryCardType';
@@ -12,7 +10,7 @@ import { EntryCardComponent } from '../entry-cards/entry-card/entry-card.compone
 @Component({
   selector: 'dex-entry-cards-list',
   standalone: true,
-  imports: [NgClass, IgxSuffixDirective, IgxListActionDirective, IgxDropDirective, IgxDropDownItemComponent, IgxDropDownComponent, IgxIconComponent, IgxButtonGroupComponent, IgxEmptyListTemplateDirective, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelHeaderComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelTitleDirective, IgxExpansionPanelIconDirective, IgxDividerDirective, IgxListComponent, IgxListItemComponent, IgxDragDropModule, EntryScrollBarComponent, DexEntryInfoPanelComponent, EntryCardComponent],
+  imports: [NgClass, IgxListActionDirective, IgxDropDirective, IgxDropDownItemComponent, IgxDropDownComponent, IgxIconComponent, IgxEmptyListTemplateDirective,  IgxDividerDirective, IgxListComponent, IgxListItemComponent, IgxDragDropModule, EntryCardComponent],
   templateUrl: './dex-entry-cards-list.component.html',
   styleUrl: './dex-entry-cards-list.component.scss',
 })
@@ -69,7 +67,7 @@ export class EntryCardsListComponent {
     this.entryCards.push(new EntryCard (this.entryCards.length, 'New', 'Undefined'));
   }
 
-  public handleSelection($event: ISelectionEventArgs): void {
+  public handleActionSelection($event: ISelectionEventArgs): void {
     switch ($event.newSelection.value) {
       case (this.entryActionTypes.Switch): {
         this.openEntryCardEditor();
@@ -134,6 +132,9 @@ export class EntryCardsListComponent {
   }
 
   public onDragStart(event: IDragBaseEventArgs, dragIndex: number) {
+    if (!this.listEditMode) {
+      return;
+    }
     // Record the current index as basis for moving up/down.
     this.newIndex = dragIndex;
     // Sets specific class when dragging.

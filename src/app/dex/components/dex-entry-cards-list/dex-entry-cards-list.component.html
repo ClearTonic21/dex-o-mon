@@ -58,7 +58,7 @@
   <div>
     <igx-drop-down
       #actionDropdown
-      (selectionChanging)='handleSelection($event)'
+      (selectionChanging)='handleActionSelection($event)'
     >
       <div class="drop-down-virtual-wrapper">
         <igx-drop-down-item class="drop-down-title" [isHeader]="true">
@@ -89,7 +89,7 @@
       @for (type of entryCardTypes; track type) {
         <igx-drop-down-item
           [value]="type.toString()"
-          [ngClass]="{'disabled': isDiabledEntryCardType(type)}"
+          [ngClass]="{'disabled': isDisabledEntryCardType(type)}"
         >
           <span class="card-type-drop-down-item">
             <igx-icon family="material">{{type}}</igx-icon>

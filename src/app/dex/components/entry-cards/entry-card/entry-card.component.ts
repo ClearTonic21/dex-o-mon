@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NgIf } from '@angular/common';
-import { EntryCard } from '../../../models/entry-card.model';
+import { EntryCard, ImageCard } from '../../../models/entry-card.model';
 import { EntryCardType } from '../../../../enums/EntryCardType';
 import { TextEntryCardComponent } from '../text-entry-card/text-entry-card.component';
 import { ImageEntryCardComponent } from '../image-entry-card/image-entry-card.component';

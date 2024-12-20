@@ -5,29 +5,15 @@
         <label igxListLineTitle for="entryTitle"><h6>Title</h6></label>
         <input igxInput name="entryTitle" type="line" value="{{imageCard.title}}"/>
       </div>
+    </div>
+    <div class="image-container">
       <div class="image-container">
-        @if (imageCard.value === '') {
-          <div
-            class="image-content new-item-button"
-            (click)="addImageCard()"
-          >
-            <div id="image-card-add-button" class="new-item-button">
-              <igx-icon role="add-icon" family="material">add_circle</igx-icon>
-            </div>
-          </div>
+        @if (imageCard.value != 'image') {
+          <img height="100" [src]="imageCard.value" alt="">
+          <igx-icon family="material">{{ imageCard.value }}</igx-icon>
         }
         @else {
-          <div class="image-container">
-            <div class="image-content">
-            @if (imageCard.value != 'image') {
-              <img height="100" [src]="imageCard.value" alt="">
-              <igx-icon family="material">{{ imageCard.value }}</igx-icon>
-            }
-            @else {
-              <igx-icon family="material">image</igx-icon>
-            }
-            </div>
-          </div>
+          <igx-icon role="add-icon" family="material">add_circle</igx-icon>
         }
       </div>
     </div>

@@ -1,35 +1,36 @@
 <div class="list-entry-data-container">
   @if (editMode) {
-  <div class="input-group">
-    <div class="input-groupie">
-      <label igxListLineTitle for="entryTitle"><h6>Title</h6></label>
-      <input igxInput name="entryTitle" type="line" value="{{listCard.title}}"/>
+    <div class="input-group">
+      <div class="input-groupie">
+        <label igxListLineTitle for="entryTitle"><h6>Title</h6></label>
+        <input igxInput name="entryTitle" type="line" value="{{listCard.title}}"/>
+      </div>
+      <div class="input-groupie">
+        <label igxListLineTitle for="entryTitle">Value</label>
+        <button
+          igxButton="contained"
+          [igxToggleAction]="listCardDropdown"
+          [overlaySettings]="dropdownOverlaySettings"
+        >
+          <span class="list-entry-selected">{{ selected }}</span>
+          <igx-icon igxSuffix family="material">keyboard_arrow_down</igx-icon>
+        </button>
+        <igx-drop-down
+          #listCardDropdown
+          (selectionChanging)='handleSelection($event)'
+        >
+          <div class="drop-down-virtual-wrapper">
+          @for (item of listCard.items; track item) {
+            <igx-drop-down-item [value]="item">
+              <span class="inner-drop-down-item">
+                <div>{{ item }}</div>
+              </span>
+            </igx-drop-down-item>
+          }
+          </div>
+        </igx-drop-down>
+      </div>
     </div>
-    <div class="input-groupie">
-      <button
-        igxButton="contained"
-        [igxToggleAction]="listCardDropdown"
-        [overlaySettings]="dropdownOverlaySettings"
-      >
-        <span class="list-entry-selected">{{ selected }}</span>
-        <igx-icon igxSuffix family="material">keyboard_arrow_down</igx-icon>
-      </button>
-      <igx-drop-down
-        #listCardDropdown
-        (selectionChanging)='handleSelection($event)'
-      >
-        <div class="drop-down-virtual-wrapper">
-        @for (item of listCard.items; track item) {
-          <igx-drop-down-item [value]="item">
-            <span class="inner-drop-down-item">
-              <div>{{ item }}</div>
-            </span>
-          </igx-drop-down-item>
-        }
-        </div>
-      </igx-drop-down>
-    </div>
-  </div>
   }
   @else {
     <h6 class="card-title" igxListLineTitle>{{ listCard.title }}</h6>

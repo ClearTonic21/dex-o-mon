@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { EntryCard } from '../../../models/entry-card.model';
+import { EntryCard, ImageCard } from '../../../models/entry-card.model';
 import { IgxIconComponent, IgxInputDirective, IgxInputGroupComponent, IgxLabelDirective, IgxListActionDirective, IgxListComponent, IgxListItemComponent } from 'igniteui-angular';
 import { NgIf } from '@angular/common';
 
@@ -11,7 +11,7 @@ import { NgIf } from '@angular/common';
   styleUrl: './image-entry-card.component.scss'
 })
 export class ImageEntryCardComponent {
-  @Input() public imageCard!: EntryCard;
+  @Input() public imageCard!: ImageCard;
   @Input() public editMode: boolean = false;
 
   public addImageCard(): void {
