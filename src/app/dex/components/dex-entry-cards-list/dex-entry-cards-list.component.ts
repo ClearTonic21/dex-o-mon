@@ -120,7 +120,7 @@ export class EntryCardsListComponent {
 
   }
 
-  public isDiabledEntryCardType(type: EntryCardType): boolean {
+  public isDisabledEntryCardType(type: EntryCardType): boolean {
     console.log(type);
     console.log(this.entryCardClicked().entryCardType);
     return type === this.entryCardClicked().entryCardType;
