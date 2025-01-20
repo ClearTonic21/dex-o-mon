@@ -1,12 +1,12 @@
 @if (scrollbarList && scrollbarList.length > 0) {
   <div class="scrollbar-container" id="nav-list">
-    @for (item of navList; track $index) {
+    @for (item of navList(); track $index) {
       <div class="scrollbar-anchor-list">
         <div
           [id]="item.id + '-nav-item'"
           class="scrollbar-anchor-item"
-          (click)="scrollTo(item.title)"
-          [ngClass]="{ 'in-view': item.title === selectedNav }"
+          (click)="scrollTo(item.id)"
+          [ngClass]="{ 'in-view': item.id === selectedNav }"
         >
           <div class="scrollbar-active-bar"></div>
           <div class="scrollbar-anchor-item-text">{{ item.title }}</div>

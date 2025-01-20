@@ -1,9 +1,8 @@
 import { NgClass } from '@angular/common';
-import { Component, Input } from '@angular/core';
-import { EntryCard } from '../../dex/models/entry-card.model';
+import { Component, Input, signal } from '@angular/core';
 
 export interface INavigation {
-  id: number;
+  id: string;
   title: string;
 }
 
@@ -15,17 +14,17 @@ export interface INavigation {
   styleUrl: './entry-scroll-bar.component.scss'
 })
 export class EntryScrollBarComponent {
-  @Input() public scrollbarList: EntryCard[] = [];
+  @Input() public scrollbarList: any[] = [];
   @Input() public selectedItemCount!: number;
   @Input() public batchedFilter: string[] = [];
   public hasItems: boolean = false;
   public isBatchEdit: boolean = false;
   public selectedNav: string = '';
-  public navList: INavigation[] = [];
+  public navList = signal<INavigation[]>([]);
 
   public ngOnChanges(): void {
-    this.navList = this.scrollbarList?.map((item) => ({ id: item.index, title: item.title }));
-    this.selectedNav = this.scrollbarList[0]?.title || '';
+    this.navList.set(this.scrollbarList?.map((item) => ({ id: item.index.toString(), title: item.title })));
+    this.selectedNav = this.scrollbarList[0]?.id || '';
   }
 
   public scrollTo(id: string): void {
