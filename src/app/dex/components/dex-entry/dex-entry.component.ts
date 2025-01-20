@@ -1,5 +1,5 @@
-import { Component, ElementRef, Signal, Input, OnInit, QueryList, signal, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
-import { IgxButtonGroupComponent, IgxDividerDirective, IgxDragDirective, IgxEmptyListTemplateDirective, IgxIconComponent, IgxListComponent, IgxListItemComponent } from 'igniteui-angular';
+import { Component, ElementRef, Input, OnInit, signal, ViewChild, ViewEncapsulation } from '@angular/core';
+import { IgxDividerDirective, IgxEmptyListTemplateDirective, IgxIconComponent, IgxListComponent, IgxListItemComponent } from 'igniteui-angular';
 import { EntryScrollBarComponent } from "../../../lib/entry-scroll-bar/entry-scroll-bar.component";
 import { ViewEditButtonComponent } from "../../../lib/view-edit-button/view-edit-button.component";
 import { EntryCard, ImageCard } from '../../models/entry-card.model';
@@ -10,7 +10,7 @@ import { DexEntry } from '../../models/dex-entry.model';
 @Component({
   selector: 'dex-entry',
   standalone: true,
-  imports: [IgxIconComponent, IgxButtonGroupComponent, IgxEmptyListTemplateDirective, IgxDragDirective, IgxDividerDirective, IgxListComponent, IgxListItemComponent, EntryScrollBarComponent, ViewEditButtonComponent, DexEntryInfoPanelComponent, EntryCardsListComponent],
+  imports: [IgxIconComponent, IgxEmptyListTemplateDirective, IgxDividerDirective, IgxListComponent, IgxListItemComponent, EntryScrollBarComponent, ViewEditButtonComponent, DexEntryInfoPanelComponent, EntryCardsListComponent],
   templateUrl: './dex-entry.component.html',
   styleUrl: './dex-entry.component.scss',
   encapsulation: ViewEncapsulation.None,

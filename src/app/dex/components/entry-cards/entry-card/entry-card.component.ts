@@ -1,6 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { NgIf } from '@angular/common';
-import { EntryCard, ImageCard } from '../../../models/entry-card.model';
 import { EntryCardType } from '../../../../enums/EntryCardType';
 import { TextEntryCardComponent } from '../text-entry-card/text-entry-card.component';
 import { ImageEntryCardComponent } from '../image-entry-card/image-entry-card.component';
@@ -9,7 +7,7 @@ import { ListEntryCardComponent } from "../list-entry-card/list-entry-card.compo
 @Component({
   selector: 'entry-card',
   standalone: true,
-  imports: [ImageEntryCardComponent, TextEntryCardComponent, NgIf, ListEntryCardComponent],
+  imports: [ImageEntryCardComponent, TextEntryCardComponent, ListEntryCardComponent],
   templateUrl: './entry-card.component.html',
   styleUrl: './entry-card.component.scss'
 })

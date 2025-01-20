@@ -1,14 +1,12 @@
 import { Component, Input, OnInit, QueryList, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
-import { IgxIconComponent, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelHeaderComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelTitleDirective, IgxExpansionPanelIconDirective, IgxDividerDirective, IgxListComponent, IgxListItemComponent, IgxDragDropModule, IgxDragDirective } from 'igniteui-angular';
-import { EntryScrollBarComponent } from '../../../lib/entry-scroll-bar/entry-scroll-bar.component';
-import { ViewEditButtonComponent } from '../../../lib/view-edit-button/view-edit-button.component';
+import { IgxIconComponent, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelHeaderComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelTitleDirective, IgxExpansionPanelIconDirective, IgxDragDropModule, IgxDragDirective } from 'igniteui-angular';
 import { EntryCard } from '../../models/entry-card.model';
 import { EntryCardsListComponent } from '../dex-entry-cards-list/dex-entry-cards-list.component';
 
 @Component({
   selector: 'basic-info-panel',
   standalone: true,
-  imports: [ EntryCardsListComponent, IgxIconComponent, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelHeaderComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelTitleDirective, IgxExpansionPanelIconDirective, IgxDividerDirective, IgxListComponent, IgxListItemComponent, IgxDragDropModule, EntryScrollBarComponent, ViewEditButtonComponent],
+  imports: [EntryCardsListComponent, IgxIconComponent, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelHeaderComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelTitleDirective, IgxExpansionPanelIconDirective, IgxDragDropModule],
   templateUrl: './dex-entry-info-panel.component.html',
   styleUrl: './dex-entry-info-panel.component.scss',
   encapsulation: ViewEncapsulation.None,

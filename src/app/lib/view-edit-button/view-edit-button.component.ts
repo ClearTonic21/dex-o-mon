@@ -5,7 +5,7 @@ import { IgxButtonGroupComponent, IgxIconComponent } from 'igniteui-angular';
 @Component({
   selector: 'view-edit-button',
   standalone: true,
-  imports: [IgxButtonGroupComponent, NgClass, IgxIconComponent],
+  imports: [IgxIconComponent],
   templateUrl: './view-edit-button.component.html',
   styleUrl: './view-edit-button.component.scss'
 })

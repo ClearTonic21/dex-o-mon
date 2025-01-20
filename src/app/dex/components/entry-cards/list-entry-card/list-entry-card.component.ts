@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ConnectedPositioningStrategy, HorizontalAlignment, IgxDropDownComponent, IgxDropDownItemComponent, IgxIconComponent, IgxInputGroupComponent, IgxLabelDirective, IgxListActionDirective, IgxListItemComponent, IgxToggleActionDirective, ISelectionEventArgs, VerticalAlignment } from 'igniteui-angular';
+import { ConnectedPositioningStrategy, HorizontalAlignment, IgxDropDownComponent, IgxDropDownItemComponent, IgxIconComponent, IgxToggleActionDirective, ISelectionEventArgs, VerticalAlignment } from 'igniteui-angular';
 import { ListCard } from '../../../models/entry-card.model';
 
 @Component({

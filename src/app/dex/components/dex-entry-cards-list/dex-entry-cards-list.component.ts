@@ -1,6 +1,6 @@
 
 import { Component, ElementRef, Input, QueryList, ViewChild, ViewChildren, signal } from '@angular/core';
-import { BlockScrollStrategy, ConnectedPositioningStrategy, HorizontalAlignment, IDragBaseEventArgs, IDragMoveEventArgs, IgxDividerDirective, IgxDragDirective, IgxDragDropModule, IgxDragLocation, IgxDropDirective, IgxDropDownComponent, IgxDropDownItemComponent, IgxEmptyListTemplateDirective, IgxIconComponent, IgxListActionDirective, IgxListComponent, IgxListItemComponent, ISelectionEventArgs, OverlaySettings, Point, VerticalAlignment } from 'igniteui-angular';
+import { BlockScrollStrategy, ConnectedPositioningStrategy, HorizontalAlignment, IDragBaseEventArgs, IDragMoveEventArgs, IgxDragDirective, IgxDragDropModule, IgxDragLocation, IgxDropDirective, IgxDropDownComponent, IgxEmptyListTemplateDirective, IgxIconComponent, IgxListActionDirective, IgxListComponent, IgxListItemComponent, ISelectionEventArgs, OverlaySettings, Point, VerticalAlignment } from 'igniteui-angular';
 import { EntryCard} from '../../models/entry-card.model';
 import { NgClass } from '@angular/common';
 import { EntryActions, EntryActionType } from '../../models/entry-actions.model';
@@ -10,7 +10,7 @@ import { EntryCardComponent } from '../entry-cards/entry-card/entry-card.compone
 @Component({
   selector: 'dex-entry-cards-list',
   standalone: true,
-  imports: [NgClass, IgxListActionDirective, IgxDropDirective, IgxDropDownItemComponent, IgxDropDownComponent, IgxIconComponent, IgxEmptyListTemplateDirective,  IgxDividerDirective, IgxListComponent, IgxListItemComponent, IgxDragDropModule, EntryCardComponent],
+  imports: [NgClass, IgxListActionDirective, IgxDropDirective, IgxIconComponent, IgxEmptyListTemplateDirective, IgxListComponent, IgxListItemComponent, IgxDragDropModule, EntryCardComponent],
   templateUrl: './dex-entry-cards-list.component.html',
   styleUrl: './dex-entry-cards-list.component.scss',
 })

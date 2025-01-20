@@ -17,9 +17,9 @@ export class NavigationItem {
 @Component({
   selector: 'dexo-content-container',
   standalone: true,
+  imports: [ NgClass, IgxSuffixDirective, IgxRippleDirective, IgxListComponent, IgxListItemComponent, IgxSplitterComponent,  IgxSplitterPaneComponent, IgxButtonModule, IgxIconModule, DexEntryComponent],
   templateUrl: './content-container.component.html',
   styleUrl: './content-container.component.scss',
-  imports: [ NgClass, IgxSuffixDirective, IgxRippleDirective, IgxListComponent, IgxListItemComponent, IgxSplitterComponent,  IgxSplitterPaneComponent, IgxButtonModule, IgxIconModule, DexEntryComponent]
 })
 export class DexoContentContainerComponent implements OnInit {
   @ViewChild('dexEntryContainer') public dexEntryContainer!: DexEntryComponent;
