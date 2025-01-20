@@ -40,6 +40,10 @@
       .scrollbar-anchor-item-text {
         color: var(--accent-color);
         cursor: pointer;
+
+        &.empty-state {
+          cursor: default;
+        }
       }
 
       &.in-view {
@@ -56,6 +60,10 @@
         .scrollbar-anchor-item-text {
           color: var(--text-color);
           cursor: pointer;
+
+          &.empty-state {
+            cursor: default;
+          }
         }
       }
     }

@@ -19,7 +19,7 @@ export class DexEntryComponent implements OnInit{
   @ViewChild('cardListContainer', { read: ElementRef }) public cardListContainer!: ElementRef;
   @ViewChild('viewEditControls', { read: ElementRef }) public viewEditControls!: ViewEditButtonComponent;
   @Input() public initialDexEntry!: DexEntry;
-  public dexEntry = signal(new DexEntry(0, 'New'));
+  public dexEntry = signal(new DexEntry(0, 'New', '', '', [], [], []));
   public dexEntryName = signal('New');
   public dexEditMode = signal(true);
 

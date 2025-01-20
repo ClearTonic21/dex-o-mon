@@ -23,13 +23,8 @@ export class EntryScrollBarComponent {
   public navList: INavigation[] = [];
 
   public ngOnChanges(): void {
-    this.selectedNav = '';
-    this.hasItems = this.selectedItemCount > 0;
-    this.isBatchEdit = this.selectedItemCount > 1;
-    this.navList = this.isBatchEdit
-      ? this.scrollbarList.filter((item: INavigation) => this.batchedFilter.indexOf(item.id) === -1)
-      : this.scrollbarList;
-    this.selectedNav = this.navList[0]?.id || '';
+    this.navList = this.scrollbarList?.map((item) => ({ id: item.id, title: item.title }));
+    this.selectedNav = this.scrollbarList[0]?.id || '';
   }
 
   public scrollTo(id: string): void {

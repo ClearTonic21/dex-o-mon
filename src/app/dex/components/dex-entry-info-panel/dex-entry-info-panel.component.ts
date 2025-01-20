@@ -16,7 +16,7 @@ import { EntryCardsListComponent } from '../dex-entry-cards-list/dex-entry-cards
 export class DexEntryInfoPanelComponent implements OnInit {
   @ViewChildren('dragDirRef', { read: IgxDragDirective }) public dragDirs!: QueryList<IgxDragDirective>;
   @ViewChild(IgxExpansionPanelComponent, { read: IgxExpansionPanelComponent, static: true }) public panel!: IgxExpansionPanelComponent;
-  @Input() public basicInfoCards!: EntryCard[];
+  @Input() public basicInfoCards: EntryCard[] = [];
   @Input() infoEditMode: boolean = false;
   @Input() entryName: string = '';
   public collapsed: boolean = false;

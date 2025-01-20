@@ -33,14 +33,14 @@
     <igx-divider></igx-divider>
     <basic-info-panel
       [entryName]="dexEntry().name"
-      [basicInfoCards]="dexEntry().basicInfoCards || []"
+      [basicInfoCards]="dexEntry().basicInfoCards"
       [infoEditMode]="dexEditMode()"
     ></basic-info-panel>
     <igx-divider></igx-divider>
   </div>
   <div class="dex-entry-cards-column">
     <dex-entry-cards-list
-      [entryCards]="dexEntry().entryCards || []"
+      [entryCards]="dexEntry().entryCards"
       [listEditMode]="dexEditMode()"
     ></dex-entry-cards-list>
   </div>
@@ -55,7 +55,7 @@
       </div>
       <div class="entry-scroll-bar-container">
         <entry-scroll-bar
-          [scrollbarList]="dexEntry().entryCards || []"
+          [scrollbarList]="dexEntry().entryCards"
         ></entry-scroll-bar>
       </div>
     </div>
