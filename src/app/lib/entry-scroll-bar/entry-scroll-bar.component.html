@@ -5,8 +5,8 @@
         <div
           [id]="item.id + '-nav-item'"
           class="scrollbar-anchor-item"
-          (click)="scrollTo(item.id)"
-          [ngClass]="{ 'in-view': item.id === selectedNav }"
+          (click)="scrollTo(item.title)"
+          [ngClass]="{ 'in-view': item.title === selectedNav }"
         >
           <div class="scrollbar-active-bar"></div>
           <div class="scrollbar-anchor-item-text">{{ item.title }}</div>

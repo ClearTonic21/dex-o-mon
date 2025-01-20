@@ -47,7 +47,6 @@
       }
 
       &.in-view {
-        // class is added via NavigationHighlightDirective
         @include anchorItem();
 
         .scrollbar-active-bar {

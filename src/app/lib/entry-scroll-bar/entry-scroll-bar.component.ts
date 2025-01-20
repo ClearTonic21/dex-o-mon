@@ -1,8 +1,9 @@
 import { NgClass } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { EntryCard } from '../../dex/models/entry-card.model';
 
 export interface INavigation {
-  id: string;
+  id: number;
   title: string;
 }
 
@@ -14,7 +15,7 @@ export interface INavigation {
   styleUrl: './entry-scroll-bar.component.scss'
 })
 export class EntryScrollBarComponent {
-  @Input() public scrollbarList: any[] = [];
+  @Input() public scrollbarList: EntryCard[] = [];
   @Input() public selectedItemCount!: number;
   @Input() public batchedFilter: string[] = [];
   public hasItems: boolean = false;
@@ -23,8 +24,8 @@ export class EntryScrollBarComponent {
   public navList: INavigation[] = [];
 
   public ngOnChanges(): void {
-    this.navList = this.scrollbarList?.map((item) => ({ id: item.id, title: item.title }));
-    this.selectedNav = this.scrollbarList[0]?.id || '';
+    this.navList = this.scrollbarList?.map((item) => ({ id: item.index, title: item.title }));
+    this.selectedNav = this.scrollbarList[0]?.title || '';
   }
 
   public scrollTo(id: string): void {
