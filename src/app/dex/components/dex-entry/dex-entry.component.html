@@ -20,7 +20,7 @@
             class="primary-image-container new-item-button"
             (click)="addImageCard()"
           >
-            <igx-list-item id="image-card-add-button" class="new-item-button">
+            <igx-list-item id="image-card-add-button empty-state" class="new-item-button">
               <igx-icon role="add-icon" family="material">add_circle</igx-icon>
             </igx-list-item>
           </div>
@@ -30,19 +30,19 @@
         </ng-template>
       </igx-list>
     </div>
-    <igx-divider></igx-divider>
-    <basic-info-panel
-      [entryName]="dexEntry().name"
-      [basicInfoCards]="dexEntry().basicInfoCards"
-      [infoEditMode]="dexEditMode()"
-    ></basic-info-panel>
-    <igx-divider></igx-divider>
+      <igx-divider></igx-divider>
+      <basic-info-panel
+        [entryName]="dexEntry().name"
+        [basicInfoCards]="dexEntry().basicInfoCards"
+        [infoEditMode]="dexEditMode()"
+      ></basic-info-panel>
+      <igx-divider></igx-divider>
   </div>
   <div class="dex-entry-cards-column">
-    <dex-entry-cards-list
-      [entryCards]="dexEntry().entryCards"
-      [listEditMode]="dexEditMode()"
-    ></dex-entry-cards-list>
+      <entry-card-list
+        [entryCards]="dexEntry().entryCards"
+        [listEditMode]="dexEditMode()"
+      ></entry-card-list>
   </div>
   <div class="dex-entry-control-column">
     <div class="control-content">

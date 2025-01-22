@@ -1,16 +1,17 @@
 import { Component, ElementRef, Input, OnInit, signal, ViewChild, ViewEncapsulation } from '@angular/core';
-import { IgxDividerDirective, IgxEmptyListTemplateDirective, IgxIconComponent, IgxListComponent, IgxListItemComponent } from 'igniteui-angular';
+import { IgxDividerDirective, IgxDividerModule, IgxEmptyListTemplateDirective, IgxIconComponent, IgxListComponent, IgxListItemComponent, IgxListModule } from 'igniteui-angular';
 import { EntryScrollBarComponent } from "../../../lib/entry-scroll-bar/entry-scroll-bar.component";
 import { ViewEditButtonComponent } from "../../../lib/view-edit-button/view-edit-button.component";
 import { EntryCard, ImageCard } from '../../models/entry-card.model';
-import { DexEntryInfoPanelComponent } from '../dex-entry-info-panel/dex-entry-info-panel.component';
-import { EntryCardsListComponent } from "../dex-entry-cards-list/dex-entry-cards-list.component";
+import { BasicInfoPanelComponent as BasicInfoPanelComponent } from '../basic-info-panel/basic-info-panel.component';
+import { EntryCardListComponent } from "../entry-card-list/entry-card-list.component";
 import { DexEntry } from '../../models/dex-entry.model';
 
 @Component({
   selector: 'dex-entry',
   standalone: true,
-  imports: [IgxIconComponent, IgxEmptyListTemplateDirective, IgxDividerDirective, IgxListComponent, IgxListItemComponent, EntryScrollBarComponent, ViewEditButtonComponent, DexEntryInfoPanelComponent, EntryCardsListComponent],
+  imports: [IgxIconComponent, IgxEmptyListTemplateDirective, IgxDividerModule, IgxListModule,
+     EntryScrollBarComponent, ViewEditButtonComponent, BasicInfoPanelComponent, EntryCardListComponent],
   templateUrl: './dex-entry.component.html',
   styleUrl: './dex-entry.component.scss',
   encapsulation: ViewEncapsulation.None,

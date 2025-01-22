@@ -1,17 +1,17 @@
 import { Component, Input, OnInit, QueryList, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
 import { IgxIconComponent, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelHeaderComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelTitleDirective, IgxExpansionPanelIconDirective, IgxDragDropModule, IgxDragDirective } from 'igniteui-angular';
 import { EntryCard } from '../../models/entry-card.model';
-import { EntryCardsListComponent } from '../dex-entry-cards-list/dex-entry-cards-list.component';
+import { EntryCardListComponent } from '../entry-card-list/entry-card-list.component';
 
 @Component({
   selector: 'basic-info-panel',
   standalone: true,
-  imports: [EntryCardsListComponent, IgxIconComponent, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelHeaderComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelTitleDirective, IgxExpansionPanelIconDirective, IgxDragDropModule],
-  templateUrl: './dex-entry-info-panel.component.html',
-  styleUrl: './dex-entry-info-panel.component.scss',
+  imports: [EntryCardListComponent, IgxIconComponent, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelHeaderComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelTitleDirective, IgxExpansionPanelIconDirective, IgxDragDropModule, IgxDragDirective],
+  templateUrl: './basic-info-panel.component.html',
+  styleUrl: './basic-info-panel.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
-export class DexEntryInfoPanelComponent implements OnInit {
+export class BasicInfoPanelComponent implements OnInit {
   @ViewChildren('dragDirRef', { read: IgxDragDirective }) public dragDirs!: QueryList<IgxDragDirective>;
   @ViewChild(IgxExpansionPanelComponent, { read: IgxExpansionPanelComponent, static: true }) public panel!: IgxExpansionPanelComponent;
   @Input() public basicInfoCards: EntryCard[] = [];

@@ -1,20 +1,20 @@
 
 import { Component, ElementRef, Input, QueryList, ViewChild, ViewChildren, signal } from '@angular/core';
-import { BlockScrollStrategy, ConnectedPositioningStrategy, HorizontalAlignment, IDragBaseEventArgs, IDragMoveEventArgs, IgxDragDirective, IgxDragDropModule, IgxDragLocation, IgxDropDirective, IgxDropDownComponent, IgxEmptyListTemplateDirective, IgxIconComponent, IgxListActionDirective, IgxListComponent, IgxListItemComponent, ISelectionEventArgs, OverlaySettings, Point, VerticalAlignment } from 'igniteui-angular';
+import { BlockScrollStrategy, ConnectedPositioningStrategy, HorizontalAlignment, IDragBaseEventArgs, IDragMoveEventArgs, IgxDividerDirective, IgxDragDirective, IgxDragDropModule, IgxDragLocation, IgxDropDirective, IgxDropDownComponent, IgxDropDownItemComponent, IgxDropDownModule, IgxEmptyListTemplateDirective, IgxIconComponent, IgxIconModule, IgxListActionDirective, IgxListComponent, IgxListItemComponent, IgxListModule, IgxToggleModule, ISelectionEventArgs, OverlaySettings, Point, VerticalAlignment } from 'igniteui-angular';
 import { EntryCard} from '../../models/entry-card.model';
-import { NgClass } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { EntryActions, EntryActionType } from '../../models/entry-actions.model';
 import { EntryCardType } from '../../../enums/EntryCardType';
 import { EntryCardComponent } from '../entry-cards/entry-card/entry-card.component';
 
 @Component({
-  selector: 'dex-entry-cards-list',
+  selector: 'entry-card-list',
   standalone: true,
-  imports: [NgClass, IgxListActionDirective, IgxDropDirective, IgxIconComponent, IgxEmptyListTemplateDirective, IgxListComponent, IgxListItemComponent, IgxDragDropModule, EntryCardComponent],
-  templateUrl: './dex-entry-cards-list.component.html',
-  styleUrl: './dex-entry-cards-list.component.scss',
+  imports: [CommonModule, NgClass, IgxListActionDirective, IgxDropDirective, IgxDropDownModule, IgxIconModule, IgxEmptyListTemplateDirective, IgxListModule, IgxToggleModule, IgxDragDropModule, EntryCardComponent],
+  templateUrl: './entry-card-list.component.html',
+  styleUrl: './entry-card-list.component.scss',
 })
-export class EntryCardsListComponent {
+export class EntryCardListComponent {
   @ViewChild('cardListContainer', { read: ElementRef }) public cardListContainer!: ElementRef;
   @ViewChild('actionDropdown') public actionDropdown!: IgxDropDownComponent;
   @ViewChild('entryCardTypeDropdown') public entryCardTypeDropdown!: IgxDropDownComponent;
@@ -38,51 +38,12 @@ export class EntryCardsListComponent {
   private _listItemHeight = 93;
 
   // component method
-  public onClick(mouseEvent: MouseEvent, entry: EntryCard): void {
-    if (!this.listEditMode) {
-      mouseEvent.preventDefault();
-      mouseEvent.stopPropagation();
-      return;
-    }
-    this.entryCardClicked.set(entry);
-    const point: Point = new Point(mouseEvent.clientX, mouseEvent.clientY);
-    const overlaySettings: OverlaySettings = {
-      scrollStrategy: new BlockScrollStrategy,
-      target: point,
-      positionStrategy: new ConnectedPositioningStrategy({
-        horizontalDirection: this.infoColumn ? HorizontalAlignment.Right : HorizontalAlignment.Left,
-        horizontalStartPoint: HorizontalAlignment.Center,
-        verticalStartPoint: VerticalAlignment.Bottom,
-        verticalDirection:
-          window.innerHeight - mouseEvent.clientY < 200
-            ? VerticalAlignment.Top
-            : VerticalAlignment.Bottom
-      }),
-      modal: false
-    };
-    this.actionDropdown.toggle(overlaySettings);
+  public editCard(entry: EntryCard): void {
+
   }
 
   public addEntryCard(): void {
-    this.entryCards.push(new EntryCard (this.entryCards.length, 'New', 'Undefined'));
-  }
-
-  public handleActionSelection($event: ISelectionEventArgs): void {
-    switch ($event.newSelection.value) {
-      case (this.entryActionTypes.Switch): {
-        this.openEntryCardEditor();
-        break;
-      }
-      case (this.entryActionTypes.Duplicate): {
-        this.duplicateEntryCard();
-        break;
-      }
-      case (this.entryActionTypes.Delete): {
-        this.deleteEntryCard();
-        break;
-      }
-    }
-    this.actionDropdown.clearSelection();
+    this.entryCards.push(new EntryCard (this.entryCards.length, 'New', 'Undefined',));
   }
 
   public deleteEntryCard(): void {
@@ -102,29 +63,13 @@ export class EntryCardsListComponent {
     }
   }
 
-  public openEntryCardEditor(): void {
-    const overlaySettings: OverlaySettings = {
-      scrollStrategy: new BlockScrollStrategy,
-      positionStrategy: new ConnectedPositioningStrategy({
-        horizontalDirection: this.infoColumn ? HorizontalAlignment.Right : HorizontalAlignment.Left,
-        horizontalStartPoint: HorizontalAlignment.Center,
-        verticalStartPoint: VerticalAlignment.Bottom,
-        verticalDirection: VerticalAlignment.Bottom
-      }),
-      modal: false
-    };
-    this.entryCardTypeDropdown.toggle(overlaySettings);
-  }
-
   public switchEntryCardType(): void {
 
   }
 
-  public isDisabledEntryCardType(type: EntryCardType): boolean {
-    console.log(type);
-    console.log(this.entryCardClicked().entryCardType);
-    return type === this.entryCardClicked().entryCardType;
-  }
+  // public get clickedEntryCardType(): EntryCardType {
+  //   return this.entryCardClicked().entryCardType;
+  // }
 
   // Drag & Drop methods
   public getDragDirectiveRef(id: number): any {
