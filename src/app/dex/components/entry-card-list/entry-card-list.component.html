@@ -55,25 +55,3 @@
     </ng-template>
   </igx-list>
 </div>
-<!-- @if(listEditMode) {
-  <igx-drop-down
-    #actionDropdown
-    id="{{entryCardClicked().guid}}-dropdown"
-    (selectionChanging)='handleActionSelection($event)'
-  >
-    <div class="drop-down-virtual-wrapper">
-      <igx-drop-down-item class="drop-down-title" [isHeader]="true">
-        <div>{{entryCardClicked().title}}</div>
-      </igx-drop-down-item>
-      <igx-divider></igx-divider>
-      @for (action of entryActions; track action) {
-        <igx-drop-down-item [value]="action.value" [ngClass]="{'delete-action': action.isDelete}">
-          <span class="action-drop-down-item" [ngClass]="{'delete-action': action.isDelete}">
-            <igx-icon family="material">{{action.iconName}}</igx-icon>
-            <span>{{action.label}}</span>
-          </span>
-        </igx-drop-down-item>
-      }
-    </div>
-  </igx-drop-down>
-} -->

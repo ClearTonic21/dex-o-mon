@@ -67,9 +67,9 @@ export class EntryCardListComponent {
 
   }
 
-  // public get clickedEntryCardType(): EntryCardType {
-  //   return this.entryCardClicked().entryCardType;
-  // }
+  public get clickedEntryCardType(): EntryCardType {
+    return this.entryCardClicked().entryCardType;
+  }
 
   // Drag & Drop methods
   public getDragDirectiveRef(id: number): any {
