@@ -4,10 +4,10 @@
       <igx-list #imageListContainer>
         @for (image of dexEntry().imageCards; track $index) {
           <div class="primary-image-container">
-            <igx-list-item id="image-card-{{image.source}}">
-              @if (image.source != 'image') {
-                <img height="100" [src]="image.source" alt="">
-                <igx-icon family="material">{{ image.source }}</igx-icon>
+            <igx-list-item id="image-card-{{image.value}}">
+              @if (image.value != 'image') {
+                <img height="100" [src]="image.value" alt="">
+                <igx-icon family="material">{{ image.value }}</igx-icon>
               }
               @else {
                 <igx-icon family="material">image</igx-icon>
@@ -20,10 +20,7 @@
             class="primary-image-container new-item-button"
             (click)="addImageCard()"
           >
-            <igx-list-item
-              id="image-card-add-button"
-              class="new-item-button"
-            >
+            <igx-list-item id="image-card-add-button empty-state" class="new-item-button">
               <igx-icon role="add-icon" family="material">add_circle</igx-icon>
             </igx-list-item>
           </div>
@@ -33,19 +30,19 @@
         </ng-template>
       </igx-list>
     </div>
-    <igx-divider></igx-divider>
-    <basic-info-panel
-      [entryName]="dexEntry().name"
-      [basicInfoCards]="dexEntry().basicInfoCards || []"
-      [infoEditMode]="dexEditMode()"
-    ></basic-info-panel>
-    <igx-divider></igx-divider>
+      <igx-divider></igx-divider>
+      <basic-info-panel
+        [entryName]="dexEntry().name"
+        [basicInfoCards]="dexEntry().basicInfoCards"
+        [infoEditMode]="dexEditMode()"
+      ></basic-info-panel>
+      <igx-divider></igx-divider>
   </div>
   <div class="dex-entry-cards-column">
-    <entry-cards-list
-    [entryCards]="dexEntry().entryCards || []"
-    [editMode]="dexEditMode()"
-    ></entry-cards-list>
+      <entry-card-list
+        [entryCards]="dexEntry().entryCards"
+        [listEditMode]="dexEditMode()"
+      ></entry-card-list>
   </div>
   <div class="dex-entry-control-column">
     <div class="control-content">
@@ -58,7 +55,7 @@
       </div>
       <div class="entry-scroll-bar-container">
         <entry-scroll-bar
-          [scrollbarList]="dexEntry().entryCards || []"
+          [scrollbarList]="dexEntry().entryCards"
         ></entry-scroll-bar>
       </div>
     </div>

@@ -1,0 +1,26 @@
+.text-entry-data-container {
+  padding: 0 1rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input-groupie {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-title {
+  font-size: large;
+  font-weight: 600;
+}
+
+.card-value {
+  font-size: medium;
+}

@@ -20,8 +20,8 @@
   gap: 0.6rem;
   overflow-y: scroll;
   overflow-x: hidden;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: thin;  /* IE and Edge */
+  scrollbar-width: thin;
   background-color: var(--text-color);
 
   .scrollbar-anchor-list {
@@ -40,10 +40,13 @@
       .scrollbar-anchor-item-text {
         color: var(--accent-color);
         cursor: pointer;
+
+        &.empty-state {
+          cursor: default;
+        }
       }
 
       &.in-view {
-        // class is added via NavigationHighlightDirective
         @include anchorItem();
 
         .scrollbar-active-bar {
@@ -56,6 +59,10 @@
         .scrollbar-anchor-item-text {
           color: var(--text-color);
           cursor: pointer;
+
+          &.empty-state {
+            cursor: default;
+          }
         }
       }
     }

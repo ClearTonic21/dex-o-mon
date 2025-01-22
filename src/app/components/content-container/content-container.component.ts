@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IgxButtonModule, IgxIconModule, IgxListComponent, IgxListItemComponent, IgxRippleDirective, IgxSplitterComponent, IgxSplitterPaneComponent, IgxSuffixDirective } from 'igniteui-angular';
-import { DexEntry } from '../../dex/models/dex-entry';
+import { DexEntry } from '../../dex/models/dex-entry.model';
 import { DexEntryComponent } from "../../dex/components/dex-entry/dex-entry.component";
 import { ExampleDexEntries } from '../../models/example-dex-entries';
 import { NgClass } from '@angular/common';
@@ -17,9 +17,9 @@ export class NavigationItem {
 @Component({
   selector: 'dexo-content-container',
   standalone: true,
+  imports: [ NgClass, IgxSuffixDirective, IgxRippleDirective, IgxListComponent, IgxListItemComponent, IgxSplitterComponent,  IgxSplitterPaneComponent, IgxButtonModule, IgxIconModule, DexEntryComponent],
   templateUrl: './content-container.component.html',
   styleUrl: './content-container.component.scss',
-  imports: [ NgClass, IgxSuffixDirective, IgxRippleDirective, IgxListComponent, IgxListItemComponent, IgxSplitterComponent,  IgxSplitterPaneComponent, IgxButtonModule, IgxIconModule, DexEntryComponent]
 })
 export class DexoContentContainerComponent implements OnInit {
   @ViewChild('dexEntryContainer') public dexEntryContainer!: DexEntryComponent;

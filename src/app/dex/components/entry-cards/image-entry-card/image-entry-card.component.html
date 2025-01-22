@@ -1,0 +1,35 @@
+<div class="image-entry-data-container">
+  @if (editMode) {
+    <div class="input-group">
+      <div class="input-groupie">
+        <label igxListLineTitle for="entryTitle"><h6>Title</h6></label>
+        <input igxInput name="entryTitle" type="line" value="{{imageCard.title}}"/>
+      </div>
+    </div>
+    <div class="image-container">
+      <div class="image-container">
+        @if (imageCard.value != 'image') {
+          <img height="100" [src]="imageCard.value" alt="">
+          <igx-icon family="material">{{ imageCard.value }}</igx-icon>
+        }
+        @else {
+          <igx-icon role="add-icon" family="material">add_circle</igx-icon>
+        }
+      </div>
+    </div>
+  }
+  @else {
+    <h6 class="card-title" igxListLineTitle>{{ imageCard.title }}</h6>
+    <div class="image-container">
+      <div class="image-content">
+      @if (imageCard.value != 'image') {
+        <img height="100" [src]="imageCard.value" alt="">
+        <igx-icon family="material">{{ imageCard.value }}</igx-icon>
+      }
+      @else {
+        <igx-icon family="material">image</igx-icon>
+      }
+      </div>
+    </div>
+    }
+</div>

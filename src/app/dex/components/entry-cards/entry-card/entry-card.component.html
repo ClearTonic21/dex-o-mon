@@ -1,0 +1,20 @@
+<div class="entry-card-container">
+  @if (isTextEntryCard()) {
+    <text-entry-card
+      [textCard]="entryCard"
+      [editMode]="entryEditMode"
+    ></text-entry-card>
+  }
+  @if (isImageEntryCard()) {
+    <image-entry-card
+      [imageCard]="entryCard"
+      [editMode]="entryEditMode"
+    ></image-entry-card>
+  }
+  @if (isListEntryCard()) {
+    <list-entry-card
+      [listCard]="entryCard"
+      [editMode]="entryEditMode"
+    ></list-entry-card>
+  }
+</div>

@@ -1,9 +1,8 @@
 .entry-cards-list-container {
   height: 100%;
   width: 100%;
-  padding: 0 0 4rem 0;
+  padding: 0.25rem 0 0.5rem 0;
 }
-
 
 .card-container {
   margin: 0.125rem;
@@ -15,6 +14,7 @@
 
   &.not-edit-mode {
     background-image: unset;
+    cursor: unset;
   }
 }
 
@@ -25,8 +25,11 @@ igx-icon[role="drag-icon"] {
   background: 0;
 }
 
-igx-icon[role="delete-icon"] {
+igx-icon[role="edit-icon"] {
   cursor: pointer;
+  --size: 1.85rem;
+  color: var(--text-color);
+  user-select: none;
   background: 0;
 }
 
@@ -48,7 +51,6 @@ igx-icon[role="delete-icon"] {
     cursor: unset;
   }
 }
-
 
 .new-item-button {
   width: 99%;
@@ -74,7 +76,7 @@ igx-icon[role="delete-icon"] {
 }
 
 :host {
-  display: block;
+  display: flex;
   margin: 0 1rem 0 1rem;
 
   igx-list {
@@ -116,4 +118,74 @@ igx-icon[role="delete-icon"] {
 
 .not-edit-mode {
   background-image: unset;
+}
+
+.list-item-content {
+  display: flex;
+  flex: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-item-action {
+  align-items: center;
+  display: flex;
+}
+
+.entry-data-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+entry-card {
+  width: 100%;
+}
+
+.igx-drop-down__inner {
+  display: flex;
+  width: 100%;
+}
+
+igx-drop-down-item {
+  display: flex;
+  width: 100%;
+
+  &.delete-action {
+    background: rgb(189, 0, 0);
+    color: var(--text-color-invert);
+    font-weight: 600;
+
+    &:hover {
+      background: var(--text-color-invert);
+      color: var(--text-color);
+    }
+  }
+}
+
+.drop-down-virtual-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  gap: 0.1rem;
+}
+
+.action-drop-down-item {
+  display: flex;
+  flex: auto;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.drop-down-title {
+  color: var(--text-color-invert);
+  font-size: medium;
+  font-weight: 1200;
+}
+
+igx-divider {
+  margin: 0.1rem;
 }

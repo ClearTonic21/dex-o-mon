@@ -18,10 +18,11 @@
       </igx-expansion-panel-icon>
     </igx-expansion-panel-header>
     <igx-expansion-panel-body>
-      <entry-cards-list
-        [entryCards]="basicInfoCards || []"
-        [editMode]="infoEditMode"
-      ></entry-cards-list>
+      <entry-card-list
+        [infoColumn]="true"
+        [entryCards]="basicInfoCards"
+        [listEditMode]="infoEditMode"
+      ></entry-card-list>
     </igx-expansion-panel-body>
   </igx-expansion-panel>
 </div>

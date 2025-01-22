@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, signal } from '@angular/core';
 
 export interface INavigation {
   id: string;
@@ -20,16 +20,11 @@ export class EntryScrollBarComponent {
   public hasItems: boolean = false;
   public isBatchEdit: boolean = false;
   public selectedNav: string = '';
-  public navList: INavigation[] = [];
+  public navList = signal<INavigation[]>([]);
 
   public ngOnChanges(): void {
-    this.selectedNav = '';
-    this.hasItems = this.selectedItemCount > 0;
-    this.isBatchEdit = this.selectedItemCount > 1;
-    this.navList = this.isBatchEdit
-      ? this.scrollbarList.filter((item: INavigation) => this.batchedFilter.indexOf(item.id) === -1)
-      : this.scrollbarList;
-    this.selectedNav = this.navList[0]?.id || '';
+    this.navList.set(this.scrollbarList?.map((item) => ({ id: item.index.toString(), title: item.title })));
+    this.selectedNav = this.scrollbarList[0]?.id || '';
   }
 
   public scrollTo(id: string): void {
