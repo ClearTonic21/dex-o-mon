@@ -14,13 +14,17 @@
           [ghost]="false"
           [class.dragged]="dragDirRef.data && dragDirRef.data.dragged"
         >
-          <div class="list-item-content">
+          <!-- <div class="list-item-action" igxListThumbnail>
+            <igx-icon family="material">{{card.entryCardType}}</igx-icon>
+          </div> -->
+          <div class="list-item-content" igxListLineTitle>
             <entry-card
               [entryCard]="card"
-              [cardEditMode]="listEditMode"
+              [dexEditMode]="listEditMode"
+              (contentExpanded)="anyCardExpanded"
             ></entry-card>
           </div>
-          @if (listEditMode) {
+          @if (listEditMode && !anyCardExpanded) {
             <div class="list-item-action" igxListAction>
               <igx-icon
                 role="drag-icon"

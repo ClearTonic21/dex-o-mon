@@ -21,6 +21,7 @@ export class EntryCardListComponent {
   @ViewChildren('dragDirRef', { read: IgxDragDirective }) public dragDirs!: QueryList<IgxDragDirective>;
   @Input() listEditMode: boolean = false;
   @Input() entryCards: EntryCard[] = [];
+  public anyCardExpanded: boolean = false;
 
   public entryActions: EntryActions[] = [
     { value: EntryActionType.Switch, label: 'Switch Entry Type', iconName: 'flip' },

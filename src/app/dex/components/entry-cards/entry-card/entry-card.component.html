@@ -1,6 +1,6 @@
 <div class="entry-card-container">
-  <igx-expansion-panel class="basic-info-card-expansion-{{entryCard.guid}}" (click)="clickHeader($event)">
-    <igx-expansion-panel-header (click)="clickHeader($event)">
+  <igx-expansion-panel class="basic-info-card-expansion-{{entryCard.guid}}" (contentExpanding)="handleExpanding($event)" (contentExpanded)="handleExpand($event)" (contentCollapsed)="handleCollapse($event)">
+    <igx-expansion-panel-header [iconPosition]="'right'">
       <igx-expansion-panel-title>
         {{ entryCard.title }}
       </igx-expansion-panel-title>
@@ -8,7 +8,7 @@
         {{entryCard.value}}
       </igx-expansion-panel-description>
       <igx-expansion-panel-icon>
-        @if (cardEditMode) {
+        @if (dexEditMode) {
           <igx-icon
             role="edit-icon"
             igxListAction
@@ -21,13 +21,13 @@
       @if (isTextEntryCard()) {
         <text-entry-card
           [textCard]="entryCard"
-          [editMode]="cardEditMode"
+          [editMode]="cardEditMode()"
         ></text-entry-card>
       }
       @if (isImageEntryCard()) {
         <image-entry-card
           [imageCard]="entryCard"
-          [editMode]="cardEditMode"
+          [editMode]="cardEditMode()"
         ></image-entry-card>
       }
       @if (isDropdownEntryCard()) {
