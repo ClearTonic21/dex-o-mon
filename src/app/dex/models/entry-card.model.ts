@@ -28,7 +28,7 @@ export class ImageCard extends EntryCard {
   }
 }
 
-export class ListCard extends EntryCard {
+export class DropdownCard extends EntryCard {
   public items: string[] = [];
   constructor(index: number, title: string, value: string, items: string[] = ['default']) {
     super(index, title, items[0], EntryCardType.List);

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListEntryCardComponent } from './list-entry-card.component';
+import { DropdownEntryCardComponent } from './dropdown-entry-card.component';
 
 describe('ListEntryCardComponent', () => {
-  let component: ListEntryCardComponent;
-  let fixture: ComponentFixture<ListEntryCardComponent>;
+  let component: DropdownEntryCardComponent;
+  let fixture: ComponentFixture<DropdownEntryCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ListEntryCardComponent]
+      imports: [DropdownEntryCardComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ListEntryCardComponent);
+    fixture = TestBed.createComponent(DropdownEntryCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -30,11 +30,11 @@
           [editMode]="cardEditMode"
         ></image-entry-card>
       }
-      @if (isListEntryCard()) {
-        <list-entry-card
-          [listCard]="entryCard"
-          [editMode]="cardEditMode"
-        ></list-entry-card>
+      @if (isDropdownEntryCard()) {
+        <dropdown-entry-card
+          [dropdownCard]="entryCard"
+          [editMode]="cardEditMode()"
+        ></dropdown-entry-card>
       }
     </igx-expansion-panel-body>
   </igx-expansion-panel>

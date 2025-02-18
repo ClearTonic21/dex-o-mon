@@ -3,7 +3,7 @@
     <div class="input-group">
       <div class="input-groupie">
         <label igxListLineTitle for="entryTitle"><h6>Title</h6></label>
-        <input igxInput name="entryTitle" type="line" value="{{listCard.title}}"/>
+        <input igxInput name="entryTitle" type="line" value="{{dropdownCard.title}}"/>
       </div>
       <div class="input-groupie">
         <label igxListLineTitle for="entryTitle">Value</label>
@@ -20,7 +20,7 @@
           (selectionChanging)='handleSelection($event)'
         >
           <div class="drop-down-virtual-wrapper">
-          @for (item of listCard.items; track item) {
+          @for (item of dropdownCard.items; track item) {
             <igx-drop-down-item [value]="item">
               <span class="inner-drop-down-item">
                 <div>{{ item }}</div>
@@ -33,7 +33,7 @@
     </div>
   }
   @else {
-    <h6 class="card-title" igxListLineTitle>{{ listCard.title }}</h6>
+    <h6 class="card-title" igxListLineTitle>{{ dropdownCard.title }}</h6>
     <button igxButton="contained" class="card-list">{{ selected }}</button>
   }
 </div>

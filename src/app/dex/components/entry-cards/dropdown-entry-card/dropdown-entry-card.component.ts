@@ -1,21 +1,21 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ConnectedPositioningStrategy, HorizontalAlignment, IgxDropDownComponent, IgxDropDownItemComponent, IgxIconComponent, IgxToggleActionDirective, ISelectionEventArgs, VerticalAlignment } from 'igniteui-angular';
-import { ListCard } from '../../../models/entry-card.model';
+import { DropdownCard } from '../../../models/entry-card.model';
 
 @Component({
-  selector: 'list-entry-card',
+  selector: 'dropdown-entry-card',
   standalone: true,
   imports: [ IgxIconComponent, IgxDropDownComponent, IgxDropDownItemComponent, IgxToggleActionDirective ],
-  templateUrl: './list-entry-card.component.html',
-  styleUrl: './list-entry-card.component.scss'
+  templateUrl: './dropdown-entry-card.component.html',
+  styleUrl: './dropdown-entry-card.component.scss'
 })
-export class ListEntryCardComponent implements OnInit {
-  @Input() public listCard!: ListCard;
+export class DropdownEntryCardComponent implements OnInit {
+  @Input() public dropdownCard!: DropdownCard;
   @Input() public editMode: boolean = false;
   public selected: string = '';
 
   ngOnInit(): void {
-    this.selected = this.listCard.value;
+    this.selected = this.dropdownCard.value;
   }
 
   public dropdownOverlaySettings = {
@@ -28,6 +28,6 @@ export class ListEntryCardComponent implements OnInit {
   public handleSelection(ev: ISelectionEventArgs): void {
     const newselection = ev.newSelection.value;
     this.selected = newselection;
-    this.listCard.value = newselection;
+    this.dropdownCard.value = newselection;
   }
 }
