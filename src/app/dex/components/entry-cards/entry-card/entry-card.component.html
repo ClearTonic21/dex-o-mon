@@ -1,20 +1,41 @@
 <div class="entry-card-container">
-  @if (isTextEntryCard()) {
-    <text-entry-card
-      [textCard]="entryCard"
-      [editMode]="entryEditMode"
-    ></text-entry-card>
-  }
-  @if (isImageEntryCard()) {
-    <image-entry-card
-      [imageCard]="entryCard"
-      [editMode]="entryEditMode"
-    ></image-entry-card>
-  }
-  @if (isListEntryCard()) {
-    <list-entry-card
-      [listCard]="entryCard"
-      [editMode]="entryEditMode"
-    ></list-entry-card>
-  }
+  <igx-expansion-panel class="basic-info-card-expansion-{{entryCard.guid}}" (click)="clickHeader($event)">
+    <igx-expansion-panel-header (click)="clickHeader($event)">
+      <igx-expansion-panel-title>
+        {{ entryCard.title }}
+      </igx-expansion-panel-title>
+      <igx-expansion-panel-description>
+        {{entryCard.value}}
+      </igx-expansion-panel-description>
+      <igx-expansion-panel-icon>
+        @if (cardEditMode) {
+          <igx-icon
+            role="edit-icon"
+            igxListAction
+            family="material"
+          >edit</igx-icon>
+        }
+      </igx-expansion-panel-icon>
+    </igx-expansion-panel-header>
+    <igx-expansion-panel-body>
+      @if (isTextEntryCard()) {
+        <text-entry-card
+          [textCard]="entryCard"
+          [editMode]="cardEditMode"
+        ></text-entry-card>
+      }
+      @if (isImageEntryCard()) {
+        <image-entry-card
+          [imageCard]="entryCard"
+          [editMode]="cardEditMode"
+        ></image-entry-card>
+      }
+      @if (isListEntryCard()) {
+        <list-entry-card
+          [listCard]="entryCard"
+          [editMode]="cardEditMode"
+        ></list-entry-card>
+      }
+    </igx-expansion-panel-body>
+  </igx-expansion-panel>
 </div>

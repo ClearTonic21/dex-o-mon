@@ -1,6 +1,6 @@
 
 <div class="basic-info-panel-container">
-  <igx-expansion-panel class="my-expansion-panel" (click)="clickHeader($event)">
+  <igx-expansion-panel class="basic-info-expansion-panel" (click)="clickHeader($event)">
     <igx-expansion-panel-header (click)="clickHeader($event)" [iconPosition]="'right'">
       <igx-expansion-panel-title>
         {{ entryName }}
@@ -18,11 +18,10 @@
       </igx-expansion-panel-icon>
     </igx-expansion-panel-header>
     <igx-expansion-panel-body>
-      <entry-card-list
-        [infoColumn]="true"
+      <basic-info-card-list
         [entryCards]="basicInfoCards"
         [listEditMode]="infoEditMode"
-      ></entry-card-list>
+      ></basic-info-card-list>
     </igx-expansion-panel-body>
   </igx-expansion-panel>
 </div>
