@@ -1,5 +1,10 @@
 <div class="entry-card-container">
-  <igx-expansion-panel class="basic-info-card-expansion-{{entryCard.guid}}" (contentExpanding)="handleExpanding($event)" (contentExpanded)="handleExpand($event)" (contentCollapsed)="handleCollapse($event)">
+  <igx-expansion-panel
+    id="card-{{entryCard.title}}-{{entryCard.guid}}-expansion"
+    (contentExpanding)="handleExpanding($event)"
+    (contentExpanded)="handleExpand($event)"
+    (contentCollapsed)="handleCollapse($event)"
+  >
     <igx-expansion-panel-header [iconPosition]="'right'">
       <igx-expansion-panel-title>
         {{ entryCard.title }}
