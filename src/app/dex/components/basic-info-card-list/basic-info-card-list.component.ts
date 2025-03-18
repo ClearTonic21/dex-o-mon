@@ -1,21 +1,21 @@
 
 import { Component, ElementRef, Input, QueryList, ViewChild, ViewChildren, signal } from '@angular/core';
-import { IDragBaseEventArgs, IDragMoveEventArgs, IgxDragDirective, IgxDragDropModule, IgxDragLocation, IgxDropDirective, IgxDropDownComponent, IgxDropDownModule, IgxEmptyListTemplateDirective, IgxIconModule, IgxListActionDirective, IgxListModule, IgxToggleModule } from 'igniteui-angular';
+import { IDragBaseEventArgs, IDragMoveEventArgs, IgxDragDirective, IgxDragDropModule, IgxDragLocation, IgxDropDirective, IgxDropDownComponent, IgxDropDownModule, IgxEmptyListTemplateDirective, IgxExpansionPanelModule, IgxIconModule, IgxListActionDirective, IgxListModule, IgxToggleModule } from 'igniteui-angular';
 import { EntryCard} from '../../models/entry-card.model';
-import { CommonModule, NgClass } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { EntryActions, EntryActionType } from '../../models/entry-actions.model';
 import { EntryCardType } from '../../../enums/EntryCardType';
 import { EntryCardComponent } from '../entry-cards/entry-card/entry-card.component';
 
 @Component({
-  selector: 'entry-card-list',
+  selector: 'basic-info-card-list',
   standalone: true,
-  imports: [CommonModule, NgClass, IgxListActionDirective, IgxDropDirective, IgxDropDownModule, IgxIconModule, IgxEmptyListTemplateDirective, IgxListModule, IgxToggleModule, IgxDragDropModule, EntryCardComponent],
-  templateUrl: './entry-card-list.component.html',
-  styleUrl: './entry-card-list.component.scss',
+  imports: [CommonModule, IgxExpansionPanelModule, IgxListActionDirective, IgxDropDirective, IgxDropDownModule, IgxIconModule, IgxEmptyListTemplateDirective, IgxListModule, IgxToggleModule, IgxDragDropModule, EntryCardComponent],
+  templateUrl: './basic-info-card-list.component.html',
+  styleUrl: './basic-info-card-list.component.scss',
 })
-export class EntryCardListComponent {
-  @ViewChild('cardListContainer', { read: ElementRef }) public cardListContainer!: ElementRef;
+export class BasicInfoCardListComponent {
+  @ViewChild('basicCardListContainer', { read: ElementRef }) public basicCardListContainer!: ElementRef;
   @ViewChild('actionDropdown') public actionDropdown!: IgxDropDownComponent;
   @ViewChild('entryCardTypeDropdown') public entryCardTypeDropdown!: IgxDropDownComponent;
   @ViewChildren('dragDirRef', { read: IgxDragDirective }) public dragDirs!: QueryList<IgxDragDirective>;
@@ -42,7 +42,12 @@ export class EntryCardListComponent {
 
   }
 
-  public addEntryCard(): void {
+  public clickHeader(e: Event): void {
+    e.stopPropagation();
+    e.preventDefault();
+  }
+
+  public addBasicInfoCard(): void {
     this.entryCards.push(new EntryCard (this.entryCards.length, 'New', 'Undefined',));
   }
 
@@ -119,7 +124,7 @@ export class EntryCardListComponent {
   }
 
   public onDragMove(event: IDragMoveEventArgs, itemIndex: number) {
-    const containerPosY = this.cardListContainer.nativeElement.getBoundingClientRect().top;
+    const containerPosY = this.basicCardListContainer.nativeElement.getBoundingClientRect().top;
     // Relative position of the dragged element to the list container.
     const relativePosY = event.nextPageY - containerPosY;
 

@@ -1,47 +1,7 @@
-.info-panel-container {
-  background-color: var(--text-color-invert);
-}
-
-.igx-expansion-panel__body {
-  display: flex;
-  justify-content: center;
-  height: 38vh;
-  padding: 0;
-  background: var(--text-color);
-  border: 2px solid black;
-}
-
-.card-title {
-  color: var(--text-color);
-}
-
-entry-cards-list {
-  margin: 0;
-
-  .emptyState {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    padding: 1rem;
-    color: var(--accent-color-light);
-    font-size: 1rem;
-    background-color: 0;
-    border: 0;
-
-    igx-icon {
-      display: inline;
-      --size: 2rem;
-      align-self: center;
-      background: 0;
-      cursor: unset;
-    }
-  }
-}
-
-basic-info-card-list {
-  display: flex;
+.basic-info-cards-list-container {
+  height: 100%;
   width: 100%;
+  padding: 0.25rem 0 0.5rem 0;
 }
 
 .card-container {
@@ -115,6 +75,47 @@ igx-icon[role="edit-icon"] {
   }
 }
 
+:host {
+  display: flex;
+  margin: 0 1rem 0 1rem;
+
+  igx-list {
+    width: 100%;
+    background: 0;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .igx-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  igx-list-item {
+    display: flex;
+    width: 99%;
+    min-height: 2rem;
+    margin: 0.6rem 0.6rem;
+    z-index: 0;
+    background-color: var(--card-bg-color);
+    border: 3px solid var(--accent-color-light);
+    color: var(--text-color);
+    box-shadow: 4px 4px 4px;
+
+    &.hover {
+      background-color: var(--text-color-invert);
+    }
+
+    &.dragged {
+      box-shadow: elevation(8);
+      z-index: 100;
+      background-color: var(--text-color-invert);;
+    }
+  }
+}
+
 .not-edit-mode {
   background-image: unset;
 }
@@ -131,7 +132,7 @@ igx-icon[role="edit-icon"] {
   display: flex;
 }
 
-.entry-data-container {
+.basic-info-data-container {
   display: flex;
   flex-direction: column;
   gap: 1rem;

@@ -1,20 +1,19 @@
-import { Component, Input, OnInit, QueryList, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
-import { IgxIconComponent, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelHeaderComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelTitleDirective, IgxExpansionPanelIconDirective, IgxDragDropModule, IgxDragDirective } from 'igniteui-angular';
+import { Component, ElementRef, Input, OnInit, QueryList, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
+import { IgxIconComponent, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelHeaderComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelTitleDirective, IgxExpansionPanelIconDirective, IgxDragDropModule, IgxDragDirective, IgxListModule, IDragBaseEventArgs, IgxDragLocation, IDragMoveEventArgs } from 'igniteui-angular';
 import { EntryCard } from '../../models/entry-card.model';
-import { EntryCardListComponent } from '../entry-card-list/entry-card-list.component';
+import { BasicInfoCardListComponent } from '../basic-info-card-list/basic-info-card-list.component';
 
 @Component({
   selector: 'basic-info-panel',
   standalone: true,
-  imports: [EntryCardListComponent, IgxIconComponent, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelHeaderComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelTitleDirective, IgxExpansionPanelIconDirective, IgxDragDropModule, IgxDragDirective],
+  imports: [IgxDragDropModule, IgxListModule, IgxIconComponent, IgxExpansionPanelBodyComponent, IgxExpansionPanelComponent, IgxExpansionPanelHeaderComponent, IgxExpansionPanelDescriptionDirective, IgxExpansionPanelTitleDirective, IgxExpansionPanelIconDirective, IgxDragDropModule, BasicInfoCardListComponent],
   templateUrl: './basic-info-panel.component.html',
   styleUrl: './basic-info-panel.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
 export class BasicInfoPanelComponent implements OnInit {
-  @ViewChildren('dragDirRef', { read: IgxDragDirective }) public dragDirs!: QueryList<IgxDragDirective>;
   @ViewChild(IgxExpansionPanelComponent, { read: IgxExpansionPanelComponent, static: true }) public panel!: IgxExpansionPanelComponent;
-  @Input() public basicInfoCards: EntryCard[] = [];
+  @Input({ required: true }) public basicInfoCards: EntryCard[] = [];
   @Input() infoEditMode: boolean = false;
   @Input() entryName: string = '';
   public collapsed: boolean = false;
@@ -23,7 +22,7 @@ export class BasicInfoPanelComponent implements OnInit {
     this.panel.collapsed = false;
   }
 
-  // component methods
+  // component method
   public addInfoCard(): void {
     this.basicInfoCards.push(new EntryCard (this.basicInfoCards.length, 'New', 'Undefined'));
   }

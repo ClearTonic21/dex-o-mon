@@ -1,5 +1,5 @@
-<div class="entry-cards-list-container">
-  <igx-list #cardListContainer>
+<div class="basic-info-cards-list-container">
+  <igx-list #basicCardListContainer>
     @for (card of entryCards; track card.index) {
       <div class="card-container" [ngClass]="{'not-edit-mode' : !listEditMode}" igxDrop>
         <igx-list-item
@@ -14,9 +14,6 @@
           [ghost]="false"
           [class.dragged]="dragDirRef.data && dragDirRef.data.dragged"
         >
-          <!-- <div class="list-item-action" igxListThumbnail>
-            <igx-icon family="material">{{card.entryCardType}}</igx-icon>
-          </div> -->
           <div class="list-item-content" igxListLineTitle>
             <entry-card
               [entryCard]="card"
@@ -25,14 +22,12 @@
             ></entry-card>
           </div>
           @if (listEditMode && !anyCardExpanded) {
-            <div class="list-item-action" igxListAction>
-              <igx-icon
-                role="drag-icon"
-                igxListAction
-                igxDragHandle
-                family="material"
-              >drag_indicator</igx-icon>
-            </div>
+            <igx-icon
+              role="drag-icon"
+              igxListAction
+              igxDragHandle
+              family="material"
+            >drag_indicator</igx-icon>
           }
         </igx-list-item>
       </div>
@@ -40,9 +35,9 @@
     @if (listEditMode) {
       <div class="card-container">
         <igx-list-item
-          id="entry-card-add-button"
+          id="basic-info-card-add-button"
           class="new-item-button"
-          (click)="addEntryCard()"
+          (click)="addBasicInfoCard()"
         >
           <igx-icon role="add-icon" family="material">add_circle</igx-icon>
         </igx-list-item>
